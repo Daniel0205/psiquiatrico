@@ -1,24 +1,6 @@
 
-
-
-
-
-
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-    <mat-drawer #drawer [mode]="push">
-
-      <div class='close-bar'>
-          <button mat-fab color="primary" (click)="drawer.close()">
-              <mat-icon aria-label='close'>keyboard_arrow_left</mat-icon>
-          </button>
-      </div>
-    </mat-drawer>
-    <mat-drawer-content>
-        
-        <app-body></app-body>
-        
-        <button mat-fab color="primary" (click)="drawer.open()">
-            <mat-icon aria-label='close'>keyboard_arrow_right</mat-icon>
-        </button>
-    </mat-drawer-content>
-  </mat-drawer-container>
+<!-- Toolbar -->
+<div class="totalback">
+    <app-sidebar></app-sidebar>
+  </div>
+  

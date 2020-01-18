@@ -1,0 +1,20 @@
+<div id='category-card' class="example-ripple-container mat-elevation-z4"
+     matRipple
+     (click)="trigger()">
+
+    
+
+     <div id="image" *ngIf="source.length!==0">
+        <img [src]="path"
+        alt="imagen de la categoria del test">
+     </div>
+     
+
+      <div id="name">
+          <h2>{{name}}</h2>
+      </div>    
+</div>
+
+
+
+

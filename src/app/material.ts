@@ -1,26 +1,31 @@
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule,} from '@angular/material';
+import {MatRippleModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-
+import {MatListModule} from '@angular/material/list';
+import {MatMenuModule} from '@angular/material/menu';
 
 import {NgModule} from '@angular/core'
 
 @NgModule({
     imports: [
-        MatSidenavModule,
-        MatFormFieldModule,
+        MatInputModule,
+        MatRippleModule,
         MatSelectModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatMenuModule
     ],
     exports:[
-        MatSidenavModule,
-        MatFormFieldModule,
+        MatInputModule,
+        MatRippleModule,
         MatSelectModule,
         MatButtonModule,
-        MatIconModule
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatMenuModule
     ]
 })
 

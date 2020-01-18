@@ -34,6 +34,9 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+import { CardButtonComponent } from './components/card-button/card-button.component';
+import { CategoryComponent } from './components/category/category.component';
+
 
 @NgModule({
   declarations: [
@@ -61,6 +64,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HeaderComponent,
     BodyComponent,
     SidebarComponent,
+    CategoryComponent,
+    CardButtonComponent
   ],
   imports: [
     BrowserModule,

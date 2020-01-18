@@ -1,0 +1,22 @@
+<div id="category">
+    
+
+    <div  id="card-button" *ngFor="let name of names; let i = index">
+        <div *ngIf="sources.length===0"  >
+            <app-card-button  [name]="name"
+            [source]="[]"
+            (messageEvent)="receiveMessage($event)"
+            ></app-card-button>
+
+        </div>
+
+        <div  *ngIf="sources.length!==0" >
+            <app-card-button  [name]="name"
+            [source]="sources[i]"
+            (messageEvent)="receiveMessage($event)"
+            ></app-card-button>        
+        </div>  
+    </div>
+
+    
+</div>

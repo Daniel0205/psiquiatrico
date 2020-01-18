@@ -1,0 +1,26 @@
+
+#search{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: flex
+
+}
+
+.mat-icon {
+    font-size: 300%;
+  }
+
+.search-form{
+    padding-left: 40%;
+    padding-right: 30%;
+
+}
+
+mat-form-field{
+    display: contents;
+    
+}
+
+#bodypage{
+    background-image: url("../../assets/Fondo/FondoNubes.jfif")
+}
