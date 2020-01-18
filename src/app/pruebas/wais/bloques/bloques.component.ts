@@ -5,7 +5,7 @@ import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
 @Component({
   selector: 'app-bloques',
   templateUrl: './bloques.component.html',
-  styleUrls: ['./bloques.component.css']
+  styleUrls: ['./bloques.component.scss']
 })
 
 export class BloquesComponent implements OnInit {

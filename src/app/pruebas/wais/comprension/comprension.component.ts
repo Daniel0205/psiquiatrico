@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-comprension',
   templateUrl: './comprension.component.html',
-  styleUrls: ['./comprension.component.css']
+  styleUrls: ['./comprension.component.scss']
 })
 export class ComprensionComponent implements OnInit {
 

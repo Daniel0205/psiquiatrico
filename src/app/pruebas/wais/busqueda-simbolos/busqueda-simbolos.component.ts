@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-busqueda-simbolos',
   templateUrl: './busqueda-simbolos.component.html',
-  styleUrls: ['./busqueda-simbolos.component.css']
+  styleUrls: ['./busqueda-simbolos.component.scss']
 })
 export class BusquedaSimbolosComponent implements OnInit {
 

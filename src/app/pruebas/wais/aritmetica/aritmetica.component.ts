@@ -4,7 +4,7 @@ import { NumberSymbol } from '@angular/common';
 @Component({
   selector: 'app-aritmetica',
   templateUrl: './aritmetica.component.html',
-  styleUrls: ['./aritmetica.component.css']
+  styleUrls: ['./aritmetica.component.scss']
 })
 export class AritmeticaComponent implements OnInit {
 

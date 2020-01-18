@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-digitos',
   templateUrl: './digitos.component.html',
-  styleUrls: ['./digitos.component.css']
+  styleUrls: ['./digitos.component.scss']
 })
 export class DigitosComponent implements OnInit {
 

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-wisc',
   templateUrl: './wisc.component.html',
-  styleUrls: ['./wisc.component.css']
+  styleUrls: ['./wisc.component.scss']
 })
 export class WiscComponent implements OnInit {
 

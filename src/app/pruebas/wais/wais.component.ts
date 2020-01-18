@@ -5,7 +5,7 @@ import { BloquesComponent } from './bloques/bloques.component';
 @Component({
   selector: 'app-wais',
   templateUrl: './wais.component.html',
-  styleUrls: ['./wais.component.css']
+  styleUrls: ['./wais.component.scss']
 })
 export class WaisComponent implements OnInit {
 
