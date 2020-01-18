@@ -1,4 +1,5 @@
 <app-header (myEvent)="snav.toggle()" ></app-header >
+    
 
     <mat-sidenav-container class="example-sidenav-container" >
     
@@ -24,6 +25,8 @@
         </mat-sidenav>
     
         <mat-sidenav-content>
-            <app-body></app-body>
+            <app-body *ngIf="router.url === '/'; else elseBlock" ></app-body>
+            <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+            
         </mat-sidenav-content>
       </mat-sidenav-container>
