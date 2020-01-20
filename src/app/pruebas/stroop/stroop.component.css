@@ -12,6 +12,20 @@
     
 }
 
-.selected{
-    border: red 5px solid;
+
+#category-card{
+    background-color: #017F8D;
+    border-radius: 3%;
+    text-align: center;    
+}
+
+#end-button{
+    display: inline-block;
+    width: 20%;
+}
+
+#inicio{
+    padding-left: 35%;
+    padding-top: 20%;
+    padding-right: 35%;
 }

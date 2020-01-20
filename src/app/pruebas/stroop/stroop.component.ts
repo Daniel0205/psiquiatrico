@@ -1,4 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 import 'annyang';
 
 declare var annyang: any;
@@ -92,7 +93,7 @@ export class StroopComponent implements OnInit {
     }
   }
                        
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef,private router: Router) {}
 
   ngOnInit() {
   }
@@ -138,8 +139,11 @@ export class StroopComponent implements OnInit {
         this.annyang.abort();
         clearInterval(this.interval);
         break;
+      case 'resultados':
+        this.router.navigateByUrl('/');
+        break;
     }
-    console.log(this.test)
+
     this.cdr.detectChanges()   
   }
 }

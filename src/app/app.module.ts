@@ -32,7 +32,7 @@ import { WiscComponent } from './pruebas/wisc/wisc.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { CardButtonComponent } from './components/card-button/card-button.component';
 import { CategoryComponent } from './components/category/category.component';

@@ -8,6 +8,10 @@
   right: 0;
 }
 
+mat-sidenav-content{
+  height: 90vh;
+}
+
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
