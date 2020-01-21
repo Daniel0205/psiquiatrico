@@ -1,28 +1,28 @@
 <div id='stroop'>
    
-    <div *ngIf="test==='words' || test==='colors' || test==='mix'">
-            <button (click)="changeTest()" >Iniciar test - {{test}}</button>
-    </div>
-    <div *ngIf="test==='test-words'">
-        
-        <div *ngFor="let palabra of words; let i=index" >
-            <h1 *ngIf="i===progressWords; else noselected" class="selected" >{{palabra}}</h1>
-            <ng-template #noselected><h1>{{palabra}}</h1></ng-template>
+    <div id='inicio' *ngIf="test==='words' || test==='colors' || test==='mix'">
+        <div id='category-card' class="example-ripple-container mat-elevation-z4"
+            matRipple
+            (click)="changeTest()">
 
-        </div>
+                <h2>Iniciar Prueba - {{test}}</h2> 
+        </div>   
     </div>
+
+    <div *ngIf="test==='test-words'">
+
+            <h1>{{words[progressWords]}}</h1>
+
+    </div>
+
     <div *ngIf="test==='test-colors'">
-        <div *ngFor="let x of colors; let i=index" >
-            <h1 *ngIf="i===progressColors; else noselected" class="selected" id={{x}}>XXXX</h1>
-            <ng-template #noselected><h1 id={{x}}>XXXX</h1></ng-template>
-        </div>
+            <h1 id={{colors[progressColors]}}>XXXX</h1>
     </div>
+
     <div *ngIf="test==='test-mix'">
-        <div *ngFor="let color of colors; let i=index"  >
-                <h1 *ngIf="i===progressMix; else noselected" class="selected"  id={{color}}>{{words[i]}}</h1> 
-                <ng-template #noselected><h1 id={{color}}>{{words[i]}}</h1></ng-template>   
-        </div>
         
+        <h1 id={{colors[progressMix]}}>{{words[progressMix]}}</h1>  
+
     </div>
 
     <div *ngIf="test==='resultados'">
@@ -31,6 +31,13 @@
         <p> Cantidad de test-mixto: {{progressMix}}</p>
     </div>
 
-    <button (click)="changeTest()" *ngIf="test!=='words' && test!=='colors' && test!=='mix'">Finalizar test</button>
+    <div id='end-button'>
+        <div id='category-card' *ngIf="test!=='words' && test!=='colors' && test!=='mix'" class="example-ripple-container mat-elevation-z4"
+                matRipple
+                (click)="changeTest()">
+
+                    <h2>Finalizar subprueba</h2> 
+        </div>
+    </div> 
     
 </div>
