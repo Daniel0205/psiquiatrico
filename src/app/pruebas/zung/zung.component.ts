@@ -129,7 +129,7 @@ const json = {
 @Component({
   selector: 'app-zung',
   templateUrl: './zung.component.html',
-  styleUrls: ['./zung.component.css']
+  styleUrls: ['./zung.component.scss']
 })
 export class ZungComponent implements OnInit {
 

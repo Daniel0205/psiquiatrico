@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener, ChangeDetectorRef  } from '@angular/co
 @Component({
   selector: 'app-letras-numeros',
   templateUrl: './letras-numeros.component.html',
-  styleUrls: ['./letras-numeros.component.css']
+  styleUrls: ['./letras-numeros.component.scss']
 })
 export class LetrasNumerosComponent implements OnInit {
 

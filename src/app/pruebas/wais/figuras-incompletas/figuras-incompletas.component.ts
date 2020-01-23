@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 @Component({
   selector: 'app-figuras-incompletas',
   templateUrl: './figuras-incompletas.component.html',
-  styleUrls: ['./figuras-incompletas.component.css']
+  styleUrls: ['./figuras-incompletas.component.scss']
 })
 export class FigurasIncompletasComponent implements OnInit {
 

@@ -1,11 +1,16 @@
 <div id='stroop'>
+
+    <app-start-test name='STROOP' 
+    *ngIf="test==='start'"
+    (messageEvent)="changeTest()"
+    ></app-start-test>
    
     <div id='inicio' *ngIf="test==='words' || test==='colors' || test==='mix'">
         <div id='category-card' class="example-ripple-container mat-elevation-z4"
             matRipple
             (click)="changeTest()">
 
-                <h2>Iniciar Prueba - {{test}}</h2> 
+                <h2>Iniciar Prueba</h2> 
         </div>   
     </div>
 
@@ -33,7 +38,8 @@
     </div>
 
     <div id='end-button'>
-        <div id='category-card' *ngIf="test!=='words' && test!=='colors' && test!=='mix'" class="example-ripple-container mat-elevation-z4"
+        <div id='category-card' *ngIf="test!=='start' && test!=='words' && test!=='colors' && test!=='mix'"
+                class="example-ripple-container mat-elevation-z4"
                 matRipple
                 (click)="changeTest()">
 

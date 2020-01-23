@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-vocabulario',
   templateUrl: './vocabulario.component.html',
-  styleUrls: ['./vocabulario.component.css']
+  styleUrls: ['./vocabulario.component.scss']
 })
 export class VocabularioComponent implements OnInit {
 

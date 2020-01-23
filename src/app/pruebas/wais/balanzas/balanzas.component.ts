@@ -3,7 +3,7 @@ import { Component, OnInit,HostListener } from '@angular/core';
 @Component({
   selector: 'app-balanzas',
   templateUrl: './balanzas.component.html',
-  styleUrls: ['./balanzas.component.css']
+  styleUrls: ['./balanzas.component.scss']
 })
 export class BalanzasComponent implements OnInit {
 

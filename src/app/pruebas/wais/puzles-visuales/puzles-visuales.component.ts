@@ -3,7 +3,7 @@ import { Component, OnInit, HostListener} from '@angular/core';
 @Component({
   selector: 'app-puzles-visuales',
   templateUrl: './puzles-visuales.component.html',
-  styleUrls: ['./puzles-visuales.component.css']
+  styleUrls: ['./puzles-visuales.component.scss']
 })
 export class PuzlesVisualesComponent implements OnInit {
 
