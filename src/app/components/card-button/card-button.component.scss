@@ -12,10 +12,20 @@ h2{
 }
 
 #image{
-    text-align: center
+    text-align: center;
+    max-height: 300px;
 }
 
 
 #category-card:hover{
+    background-color: #7DC545
+}
+
+#primary{
+    background-color: #017F8D;
+    border-radius: 5%;
+}
+
+#primary:hover{
     background-color: #7DC545
 }

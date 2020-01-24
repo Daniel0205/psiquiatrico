@@ -6,6 +6,10 @@
     <p>Que tiene una edad de: </p> 
     <p>X años y W meses</p> <br/>
 
-    <button id='initwaisbutton' mat-raised-button (click)="change()">Empezar</button>
+    <app-card-button
+    type='button'
+    message="Empezar"
+    (messageEvent)="change()"
+    ></app-card-button> 
 
 </div>

@@ -32,7 +32,11 @@
     <br/>
     <br/>
 
-    <button id="cancelwaisbutton" mat-raised-button (click)="cancel()" >Cancelar</button>
+    <app-card-button
+        type='button'
+        message="Empezar"
+        (messageEvent)="cancel()"
+    ></app-card-button> 
 
   </div>
   

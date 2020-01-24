@@ -10,7 +10,11 @@ export class CardButtonComponent implements OnInit {
 
   @Input() name:string;
 
-  @Input() source:string;
+  @Input() source:string = '';
+
+  @Input() type:string;
+
+  @Input() message:string;
 
   path:string
 
@@ -28,7 +32,7 @@ export class CardButtonComponent implements OnInit {
 
   trigger(){
 
-    console.log(name)
+    console.log(this.message)
     
     if(this.source.length!==0)this.messageEvent.emit(this.name)
     else{
