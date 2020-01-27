@@ -1,15 +1,9 @@
 <div id="wais-content">
 
-  <div id='iniciowais' *ngIf="estado==='confirmacion'">
-    <h1>WAIS IV</h1> <br/>
-    <p>Vas a aplicar la prueba de inteligncia WAIS IV al paciente: </p>
-    <p>Nombre Genérico</p>
-    <p>Que tiene una edad de: </p> 
-    <p>X años y W meses</p> <br/>
-
-    <button id='initwaisbutton' mat-raised-button (click)="change()">Empezar</button>
-
-  </div>
+  <app-start-test name='WAIS IV' 
+  *ngIf="estado==='confirmacion'"
+  (messageEvent)="change()"
+  ></app-start-test>
 
   <div id='iniciowais' *ngIf="estado==='aplicacion'">
     <h1></h1> <br/>
@@ -38,7 +32,11 @@
     <br/>
     <br/>
 
-    <button id="cancelwaisbutton" mat-raised-button (click)="cancel()" >Cancelar</button>
+    <app-card-button
+        type='button'
+        message="Empezar"
+        (messageEvent)="cancel()"
+    ></app-card-button> 
 
   </div>
   

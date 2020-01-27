@@ -37,4 +37,5 @@ export class WaisComponent implements OnInit {
     this.router.navigateByUrl('/');
   }
 
+
 }

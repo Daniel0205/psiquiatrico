@@ -20,12 +20,25 @@
 }
 
 #end-button{
-    display: inline-block;
-    width: 20%;
+    float: right;
+    padding-right: 5%;
 }
 
 #inicio{
-    padding-left: 35%;
-    padding-top: 20%;
-    padding-right: 35%;
+    text-align: center;
+    padding-top: 3%
+}
+
+h2{
+    font-size: 70px;
+    text-align: center;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+#resultados{
+    font-size: 30px;
+    text-align: center;
+    padding-top: 8%;
+    padding-bottom: 20%;
 }

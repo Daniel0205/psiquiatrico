@@ -1,26 +1,9 @@
-#iniciowais{
-    text-align: center;
-}
-
 #category-card{
     background-color: #017F8D;
     border-radius: 3%;
     text-align: center;   
 }
 
-#initwaisbutton{
-    background-color: #017F8D;
-}
-#initwaisbutton:hover{
-    background-color: #7DC545;
-}
-
-#cancelwaisbutton{
-    background-color: #017F8D;
-}
-#cancelwaisbutton:hover{
-    background-color: #7DC545;
-}
 
 .subpruebas{
     margin: 7px;
@@ -36,4 +19,8 @@
     grid-template-columns: repeat(5, 1fr);
     padding-left: 10%;
     padding-right: 10%;
+}
+
+#iniciowais{
+    text-align: center;
 }

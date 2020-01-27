@@ -5,6 +5,7 @@
         <div *ngIf="sources.length===0"  >
             <app-card-button  [name]="name"
             [source]="[]"
+            type='card'
             (messageEvent)="receiveMessage($event)"
             ></app-card-button>
 
@@ -13,6 +14,7 @@
         <div  *ngIf="sources.length!==0" >
             <app-card-button  [name]="name"
             [source]="sources[i]"
+            type='card'
             (messageEvent)="receiveMessage($event)"
             ></app-card-button>        
         </div>  

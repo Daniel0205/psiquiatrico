@@ -20,7 +20,7 @@ export class StroopComponent implements OnInit {
   
   progressMix:number = 0;
 
-  test:string = 'words';  
+  test:string = 'start';  
 
   colors:String[] = ["Azul","Rojo","Verde","Azul","Verde","Rojo","Verde","Rojo","Azul","Rojo",
                       "Azul", "Verde","Rojo","Verde","Azul","Verde","Azul","Rojo","Verde","Azul",
@@ -109,6 +109,9 @@ export class StroopComponent implements OnInit {
   changeTest(){
     
     switch(this.test){
+      case 'start':
+        this.test='words'
+        break;
       case 'words':
         this.test='test-words'
         this.startRecognition() 
