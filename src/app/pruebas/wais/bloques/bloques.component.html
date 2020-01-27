@@ -1,8 +1,10 @@
-<div>
+<div id="cubos-container">
   <div *ngIf="estado==='seleccion'">
-    <p>En que estimulo desea iniciar la prueba? </p>
-    <button (click)="imagenInit(1)" >Estimulo 1</button>
-    <button (click)="imagenInit(5)" >Estimulo 5</button>
+    <br/>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+    <button class="botongenerico" mat-raised-button (click)="imagenInit(1)" >Estimulo 1</button>
+    <button class="botongenerico" mat-raised-button (click)="imagenInit(5)" >Estimulo 5</button>
   </div>
 
   <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
@@ -12,7 +14,8 @@
   <div *ngIf="estado==='terminado'" style="text-align:center">
       <h2>Terminaste la subprueba de cubos</h2>
       <h4>Tu resultado es: {{getResultado()}}</h4>
-      <button (click)="aRevisar()" >Revisión de resultados</button>
+      <button  class="botongenerico" mat-raised-button (click)="aRevisar()" >Revisión de resultados</button>
+      <button  class="botongenerico" mat-raised-button (click)="aceptar()" >Aceptar</button>
   </div>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
@@ -24,8 +27,9 @@
           <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
         </div>
       </div>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+      <button  class="botongenerico" mat-raised-button (click)="regresarAct()" >Regresar</button>
+      <button  class="botongenerico" mat-raised-button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+      <button  class="botongenerico" mat-raised-button (click)="aceptar()" >Aceptar</button>
     </form>
   </div>
 </div>

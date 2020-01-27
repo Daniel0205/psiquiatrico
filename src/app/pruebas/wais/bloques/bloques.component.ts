@@ -1,5 +1,6 @@
 
-import { Component, OnInit, HostListener } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, HostListener } from '@angular/core';
+import {Router} from '@angular/router'
 import { startTimeRange } from '@angular/core/src/profile/wtf_impl';
 
 @Component({
@@ -55,7 +56,7 @@ export class BloquesComponent implements OnInit {
 
   interval:any;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef,private router: Router) { }
 
   ngOnInit() {
   }
@@ -188,6 +189,10 @@ export class BloquesComponent implements OnInit {
     }
     
     this.estado = 'terminado';
+  }
+
+  aceptar(){
+    this.router.navigateByUrl('/wais');
   }
 
 }// Fin export class BloquesComponent
