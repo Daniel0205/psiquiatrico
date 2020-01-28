@@ -5,20 +5,18 @@
 }
 
 
-.subpruebas{
-    margin: 7px;
-    background-color: #017F8D;
-}
-
-.subpruebas:hover{
-    background-color: #7DC545
-}
 
 .subprueba-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     padding-left: 10%;
     padding-right: 10%;
+    grid-row-gap: 10%;
+    grid-column-gap: 5%
+}
+
+app-card-button{
+    width: 100%;
 }
 
 #iniciowais{

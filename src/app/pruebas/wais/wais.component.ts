@@ -11,6 +11,18 @@ export class WaisComponent implements OnInit {
 
   estado:String="confirmacion";
 
+  link:string[] = ["/bloques","/semejanzas","/digitos","/matrices",
+                   "/vocabulario","/aritmetica","/busquedaSimbolos",
+                   "/puzlesVisuales,","/informacion","/claveNumeros",
+                   "/letrasNumeros","/balanzas","/comprension",
+                   "/cancelacion","/figurasIncompletas"]
+
+  texts:string[] = ["Cubos","Semejanzas","Digitos","Matrices",
+                   "Vocabulario","Aritmetica","Busqueda de Simbolos",
+                   "Puzles Visuales","Informacion","Clave de Numeros",
+                   "Letras y Numeros","Balanzas","Comprension",
+                   "Cancelacion","Figuras Incompletas"]
+
   constructor(private cdr: ChangeDetectorRef,private router: Router) { }
 
   ngOnInit() {
@@ -33,8 +45,8 @@ export class WaisComponent implements OnInit {
     this.cdr.detectChanges()   
   }
 
-  cancel(){
-    this.router.navigateByUrl('/');
+  cancel(route){
+    this.router.navigateByUrl(route);
   }
 
 
