@@ -4,7 +4,7 @@
   <div id='inicio' *ngIf="estado==='inicio'">
     <h1>Letras y Numeros</h1>
     <b>Intrucciones generales:</b>
-    <p>A continuacion se ensenaran una serie de numeros y letras</p>
+    <p>A continuacion se enseñaran una serie de numeros y letras</p>
     <p>el doctor debera decirle al paciente cada serie</p>
     <p>despues de esto el paciente debera repetir en orden la serie</p>
     <p>en el orden no importa si son primero las letras o los numeros</p>
@@ -32,26 +32,18 @@
 
       <h3><li *ngIf="itemNumber!==0 && itemNumber!==1"> {{respuestas[itemNumber][intento].join('-') }}</li></h3>
 
-      <div id='tiempo' *ngIf="time">
+      <div *ngIf="time">
         <br/><br/>
         <h2><u><I>¡TIEMPO TERMINADO!</I></u></h2>
       </div>
   </div>
 
-  <div id='inicio' *ngIf="estado==='resultados'">
-    <h1>Resultados</h1>
+  <app-results  *ngIf="estado==='resultados'"
+  nameTest="Balanzas"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
 
-    <h2>Puntuacion total: {{getResultado()}}</h2>
-    <br/>
-    <div id='buttons'>
-    <app-card-button   type='button' message="Revisión de resultados"
-      (messageEvent)="aRevisar()"></app-card-button> 
-
-    <app-card-button type='button' message="Terminar y guardar"
-    (messageEvent)="finalizar()"></app-card-button>   
-  </div>
-
-  </div>
+  
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>El puntaje por cada Item fue: </h3>

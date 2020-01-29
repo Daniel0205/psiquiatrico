@@ -111,7 +111,7 @@ export class LetrasNumerosComponent implements OnInit {
     this.time = false;
 
     if(this.estado==='test' && this.itemNumber<10){
-      console.log(this.itemNumber*3+this.intento)
+      
       if(key===1 || key===0){
         this.resultados[this.itemNumber*3+this.intento]=key
 
@@ -149,7 +149,7 @@ export class LetrasNumerosComponent implements OnInit {
     for(var i=0;i<this.resultados.length;i++){
       total = total + this.resultados[i];
     }
-    console.log(this.resultados)
+    
     return total;
   }
 
@@ -180,9 +180,6 @@ export class LetrasNumerosComponent implements OnInit {
     this.estado = 'resultados';
   }
 
-  finalizar(){
-    this.router.navigateByUrl('/wais');
-  }
 
 }
 

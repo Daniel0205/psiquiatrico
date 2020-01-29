@@ -37,6 +37,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardButtonComponent } from './components/card-button/card-button.component';
 import { CategoryComponent } from './components/category/category.component';
 import { StartTestComponent } from './components/start-test/start-test.component';
+import { ResultsComponent } from './components/results/results.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { StartTestComponent } from './components/start-test/start-test.component
     SidebarComponent,
     CategoryComponent,
     CardButtonComponent,
-    StartTestComponent
+    StartTestComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
