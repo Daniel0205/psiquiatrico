@@ -1,31 +1,56 @@
-<div>
+<div id='letrasNumeros'>
 
 
-
-  <button (click)="startTest()"
-   *ngIf="estado==='inicio'">
-   Empezar test</button>
+  <div id='inicio' *ngIf="estado==='inicio'">
+    <h1>Letras y Numeros</h1>
+    <b>Intrucciones generales:</b>
+    <p>A continuacion se ensenaran una serie de numeros y letras</p>
+    <p>el doctor debera decirle al paciente cada serie</p>
+    <p>despues de esto el paciente debera repetir en orden la serie</p>
+    <p>en el orden no importa si son primero las letras o los numeros</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar las teclas 1 o 2 deacuerdo a la respuesta del paciente </p>
+    <li>0 : En caso de que no responda o de una respuesta incorrecta</li>
+    <li>0 : En caso de que responda depues del tiempo (30 segundos)</li>
+    <li>1 : En caso de que la respuesta sea completamente correcta</li>
+    <p>Las respuestas correctas se mostraran debajo de la serie de numeros</p>
+    <br/>
+    <app-card-button  type='button' message="Empezar subprueba" 
+    (messageEvent)="startTest()"></app-card-button> 
+  </div>
   
-  
-  <div *ngIf="estado==='test'">
+  <div id='inicio' *ngIf="estado==='test'">
       <h1>Item #{{itemNumber+1}}</h1>
-
-      <h2>Intento</h2>
-      <h2> {{items[itemNumber][intento].join('-')}}</h2>
-
+      <br/>
+      <h2>Intento:</h2>
+      <h3> <li>{{items[itemNumber][intento].join('-')}}</li></h3>
+      <br/>
 
       <h2>Respuestas Correcta</h2>
-      <h2> {{respuesta[itemNumber][intento].sort().join('-') }}</h2>
+      <h3><li> {{respuesta[itemNumber][intento].sort().join('-') }}</li></h3>
 
-      <h2 *ngIf="itemNumber!==0 && itemNumber!==1"> {{respuestas[itemNumber][intento].join('-') }}</h2>
+      <h3><li *ngIf="itemNumber!==0 && itemNumber!==1"> {{respuestas[itemNumber][intento].join('-') }}</li></h3>
 
+      <div id='tiempo' *ngIf="time">
+        <br/><br/>
+        <h2><u><I>¡TIEMPO TERMINADO!</I></u></h2>
+      </div>
   </div>
 
-  <div *ngIf="estado==='resultados'">
-    <h1>resultados</h1>
+  <div id='inicio' *ngIf="estado==='resultados'">
+    <h1>Resultados</h1>
 
-    <h1>Puntuacion:{{getResultado()}}</h1>
-    <button (click)="aRevisar()" >Revisión de resultados</button>
+    <h2>Puntuacion total: {{getResultado()}}</h2>
+    <br/>
+    <div id='buttons'>
+    <app-card-button   type='button' message="Revisión de resultados"
+      (messageEvent)="aRevisar()"></app-card-button> 
+
+    <app-card-button type='button' message="Terminar y guardar"
+    (messageEvent)="finalizar()"></app-card-button>   
+  </div>
+
   </div>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
@@ -38,8 +63,14 @@
           <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
         </div>
       </div>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+
+      <div id='buttons'>
+      <app-card-button   type='button' message="Regresar"
+      (messageEvent)="regresarAct()"></app-card-button> 
+
+      <app-card-button type='button' message="Actualizar Datos"
+      (messageEvent)="actualizarResultados()"></app-card-button>  
+      </div>
     </form>
   </div>
 

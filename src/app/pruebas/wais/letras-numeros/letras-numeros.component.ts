@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener, ChangeDetectorRef  } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-letras-numeros',
@@ -20,6 +21,10 @@ export class LetrasNumerosComponent implements OnInit {
     
   }
 
+  time:boolean = false;
+
+  interval:any;
+
   itemNumber:number = 0;
 
   intento:number = 0;
@@ -35,34 +40,8 @@ export class LetrasNumerosComponent implements OnInit {
   respuestas=[]
 
   resultados:number[] = new Array(30).fill(0);
-
-  cambiarPrueba(key){
-    if(this.estado==='test' && this.itemNumber<10){
-      console.log(this.itemNumber*3+this.intento)
-      if(key===1 || key===0){
-        this.resultados[this.itemNumber*3+this.intento]=key
-
-        if(this.intento===2){
-          if(this.itemNumber+1===10)this.estado='resultados'
-          else this.itemNumber++;
-          this.intento=0;
-        }
-        else this.intento++;      
-        
-        if(key===0 ){
-          this.fallo++;
-          if(this.fallo===3)this.estado='resultados'
-        }
-        else if(key===1)this.fallo=0;
-      }
-    }
-    else if(this.itemNumber===10)this.estado='resultados'
-    this.cdRef.detectChanges();
-  }
-
-
-
-  constructor(private cdRef:ChangeDetectorRef) {
+  
+  constructor(private cdRef:ChangeDetectorRef,private router: Router) {
     
     this.items.push([['2','B'],['D','1'],['4','C']])
 
@@ -127,6 +106,44 @@ export class LetrasNumerosComponent implements OnInit {
 
   }
 
+
+  cambiarPrueba(key){
+    this.time = false;
+
+    if(this.estado==='test' && this.itemNumber<10){
+      console.log(this.itemNumber*3+this.intento)
+      if(key===1 || key===0){
+        this.resultados[this.itemNumber*3+this.intento]=key
+
+        if(this.intento===2){
+          if(this.itemNumber+1===10)this.estado='resultados'
+          else this.itemNumber++;
+          this.intento=0;
+        }
+        else this.intento++;      
+        
+        if(key===0 ){
+          this.fallo++;
+          if(this.fallo===3)this.estado='resultados'
+        }
+        else if(key===1)this.fallo=0;
+      }
+    }
+    else if(this.itemNumber===10)this.estado='resultados'
+    
+    if(this.estado!=='resultados')this.startTimer(30000);
+    
+    this.cdRef.detectChanges();
+
+  }
+
+  //Timer: En caso de que la imagen pase por que se acabo el tiempo se dará una calificación de 0 al item
+  startTimer(time:number) {
+    this.interval = setInterval(() => {
+      this.time=true
+    },time)
+  }
+
   getResultado():number {
     var total = 0;
     for(var i=0;i<this.resultados.length;i++){
@@ -140,6 +157,7 @@ export class LetrasNumerosComponent implements OnInit {
   }
 
   startTest(){
+    this.startTimer(30000);
     this.estado='test'
   }
 
@@ -160,6 +178,10 @@ export class LetrasNumerosComponent implements OnInit {
     }
     
     this.estado = 'resultados';
+  }
+
+  finalizar(){
+    this.router.navigateByUrl('/wais');
   }
 
 }
