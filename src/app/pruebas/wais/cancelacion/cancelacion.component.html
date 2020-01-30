@@ -1,30 +1,63 @@
-<div>
+<div  id= "inicio">
+
+  <div *ngIf="estado==='instruccion'">
+    <h1>Cancelacion</h1>
+    <b>Intrucciones generales:</b>
+    <p>El paciente recibira un cuadernillo en el cual debera tachar</p>
+    <p>2 formas geometricas determinadas exactamente identicas a </p>
+    <p>las figuras que se encuentran en la parte superior del cuadernillo</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Al final de cada item se registraran las repuestas correctas e incorrectas</p>
+    <p>El sistema calificara automaticamente la respuesta</p>
+    <br/>
+    <app-card-button type='button' message="Iniciar subprueba"
+      (messageEvent)="estado='seleccion'"></app-card-button>  
+
+  </div>
   
-  <div *ngIf="estado==='seleccion'">
+  <div   *ngIf="estado==='seleccion'">
+    <h1>Cancelacion</h1>
     <p>Pacientes de edad 16-69:</p>
-    <button (click)="estado='test'">Iniciar prueba</button>
+    <app-card-button type='button' message="Iniciar subprueba"
+    (messageEvent)="estado='test'"></app-card-button>  
+    <br/>
+    <p><b>No aplicar a paciente de edad  70-89</b></p>
   </div>
 
   <div *ngIf="estado==='test'">
       <h1> Item #{{pruebas+1}}</h1>
-    <h1>00:{{cronometro}}</h1>
-    <button *ngIf="!activo" (click)="iniCron()">Iniciar </button>
-    <button (click)="finPrueba()">Prueba finalizada </button>
+    <div id='crono'>
+      <h2 *ngIf="time"><u><I>¡TIEMPO TERMINADO!</I></u></h2>
+      <br/>
+      <br/>
+      <h1>00:{{cronometro}}</h1>  
+    </div>
+    <app-card-button *ngIf="!activo" 
+    type='button' message="Iniciar"
+    (messageEvent)="iniCron()"></app-card-button> 
+
+    <app-card-button  *ngIf="activo" 
+    type='button' message="Item finalizado"
+    (messageEvent)="finPrueba()"></app-card-button> 
   </div>
 
-  <div *ngIf="estado==='resul'">
+  <div id="respuestas" *ngIf="estado==='resul'">
     <h1> Item #{{pruebas+1}}</h1>
-    <h2>Respuestas correctas</h2>
-    <input type="number" id="correcto" value={{resultado}} style="margin: 5px"/>
-    <h2>Respuestas incorrectas</h2>
-    <input type="number" id="error" value={{resultado}} style="margin: 5px"/>
-    <button (click)="finTest()">Siguiente</button>
+    <h2>Numero de respuestas correctas</h2>
+    <input type="number" id="correcto" defaultValue=0 value={{resultado}} style="margin: 5px" min="0"/>
+    <h2>Numero de respuestas incorrectas</h2>
+    <input type="number" id="error" defaultValue=0 value={{resultado}} style="margin: 5px" min="0"/>
+    <app-card-button type='button' message="Siguiente"
+    (messageEvent)="finTest()"></app-card-button> 
+
   </div>
 
-  <div *ngIf="estado==='resultados'">
-      <h1>Terminaste la subprueba de cancelacion</h1>
-      <h2>Tu resultado es: {{puntuacion}}</h2>
-  </div>
+
+  <app-results  *ngIf="estado==='resultados'"
+  nameTest="Cancelacion"
+  [result]="puntuacion"></app-results>
+
 
 
 </div>
