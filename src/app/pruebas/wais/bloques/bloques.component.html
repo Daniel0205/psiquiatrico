@@ -1,10 +1,34 @@
 <div id="cubos-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
+    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
+
   <div *ngIf="estado==='seleccion'">
     <br/>
     <p>¿En que estimulo desea iniciar la prueba? </p>
     <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
-    <button class="botongenerico" mat-raised-button (click)="imagenInit(1)" >Estimulo 1</button>
-    <button class="botongenerico" mat-raised-button (click)="imagenInit(5)" >Estimulo 5</button>
+    <app-card-button
+            type='button'
+            message="Estimulo 1"
+            (messageEvent)="imagenInit(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="Estimulo 4"
+            (messageEvent)="imagenInit(5)"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
@@ -14,8 +38,18 @@
   <div *ngIf="estado==='terminado'" style="text-align:center">
       <h2>Terminaste la subprueba de cubos</h2>
       <h4>Tu resultado es: {{getResultado()}}</h4>
-      <button  class="botongenerico" mat-raised-button (click)="aRevisar()" >Revisión de resultados</button>
-      <button  class="botongenerico" mat-raised-button (click)="aceptar()" >Aceptar</button>
+      <app-card-button
+            type='button'
+            message="Revisión de resultados"
+            (messageEvent)="aRevisar()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+            type='button'
+            message="Aceptar"
+            (messageEvent)="aceptar()"
+            style="margin: 5px;"
+      ></app-card-button>
   </div>
 
   <div *ngIf="estado==='revision'" style="text-align:center">

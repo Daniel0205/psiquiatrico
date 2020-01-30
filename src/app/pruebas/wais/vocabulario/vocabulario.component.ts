@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vocabulario',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VocabularioComponent implements OnInit {
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado
+  estado:String = 'instrucciones';// Esta variable me dice en que estado
   respuestaDada:String; // Variable del input de respuesta
 
   estimulos:String[] = ["01.jpg","02.jpg","03.jpg"];
@@ -32,7 +33,7 @@ export class VocabularioComponent implements OnInit {
   countRe:number = 0; //Esta variable me dice cuando se puede salir de la condición de retorno
   flagRe:number = null;//Esta variable me ayuda a decir en que posicion quedo el paciente antes de entrar al retorno
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -171,6 +172,18 @@ export class VocabularioComponent implements OnInit {
 
   aRevisar(){
     this.estado = 'revision';
+  }
+
+  changeState(){
+    this.estado = 'seleccion'
+  }
+  
+  aceptar(){
+    this.router.navigateByUrl('/wais');
+  }
+
+  regresarAct(){
+    this.estado = 'terminado';
   }
 
   actualizarResultados(){

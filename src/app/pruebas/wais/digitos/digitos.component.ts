@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-digitos',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DigitosComponent implements OnInit {
 
-  estado:String = "selectDirecto";
+  estado:String = "instrucciones";
 
   indexActual:number = null;
   itemActual:number[] = null;
@@ -213,11 +214,19 @@ export class DigitosComponent implements OnInit {
     this.estado = 'revision';
   }
 
+  changeState(){
+    this.estado = 'selectDirecto'
+  }
+
   regresarAct(){
     this.estado = 'terminado';
   }
 
-  constructor() { }
+  aceptar(){
+    this.router.navigateByUrl('/wais');
+  }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

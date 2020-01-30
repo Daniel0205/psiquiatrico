@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-semejanzas',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SemejanzasComponent implements OnInit {
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado
+  estado:String = 'instrucciones';// Esta variable me dice en que estado
 
   indexInicial:number = null;
   indexActual:number = null;
@@ -32,7 +33,7 @@ export class SemejanzasComponent implements OnInit {
   resultados:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -147,8 +148,16 @@ export class SemejanzasComponent implements OnInit {
     this.estado = 'revision';
   }
 
+  changeState(){
+    this.estado = 'seleccion'
+  }
+
   regresarAct(){
     this.estado = 'terminado';
+  }
+
+  aceptar(){
+    this.router.navigateByUrl('/wais');
   }
 
   actualizarResultados(){

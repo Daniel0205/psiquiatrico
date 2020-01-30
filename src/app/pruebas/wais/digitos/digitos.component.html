@@ -1,34 +1,97 @@
-<div>
+<div id="digitos-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
+    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
   <div *ngIf="estado==='selectDirecto' || estado==='selectInverso' || estado==='selectCreciente'">
-    <button (click)="iniciar()" >Iniciar Digitos en Orden {{tipo}}</button>
+    <br/>
+    <br/>
+    <app-card-button
+            type='button'
+            message="Iniciar Digitos en Orden "
+            (messageEvent)="iniciar()"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='directo'" style="text-align:center; padding-top:5%">
     <h3> Dígitos a evaluar: {{itemActual}} </h3>
     <textarea id="res"></textarea> <br/> <br/>
-    <button (click)="cambiarpuntuacion()" >Siguiente</button>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="cambiarpuntuacion()"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='inverso'" style="text-align:center; padding-top:5%">
     <h3>Dígitos a evaluar: {{itemActual}} </h3>
     <textarea id="res"></textarea> <br/> <br/>
-    <button (click)="cambiarpuntuacion()" >Siguiente</button>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="cambiarpuntuacion()"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='creciente'" style="text-align:center; padding-top:5%">
     <h3> Dígitos a evaluar: {{itemActual}} </h3>
     <textarea id="res"></textarea> <br/> <br/>
-    <button (click)="cambiarpuntuacion()" >Siguiente</button>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="cambiarpuntuacion()"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='terminado'" style="text-align:center">
       <h2>Terminaste la subprueba de dígitos</h2>
       <h4>Tu resultado es: {{getResultado()}}</h4>
-      <button (click)="aRevisar()" >Revisión de resultados</button>
+      <app-card-button
+            type='button'
+            message="Revisión de resultados"
+            (messageEvent)="aRevisar()"
+            style="margin: 5px;"
+    ></app-card-button>
+        <app-card-button
+            type='button'
+            message="Aceptar"
+            (messageEvent)="aceptar()"
+            style="margin: 5px;"
+      ></app-card-button>
   </div>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>Revision pendiente </h3>
-    <button (click)="regresarAct()" >Regresar</button>
+    <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
   </div>
 </div>

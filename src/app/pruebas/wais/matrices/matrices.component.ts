@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-matrices',
@@ -28,7 +29,7 @@ export class MatricesComponent implements OnInit {
     
   }
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado
+  estado:String = 'instrucciones';// Esta variable me dice en que estado
 
   estimulos:String[] = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg","06.jpg","07.jpg","08.jpg",
                         "09.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg",
@@ -49,7 +50,7 @@ export class MatricesComponent implements OnInit {
 
   interval:any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -173,8 +174,16 @@ export class MatricesComponent implements OnInit {
     this.estado = 'revision';
   }
 
+  changeState(){
+    this.estado = 'seleccion'
+  }
+
   regresarAct(){
     this.estado = 'terminado';
+  }
+
+  aceptar(){
+    this.router.navigateByUrl('/wais');
   }
 
   actualizarResultados(){

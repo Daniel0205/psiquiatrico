@@ -1,28 +1,83 @@
-<div>
+<div id="semejanzas-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
+    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
   <div *ngIf="estado==='seleccion'">
     <p>En que estimulo desea iniciar la prueba? </p>
-    <button (click)="selectInit(1)" >Item 1</button>
-    <button (click)="selectInit(4)" >Item 4</button>
+    <app-card-button
+            type='button'
+            message="Item 1"
+            (messageEvent)="selectInit(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="Item 4"
+            (messageEvent)="selectInit(4)"
+            style="margin: 5px;"
+    ></app-card-button>
+    
   </div>
 
   <div *ngIf="estado==='ejemplos'" style="text-align:center; padding-top:5%">
     <h3>¿En que se parecen {{ejemplo[0]}} y {{ejemplo[1]}}? </h3>
     <textarea></textarea> <br/> <br/>
-    <button (click)="aplicar()" >Siguiente</button>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="aplicar()"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
     <h3>En que se parecen {{itemActual[0]}} y {{itemActual[1]}} </h3>
     <textarea id="res"></textarea> <br/> <br/>
-    <button (click)="cambiarPuntuacion(0)" >0</button>
-    <button (click)="cambiarPuntuacion(1)" >1</button>
-    <button (click)="cambiarPuntuacion(2)" >2</button>
+    <app-card-button
+            type='button'
+            message="0"
+            (messageEvent)="cambiarPuntuacion(0)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="1"
+            (messageEvent)="cambiarPuntuacion(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="2"
+            (messageEvent)="cambiarPuntuacion(2)"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='terminado'" style="text-align:center">
       <h2>Terminaste la subprueba de semejanzas</h2>
       <h4>Tu resultado es: {{getResultado()}}</h4>
-      <button (click)="aRevisar()" >Revisión de resultados</button>
+        <app-card-button
+                type='button'
+                message="Revisión de resultados"
+                (messageEvent)="aRevisar()"
+                style="margin: 5px;"
+    ></app-card-button>
+        <app-card-button
+                type='button'
+                message="Aceptar"
+                (messageEvent)="aceptar()" 
+                style="margin: 5px;"
+        ></app-card-button>
   </div>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
@@ -33,8 +88,25 @@
         <label for="i"> {{respuestas[i]}} </label>
         <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
       </div>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+      <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
+    
     </form>
   </div>
 </div>
