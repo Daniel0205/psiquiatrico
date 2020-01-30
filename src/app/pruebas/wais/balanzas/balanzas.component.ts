@@ -23,7 +23,7 @@ export class BalanzasComponent implements OnInit {
     
   }
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado 
+  estado:String = 'instruccion';// Esta variable me dice en que estado 
 
   terminacion:number = 0; //Esta variable me dice cuantos ceros consecutivos tuvo el paciente
 
@@ -40,6 +40,8 @@ export class BalanzasComponent implements OnInit {
 
   interval:any;
 
+  time:boolean = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -47,7 +49,7 @@ export class BalanzasComponent implements OnInit {
 
   cambiarPrueba(key){
     if(this.estado==='test'){
-      
+      this.time=false      
       if(this.retorno){
         if(this.respuestas[this.numberItem-1]===key){
           this.countRe++;
@@ -86,7 +88,7 @@ export class BalanzasComponent implements OnInit {
       else this.numberItem++;
       
       if(this.numberItem===28 || this.numberItem===0)this.estado='resultados'
-      else{
+      else if(this.estado!=='resultados'){
         if(this.numberItem<=12)this.startTimer(20000);
         else this.startTimer(40000);
       } 
@@ -113,7 +115,6 @@ export class BalanzasComponent implements OnInit {
     for(var i=0;i<this.resultados.length;i++){
       total = total + this.resultados[i];
     }
-    console.log(this.resultados)
     return total;
   }
 
@@ -131,6 +132,9 @@ export class BalanzasComponent implements OnInit {
         if(this.numberItem<=12)this.startTimer(20000);
         else this.startTimer(40000);
         break;
+      case 'instruccion':
+        this.estado='seleccion'
+        break;
       case 'resultados':
         this.estado='revision'
         break;
@@ -146,7 +150,7 @@ export class BalanzasComponent implements OnInit {
   startTimer(time:number) {
     clearInterval(this.interval);
     this.interval = setInterval(() => {
-      this.cambiarPrueba(0)
+      this.time = true;
     },time)
   }
 
@@ -159,7 +163,6 @@ export class BalanzasComponent implements OnInit {
     
     this.estado = 'resultados';
   }
-
 
 }
 

@@ -3,7 +3,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgModule} from '@angular/core'
 
 @NgModule({
@@ -15,7 +15,8 @@ import {NgModule} from '@angular/core'
         MatIconModule,
         MatSidenavModule,
         MatListModule,
-        MatMenuModule
+        MatMenuModule,
+        MatFormFieldModule
     ],
     exports:[
         MatInputModule,
@@ -25,7 +26,8 @@ import {NgModule} from '@angular/core'
         MatIconModule,
         MatSidenavModule,
         MatListModule,
-        MatMenuModule
+        MatMenuModule,
+        MatFormFieldModule
     ]
 })
 
