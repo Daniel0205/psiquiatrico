@@ -1,30 +1,56 @@
-<div>
+<div id='test'>
+
+  <div id= "inicio" *ngIf="estado==='instruccion'">
+      <h1>Figuras incompletas</h1>
+      <b>Intrucciones generales:</b>
+      <p>A continuacion se enseñaran unas balanzas con dos platillos</p>
+      <p>el sujeto debe seleccionar entre cinco opciones</p>
+      <p>el objeto con el cual equilibrar la balanza</p>
+      <br/>
+      <b>Intrucciones para registrar la respuesta de paciente:</b>
+      <br/>
+      <br/>
+      <li>0 : En caso de que no responda </li>
+      <li>1-2-3-4: para indicar la respuesta del paciente</li>
+      <p>El sistema calificara automaticamente la respuesta</p>
+      <br/>
+      <app-card-button type='button' message="Iniciar subprueba"
+        (messageEvent)="next()"></app-card-button>  
+  
+    </div>
 
   
   <div *ngIf="estado==='seleccion'">
+    <h1>Figuras incompletas</h1>
     <p>En que estimulo desea iniciar la prueba? </p>
-    <button (click)="imagenInit(1)" >Estimulo 1</button>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Estimulo 1"
+    (messageEvent)="imagenInit(1)"></app-card-button> 
     <p>Pacientes de edad 16-89:</p>
-    <button (click)="imagenInit(4)" >Estimulo 4</button>
+    <app-card-button type='button' message="Estimulo 4"
+    (messageEvent)="imagenInit(4)"></app-card-button> 
   </div>
 
   
   <div *ngIf="estado==='ejemplo' " style="text-align:center; padding-top:5%">
       <h1> Estimulo {{estado}}</h1>
       <img   [src]="'assets/estimulos/figurasIncompletas/'+estado+'.png'" />
-      <button (click)="next()" >Iniciar </button>
+      <app-card-button type='button' message="Iniciar"
+      (messageEvent)="next()"></app-card-button> 
   </div>
 
-  <div *ngIf="estado==='test'" style="text-align:center; padding-top:5%">
-      <h1> Estimulo {{numberItem}}</h1>
+  <div id="container" *ngIf="estado==='test'">
+      <div >  
+          <h1> Estimulo {{numberItem}}</h1>
+          <h2 *ngIf="time"><u><I>¡TIEMPO TERMINADO!</I></u></h2>
+          </div>
       <img   [src]="'assets/estimulos/figurasIncompletas/'+numberItem+'.png'" />
   </div>
 
-  <div *ngIf="estado==='resultados'">
-      <h1>Terminaste la subprueba de balanzas</h1>
-      <h2>Tu resultado es: {{getResultado()}}</h2>
-      <button (click)="next()" >Revisión de resultados</button>
-  </div>
+  <app-results  *ngIf="estado==='resultados'"
+  nameTest="Figuras incompletas"
+  [result]="getResultado()"
+  (review)="next()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>El puntaje por cada Item fue: </h3>
@@ -32,11 +58,16 @@
       <div *ngFor="let resultado of resultados; let i=index" >
         <div>
           <label for="i">Item {{i+1}}:</label>
-          <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
+          <input type="number" id="{{i}}" value={{resultado}} min="0" max="1"/>
         </div>
       </div>
-      <button (click)="next()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+
+      <div id='buttons'>
+          <app-card-button type='button' message="Regresar"
+          (messageEvent)="next()"></app-card-button> 
+          <app-card-button type='button' message="Actualizar Datos"
+          (messageEvent)="actualizarResultados()"></app-card-button> 
+      </div>
     </form>
   </div>
 
