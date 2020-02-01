@@ -8,7 +8,7 @@ import { NumberSymbol } from '@angular/common';
 })
 export class AritmeticaComponent implements OnInit {
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado
+  estado:String = 'instruccion';// Esta variable me dice en que estado
   respuestaDada:String; // Variable del input de respuesta
 
   estimulos:String[] = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"];

@@ -3,16 +3,16 @@
   <div id= "inicio" *ngIf="estado==='instruccion'">
       <h1>Figuras incompletas</h1>
       <b>Intrucciones generales:</b>
-      <p>A continuacion se enseñaran unas balanzas con dos platillos</p>
-      <p>el sujeto debe seleccionar entre cinco opciones</p>
-      <p>el objeto con el cual equilibrar la balanza</p>
+      <p>A continuacion se enseñaran unas imagenes las cuales les hace falta algo</p>
+      <p>el sujeto debe senalar o decir la parte faltante de la imagen</p>
+
       <br/>
       <b>Intrucciones para registrar la respuesta de paciente:</b>
       <br/>
       <br/>
-      <li>0 : En caso de que no responda </li>
-      <li>1-2-3-4: para indicar la respuesta del paciente</li>
-      <p>El sistema calificara automaticamente la respuesta</p>
+      <li>0 : para indicar la respuesta no fue correcta o no contesto</li>
+      <li>1 : para indicar la respuesta fue correcta</li>
+      <p>El sistema calificara automaticamente la prueba</p>
       <br/>
       <app-card-button type='button' message="Iniciar subprueba"
         (messageEvent)="next()"></app-card-button>  

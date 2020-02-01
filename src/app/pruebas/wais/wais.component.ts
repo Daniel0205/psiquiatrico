@@ -13,7 +13,7 @@ export class WaisComponent implements OnInit {
 
   link:string[] = ["/bloques","/semejanzas","/digitos","/matrices",
                    "/vocabulario","/aritmetica","/busquedaSimbolos",
-                   "/puzlesVisuales,","/informacion","/claveNumeros",
+                   "/puzlesVisuales","/informacion","/claveNumeros",
                    "/letrasNumeros","/balanzas","/comprension",
                    "/cancelacion","/figurasIncompletas"]
 
