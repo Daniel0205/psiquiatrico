@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./king.component.scss']
 })
 export class KingComponent implements OnInit {
-  
+
   constructor() { }
 
   minutes:number = 0;
