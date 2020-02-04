@@ -133,6 +133,8 @@ const json = {
 })
 export class ZungComponent implements OnInit {
 
+  estado:string = 'confirmacion'
+
   constructor() { }
 
   ngOnInit() {

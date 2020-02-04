@@ -34,3 +34,21 @@
 .ng-invalid:not(form)  {
     border-left: 5px solid #a94442; /* red */
 }
+
+#bodypage{
+    background-image: url("../../../assets/Fondo/FondoNubes.jfif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#testcontainer{
+    margin: 0 auto;
+    background-color: white;
+    max-width: 75%;
+    border-color: black;
+    }
+
+#gridfig{
+    column-width: 20%;
+} 

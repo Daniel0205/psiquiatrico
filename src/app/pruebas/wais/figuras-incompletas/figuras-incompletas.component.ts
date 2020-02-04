@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 
+
 @Component({
   selector: 'app-figuras-incompletas',
   templateUrl: './figuras-incompletas.component.html',
@@ -19,7 +20,9 @@ export class FigurasIncompletasComponent implements OnInit {
     
   }
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado 
+  time:boolean = false
+
+  estado:String = 'instruccion';// Esta variable me dice en que estado 
 
   terminacion:number = 0; //Esta variable me dice cuantos ceros consecutivos tuvo el paciente
 
@@ -41,6 +44,7 @@ export class FigurasIncompletasComponent implements OnInit {
 
 
   cambiarPrueba(key){
+    this.time = false
     if(this.estado==='test'){
       
       if(this.retorno){
@@ -114,6 +118,9 @@ export class FigurasIncompletasComponent implements OnInit {
       case 'resultados':
         this.estado='revision'
         break;
+      case 'instruccion':
+        this.estado='seleccion'
+        break;
       case 'revision':
           this.estado='resultados'
           break;
@@ -135,7 +142,7 @@ export class FigurasIncompletasComponent implements OnInit {
   startTimer(time:number) {
     clearInterval(this.interval);
     this.interval = setInterval(() => {
-      this.cambiarPrueba(0)
+      this.time=true
     },time)
   }
 

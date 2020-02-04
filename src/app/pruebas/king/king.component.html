@@ -1,250 +1,451 @@
-<div class="classTestRey">
-  <h2 class="classTitle">Test de Rey</h2>
-  <div>
-    <table align="center" style="width:40%;">
-      <th>Paciente: NOMBRE PACIENTE</th>
-      <th></th>
-      <th>ID: Numeros</th>
-    </table>
-    <br>    
-  </div>
-
-  <div class="container">
-    <form align="center">
-
-      <div class="form-group">
-        <label for="minutes">Tiempo:</label>
-        <input type="number" id="minutes" required [(ngModel)]="minutes" name="minutes">
-        <label>  Minutos y  </label>
-        <input type="number" id="seconds" required [(ngModel)]="seconds" name="seconds">
-        <label>  Segundos</label>        
-      </div>      
-
-      <div class="container">
-        <label>Tipo de Copia:</label> <br>
-        <textarea id="copyType" rows="8" cols="35" [(ngModel)]="copyType" name="copyType"> </textarea>        
-  
-        <br><br>
-        <label>Observaciones:</label> <br>
-        <textarea id="observ" rows="8" cols="35" [(ngModel)]="observ" name="observ"> </textarea>
-      </div>      
-
-      <div>
-        <h3 align="center">Calificación de la prueba</h3>
-        <div class="ReyImage" ></div>    
-      </div>
-    
-      <br>
-      <table align="center" style="width:40%;">
-        <tr>
-          <th>Ausente</th>
-          <th></th>
-          <th>Bien Situada</th>
-        </tr>
-
-        <tr>
-          <td>1) <input type="checkbox" name="absentFig1" id="absentFig1" [(ngModel)]="absentFig1"></td>
-          <td>
-            <select name="stateFig1" id="stateFig1" [(ngModel)]="stateFig1" [disabled]="absentFig1">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig1" id="locatedFig1" [(ngModel)]="locatedFig1" [disabled]="absentFig1"></td>
-        </tr>
-
-        <tr>
-          <td>2) <input type="checkbox" name="absentFig2" id="absentFig2" [(ngModel)]="absentFig2"></td>
-          <td>
-            <select name="stateFig2" id="stateFig2" [(ngModel)]="stateFig2" [disabled]="absentFig2">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig2" id="locatedFig2" [(ngModel)]="locatedFig2" [disabled]="absentFig2"></td>
-        </tr>
-
-        <tr>
-          <td>3) <input type="checkbox" name="absentFig3" id="absentFig3" [(ngModel)]="absentFig3"></td>
-          <td>
-            <select name="stateFig3" id="stateFig3" [(ngModel)]="stateFig3" [disabled]="absentFig3">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig3" id="locatedFig3" [(ngModel)]="locatedFig3" [disabled]="absentFig3"></td>
-        </tr>
-
-        <tr>
-          <td>4) <input type="checkbox" name="absentFig4" id="absentFig4" [(ngModel)]="absentFig4"></td>
-          <td>
-            <select name="stateFig4" id="stateFig4" [(ngModel)]="stateFig4" [disabled]="absentFig4">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig4" id="locatedFig4" [(ngModel)]="locatedFig4" [disabled]="absentFig4"></td>
-        </tr>
-
-        <tr>
-          <td>5) <input type="checkbox" name="absentFig5" id="absentFig5" [(ngModel)]="absentFig5"></td>
-          <td>
-            <select name="stateFig5" id="stateFig5" [(ngModel)]="stateFig5" [disabled]="absentFig5">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig5" id="locatedFig5" [(ngModel)]="locatedFig5" [disabled]="absentFig5"></td>
-        </tr>
-
-        <tr>
-          <td>6) <input type="checkbox" name="absentFig6" id="absentFig6" [(ngModel)]="absentFig6"></td>
-          <td>
-            <select name="stateFig6" id="stateFig6" [(ngModel)]="stateFig6" [disabled]="absentFig6">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig6" id="locatedFig6" [(ngModel)]="locatedFig6" [disabled]="absentFig6"></td>
-        </tr>
-
-        <tr>
-          <td>7) <input type="checkbox" name="absentFig7" id="absentFig7" [(ngModel)]="absentFig7"></td>
-          <td>
-            <select name="stateFig7" id="stateFig7" [(ngModel)]="stateFig7" [disabled]="absentFig7">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig7" id="locatedFig7" [(ngModel)]="locatedFig7" [disabled]="absentFig7"></td>
-        </tr>
-
-        <tr>
-          <td>8) <input type="checkbox" name="absentFig8" id="absentFig8" [(ngModel)]="absentFig8"></td>
-          <td>
-            <select name="stateFig8" id="stateFig8" [(ngModel)]="stateFig8" [disabled]="absentFig8">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig8" id="locatedFig8" [(ngModel)]="locatedFig8" [disabled]="absentFig8"></td>
-        </tr>
-
-        <tr>
-          <td>9) <input type="checkbox" name="absentFig9" id="absentFig9" [(ngModel)]="absentFig9"></td>
-          <td>
-            <select name="stateFig9" id="stateFig9" [(ngModel)]="stateFig9" [disabled]="absentFig9">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig9" id="locatedFig9" [(ngModel)]="locatedFig9" [disabled]="absentFig9"></td>
-        </tr>
-
-        <tr>
-          <td>10) <input type="checkbox" name="absentFig10" id="absentFig10" [(ngModel)]="absentFig10"></td>
-          <td>
-            <select name="stateFig10" id="stateFig10" [(ngModel)]="stateFig10" [disabled]="absentFig10">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig10" id="locatedFig10" [(ngModel)]="locatedFig10" [disabled]="absentFig10"></td>
-        </tr>
-
-        <tr>
-          <td>11) <input type="checkbox" name="absentFig11" id="absentFig11" [(ngModel)]="absentFig11"></td>
-          <td>
-            <select name="stateFig11" id="stateFig11" [(ngModel)]="stateFig11" [disabled]="absentFig11">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig11" id="locatedFig11" [(ngModel)]="locatedFig11" [disabled]="absentFig11"></td>
-        </tr>
-
-        <tr>
-          <td>12) <input type="checkbox" name="absentFig12" id="absentFig12" [(ngModel)]="absentFig12"></td>
-          <td>
-            <select name="stateFig12" id="stateFig12" [(ngModel)]="stateFig12" [disabled]="absentFig12">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig12" id="locatedFig12" [(ngModel)]="locatedFig12" [disabled]="absentFig12"></td>
-        </tr>
-
-        <tr>
-          <td>13) <input type="checkbox" name="absentFig13" id="absentFig13" [(ngModel)]="absentFig13"></td>
-          <td>
-            <select name="stateFig13" id="stateFig13" [(ngModel)]="stateFig13" [disabled]="absentFig13">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig13" id="locatedFig13" [(ngModel)]="locatedFig13" [disabled]="absentFig13"></td>
-        </tr>
-
-        <tr>
-          <td>14) <input type="checkbox" name="absentFig14" id="absentFig14" [(ngModel)]="absentFig14"></td>
-          <td>
-            <select name="stateFig14" id="stateFig14" [(ngModel)]="stateFig14" [disabled]="absentFig14">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig14" id="locatedFig14" [(ngModel)]="locatedFig14" [disabled]="absentFig14"></td>
-        </tr>
-
-        <tr>
-          <td>15) <input type="checkbox" name="absentFig15" id="absentFig15" [(ngModel)]="absentFig15"></td>
-          <td>
-            <select name="stateFig15" id="stateFig15" [(ngModel)]="stateFig15" [disabled]="absentFig15">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig15" id="locatedFig15" [(ngModel)]="locatedFig15" [disabled]="absentFig15"></td>
-        </tr>
-
-        <tr>
-          <td>16) <input type="checkbox" name="absentFig16" id="absentFig16" [(ngModel)]="absentFig16"></td>
-          <td>
-            <select name="stateFig16" id="stateFig16" [(ngModel)]="stateFig16" [disabled]="absentFig16">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig16" id="locatedFig16" [(ngModel)]="locatedFig16" [disabled]="absentFig16"></td>
-        </tr>
-
-        <tr>
-          <td>17) <input type="checkbox" name="absentFig17" id="absentFig17" [(ngModel)]="absentFig17"></td>
-          <td>
-            <select name="stateFig17" id="stateFig17" [(ngModel)]="stateFig17" [disabled]="absentFig17">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig17" id="locatedFig17" [(ngModel)]="locatedFig17" [disabled]="absentFig17"></td>
-        </tr>
-
-        <tr>
-          <td>18) <input type="checkbox" name="absentFig18" id="absentFig18" [(ngModel)]="absentFig18"></td>
-          <td>
-            <select name="stateFig18" id="stateFig18" [(ngModel)]="stateFig18" [disabled]="absentFig18">
-              <option value="correcta">Correcta</option>
-              <option value="incorrecta">Deformada o Incorrecta</option>
-            </select>
-          </td>
-          <td><input type="checkbox" name="locatedFig18" id="locatedFig18" [(ngModel)]="locatedFig18" [disabled]="absentFig18"></td>
-        </tr>
+<div  id="bodypage">
+  <br>
+  <div id="testcontainer" align="center">
+    <h2 class="classTitle">Test de Rey</h2>
+    <div>
+      <table align="center" style="width:70%;">
+        <th>Paciente: NOMBRE PACIENTE</th>
+        <th></th>
+        <th>ID: Numeros</th>
       </table>
+      <br>    
+    </div>
 
-      <br>
-      <button type="submit" (click)="save()">Guardar</button>
-    </form>
+    <div >
+      <form align="center">
+        <div class="form-group">
+          <mat-label for="minutes">Tiempo:</mat-label>
+          <mat-form-field>            
+            <input matInput #input maxlength="3" id="minutes" required [(ngModel)]="minutes" name="minutes">
+          </mat-form-field>
+          <mat-label>  Minutos y  </mat-label>
+          <mat-form-field>
+            <input matInput #input maxlength="2" id="seconds" required [(ngModel)]="seconds" name="seconds">
+          </mat-form-field>
+          <mat-label>  Segundos</mat-label>        
+        </div>      
+
+        <div class="form-group">
+          <mat-label>Tipo de Copia:</mat-label> <br>
+          <mat-form-field>
+            <textarea matInput id="copyType" [(ngModel)]="copyType" name="copyType"> </textarea>        
+          </mat-form-field>
+    
+          <br><br>
+          <mat-label>Observaciones:</mat-label> <br>
+          <mat-form-field>
+            <textarea matInput id="observ" [(ngModel)]="observ" name="observ"> </textarea>
+          </mat-form-field> 
+        </div>      
+
+        <div>
+          <h3 align="center">Calificación de la prueba</h3>
+          <div class="ReyImage" ></div>    
+        </div>
+
+        <br><br><br>      
+        <mat-grid-list cols="4" rowHeight="25px" id="gridfig" >
+          <mat-grid-tile>No.</mat-grid-tile>
+          <mat-grid-tile>Ausente</mat-grid-tile>
+          <mat-grid-tile>Estado de la fig.</mat-grid-tile>
+          <mat-grid-tile>Bien situada</mat-grid-tile>
+
+          <mat-grid-tile>1</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig1" id="absentFig1" [(ngModel)]="absentFig1"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig1" id="stateFig1" [(ngModel)]="stateFig1" [disabled]="absentFig1">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig1" id="locatedFig1" [(ngModel)]="locatedFig1" [disabled]="absentFig1"></mat-checkbox></mat-grid-tile>
+
+          <mat-grid-tile>2</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig2" id="absentFig2" [(ngModel)]="absentFig2"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig2" id="stateFig2" [(ngModel)]="stateFig2" [disabled]="absentFig2">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig2" id="locatedFig2" [(ngModel)]="locatedFig2" [disabled]="absentFig2"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>3</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig3" id="absentFig3" [(ngModel)]="absentFig3"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig3" id="stateFig3" [(ngModel)]="stateFig3" [disabled]="absentFig3">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig3" id="locatedFig3" [(ngModel)]="locatedFig3" [disabled]="absentFig3"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>4</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig4" id="absentFig4" [(ngModel)]="absentFig4"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig4" id="stateFig4" [(ngModel)]="stateFig4" [disabled]="absentFig4">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig4" id="locatedFig4" [(ngModel)]="locatedFig4" [disabled]="absentFig4"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>5</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig5" id="absentFig5" [(ngModel)]="absentFig5"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig5" id="stateFig5" [(ngModel)]="stateFig5" [disabled]="absentFig5">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig5" id="locatedFig5" [(ngModel)]="locatedFig5" [disabled]="absentFig5"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>6</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig6" id="absentFig6" [(ngModel)]="absentFig6"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig6" id="stateFig6" [(ngModel)]="stateFig6" [disabled]="absentFig6">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig6" id="locatedFig6" [(ngModel)]="locatedFig6" [disabled]="absentFig6"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>7</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig7" id="absentFig7" [(ngModel)]="absentFig7"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig7" id="stateFig7" [(ngModel)]="stateFig7" [disabled]="absentFig7">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig7" id="locatedFig7" [(ngModel)]="locatedFig7" [disabled]="absentFig7"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>8</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig8" id="absentFig8" [(ngModel)]="absentFig8"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig8" id="stateFig8" [(ngModel)]="stateFig8" [disabled]="absentFig8">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig8" id="locatedFig8" [(ngModel)]="locatedFig8" [disabled]="absentFig8"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>9</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig9" id="absentFig9" [(ngModel)]="absentFig9"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig9" id="stateFig9" [(ngModel)]="stateFig9" [disabled]="absentFig9">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig9" id="locatedFig9" [(ngModel)]="locatedFig9" [disabled]="absentFig9"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>10</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig10" id="absentFig10" [(ngModel)]="absentFig10"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig10" id="stateFig10" [(ngModel)]="stateFig10" [disabled]="absentFig10">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig10" id="locatedFig10" [(ngModel)]="locatedFig10" [disabled]="absentFig10"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>11</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig11" id="absentFig11" [(ngModel)]="absentFig11"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig11" id="stateFig11" [(ngModel)]="stateFig11" [disabled]="absentFig11">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig11" id="locatedFig11" [(ngModel)]="locatedFig11" [disabled]="absentFig11"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>12</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig12" id="absentFig12" [(ngModel)]="absentFig12"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig12" id="stateFig12" [(ngModel)]="stateFig12" [disabled]="absentFig12">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig12" id="locatedFig12" [(ngModel)]="locatedFig12" [disabled]="absentFig12"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>13</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig13" id="absentFig13" [(ngModel)]="absentFig13"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig13" id="stateFig13" [(ngModel)]="stateFig13" [disabled]="absentFig13">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig13" id="locatedFig13" [(ngModel)]="locatedFig13" [disabled]="absentFig13"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>14</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig14" id="absentFig14" [(ngModel)]="absentFig14"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig14" id="stateFig14" [(ngModel)]="stateFig14" [disabled]="absentFig14">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig14" id="locatedFig14" [(ngModel)]="locatedFig14" [disabled]="absentFig14"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>15</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig15" id="absentFig15" [(ngModel)]="absentFig15"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig15" id="stateFig15" [(ngModel)]="stateFig15" [disabled]="absentFig15">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig15" id="locatedFig15" [(ngModel)]="locatedFig15" [disabled]="absentFig15"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>16</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig16" id="absentFig16" [(ngModel)]="absentFig16"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig16" id="stateFig16" [(ngModel)]="stateFig16" [disabled]="absentFig16">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig16" id="locatedFig16" [(ngModel)]="locatedFig16" [disabled]="absentFig16"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>17</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig17" id="absentFig17" [(ngModel)]="absentFig17"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig17" id="stateFig17" [(ngModel)]="stateFig17" [disabled]="absentFig17">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig17" id="locatedFig17" [(ngModel)]="locatedFig17" [disabled]="absentFig17"></mat-checkbox></mat-grid-tile>
+          
+          <mat-grid-tile>18</mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="absentFig18" id="absentFig18" [(ngModel)]="absentFig18"></mat-checkbox></mat-grid-tile>
+          <mat-grid-tile> 
+            <mat-select name="stateFig18" id="stateFig18" [(ngModel)]="stateFig18" [disabled]="absentFig18">
+              <mat-option value="correcta">Correcta</mat-option>
+              <mat-option value="incorrecta">Deformada o Incorrecta</mat-option>
+            </mat-select>
+          </mat-grid-tile>
+          <mat-grid-tile><mat-checkbox name="locatedFig18" id="locatedFig18" [(ngModel)]="locatedFig18" [disabled]="absentFig18"></mat-checkbox></mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- 
+        <br>
+        <table align="center" style="width:40%;">
+          <tr>
+            <th>Ausente</th>
+            <th></th>
+            <th>Bien Situada</th>
+          </tr>
+
+          <tr>
+            <td>1) <input type="checkbox" name="absentFig1" id="absentFig1" [(ngModel)]="absentFig1"></td>
+            <td>
+              <select name="stateFig1" id="stateFig1" [(ngModel)]="stateFig1" [disabled]="absentFig1">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig1" id="locatedFig1" [(ngModel)]="locatedFig1" [disabled]="absentFig1"></td>
+          </tr>
+
+          <tr>
+            <td>2) <input type="checkbox" name="absentFig2" id="absentFig2" [(ngModel)]="absentFig2"></td>
+            <td>
+              <select name="stateFig2" id="stateFig2" [(ngModel)]="stateFig2" [disabled]="absentFig2">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig2" id="locatedFig2" [(ngModel)]="locatedFig2" [disabled]="absentFig2"></td>
+          </tr>
+
+          <tr>
+            <td>3) <input type="checkbox" name="absentFig3" id="absentFig3" [(ngModel)]="absentFig3"></td>
+            <td>
+              <select name="stateFig3" id="stateFig3" [(ngModel)]="stateFig3" [disabled]="absentFig3">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig3" id="locatedFig3" [(ngModel)]="locatedFig3" [disabled]="absentFig3"></td>
+          </tr>
+
+          <tr>
+            <td>4) <input type="checkbox" name="absentFig4" id="absentFig4" [(ngModel)]="absentFig4"></td>
+            <td>
+              <select name="stateFig4" id="stateFig4" [(ngModel)]="stateFig4" [disabled]="absentFig4">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig4" id="locatedFig4" [(ngModel)]="locatedFig4" [disabled]="absentFig4"></td>
+          </tr>
+
+          <tr>
+            <td>5) <input type="checkbox" name="absentFig5" id="absentFig5" [(ngModel)]="absentFig5"></td>
+            <td>
+              <select name="stateFig5" id="stateFig5" [(ngModel)]="stateFig5" [disabled]="absentFig5">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig5" id="locatedFig5" [(ngModel)]="locatedFig5" [disabled]="absentFig5"></td>
+          </tr>
+
+          <tr>
+            <td>6) <input type="checkbox" name="absentFig6" id="absentFig6" [(ngModel)]="absentFig6"></td>
+            <td>
+              <select name="stateFig6" id="stateFig6" [(ngModel)]="stateFig6" [disabled]="absentFig6">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig6" id="locatedFig6" [(ngModel)]="locatedFig6" [disabled]="absentFig6"></td>
+          </tr>
+
+          <tr>
+            <td>7) <input type="checkbox" name="absentFig7" id="absentFig7" [(ngModel)]="absentFig7"></td>
+            <td>
+              <select name="stateFig7" id="stateFig7" [(ngModel)]="stateFig7" [disabled]="absentFig7">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig7" id="locatedFig7" [(ngModel)]="locatedFig7" [disabled]="absentFig7"></td>
+          </tr>
+
+          <tr>
+            <td>8) <input type="checkbox" name="absentFig8" id="absentFig8" [(ngModel)]="absentFig8"></td>
+            <td>
+              <select name="stateFig8" id="stateFig8" [(ngModel)]="stateFig8" [disabled]="absentFig8">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig8" id="locatedFig8" [(ngModel)]="locatedFig8" [disabled]="absentFig8"></td>
+          </tr>
+
+          <tr>
+            <td>9) <input type="checkbox" name="absentFig9" id="absentFig9" [(ngModel)]="absentFig9"></td>
+            <td>
+              <select name="stateFig9" id="stateFig9" [(ngModel)]="stateFig9" [disabled]="absentFig9">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig9" id="locatedFig9" [(ngModel)]="locatedFig9" [disabled]="absentFig9"></td>
+          </tr>
+
+          <tr>
+            <td>10) <input type="checkbox" name="absentFig10" id="absentFig10" [(ngModel)]="absentFig10"></td>
+            <td>
+              <select name="stateFig10" id="stateFig10" [(ngModel)]="stateFig10" [disabled]="absentFig10">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig10" id="locatedFig10" [(ngModel)]="locatedFig10" [disabled]="absentFig10"></td>
+          </tr>
+
+          <tr>
+            <td>11) <input type="checkbox" name="absentFig11" id="absentFig11" [(ngModel)]="absentFig11"></td>
+            <td>
+              <select name="stateFig11" id="stateFig11" [(ngModel)]="stateFig11" [disabled]="absentFig11">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig11" id="locatedFig11" [(ngModel)]="locatedFig11" [disabled]="absentFig11"></td>
+          </tr>
+
+          <tr>
+            <td>12) <input type="checkbox" name="absentFig12" id="absentFig12" [(ngModel)]="absentFig12"></td>
+            <td>
+              <select name="stateFig12" id="stateFig12" [(ngModel)]="stateFig12" [disabled]="absentFig12">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig12" id="locatedFig12" [(ngModel)]="locatedFig12" [disabled]="absentFig12"></td>
+          </tr>
+
+          <tr>
+            <td>13) <input type="checkbox" name="absentFig13" id="absentFig13" [(ngModel)]="absentFig13"></td>
+            <td>
+              <select name="stateFig13" id="stateFig13" [(ngModel)]="stateFig13" [disabled]="absentFig13">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig13" id="locatedFig13" [(ngModel)]="locatedFig13" [disabled]="absentFig13"></td>
+          </tr>
+
+          <tr>
+            <td>14) <input type="checkbox" name="absentFig14" id="absentFig14" [(ngModel)]="absentFig14"></td>
+            <td>
+              <select name="stateFig14" id="stateFig14" [(ngModel)]="stateFig14" [disabled]="absentFig14">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig14" id="locatedFig14" [(ngModel)]="locatedFig14" [disabled]="absentFig14"></td>
+          </tr>
+
+          <tr>
+            <td>15) <input type="checkbox" name="absentFig15" id="absentFig15" [(ngModel)]="absentFig15"></td>
+            <td>
+              <select name="stateFig15" id="stateFig15" [(ngModel)]="stateFig15" [disabled]="absentFig15">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig15" id="locatedFig15" [(ngModel)]="locatedFig15" [disabled]="absentFig15"></td>
+          </tr>
+
+          <tr>
+            <td>16) <input type="checkbox" name="absentFig16" id="absentFig16" [(ngModel)]="absentFig16"></td>
+            <td>
+              <select name="stateFig16" id="stateFig16" [(ngModel)]="stateFig16" [disabled]="absentFig16">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig16" id="locatedFig16" [(ngModel)]="locatedFig16" [disabled]="absentFig16"></td>
+          </tr>
+
+          <tr>
+            <td>17) <input type="checkbox" name="absentFig17" id="absentFig17" [(ngModel)]="absentFig17"></td>
+            <td>
+              <select name="stateFig17" id="stateFig17" [(ngModel)]="stateFig17" [disabled]="absentFig17">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig17" id="locatedFig17" [(ngModel)]="locatedFig17" [disabled]="absentFig17"></td>
+          </tr>
+
+          <tr>
+            <td>18) <input type="checkbox" name="absentFig18" id="absentFig18" [(ngModel)]="absentFig18"></td>
+            <td>
+              <select name="stateFig18" id="stateFig18" [(ngModel)]="stateFig18" [disabled]="absentFig18">
+                <option value="correcta">Correcta</option>
+                <option value="incorrecta">Deformada o Incorrecta</option>
+              </select>
+            </td>
+            <td><input type="checkbox" name="locatedFig18" id="locatedFig18" [(ngModel)]="locatedFig18" [disabled]="absentFig18"></td>
+          </tr>
+        </table>
+        -->
+
+        <br>
+        <button mat-button type="submit" (click)="save()">Guardar</button>
+      </form>
+    </div>
+
+    <br>
   </div>
-
   <br>
 </div>

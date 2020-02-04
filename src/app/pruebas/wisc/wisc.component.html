@@ -1,27 +1,27 @@
 <div>
-  <div *ngIf="estado==='edad'">
-    <p>Inserte la fecha de nacimiento del paciente</p>
-    <input type="date" [(ngModel)]="fechaNacimiento" /> <br/>
-    <button (click)="CalcularEdad()">Siguiente</button> <br/>
-  </div>
+  <app-start-test name='WISC' 
+  *ngIf="estado==='confirmacion'"
+  (messageEvent)="estado = 'aplicacion'"
+  ></app-start-test>
 
-  <div *ngIf="estado==='subpruebas'">
-    <br>    
-    <button routerLink="/bloques">Cubos</button>
-    <button routerLink="/semejanzas">Semejanzas</button>
-    <button routerLink="/digitos">Digitos</button>
-    <button >Dibujos</button>
-    <button routerLink="/claveNumeros">Clave de Numeros</button>
-    <button routerLink="/vocabulario">Vocabulario</button>
-    <button routerLink="/letrasNumeros">Letras y Numeros</button>
-    <button routerLink="/matrices">Matrices</button>
-    <button routerLink="/comprension">Comprension</button>
-    <button routerLink="/busquedaSimbolos">Busqueda de Simbolos</button>
-    <button routerLink="/figurasIncompletas">Figuras Incompletas</button>
-    <button >Registros</button>
-    <button routerLink="/informacion">Informacion</button>
-    <button routerLink="/aritmetica">Aritmetica</button>
-    <button>Pistas</button>
+
+  <div id='iniciowais' *ngIf="estado==='aplicacion'">
+    <h1>WISC</h1> <br/>
+    <p>Estas son las subpruebas disponibles para aplicar al paciente, cliquea sobre una para empezar</p>
+    <p>Recuerda que debes aplicar al menos 10 subpruebas</p>
+    <br/>
+
+    <div class="subprueba-container">
+      <div *ngFor="let text of texts; let i = index">
+      <app-card-button type='button' message={{text}} 
+      (messageEvent)="cancel(link[i])"></app-card-button>     
+      </div>
+    </div>
+    <br/>
+    <br/>
+
+    <app-card-button *ngIf="estado==='confirmacion'" type='button' message="Empezar" (messageEvent)="cancel('/')"></app-card-button> 
+
   </div>
 </div>
 

@@ -9,14 +9,16 @@ export class CancelacionComponent implements OnInit {
 
   cronometro:number=45
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado 
+  estado:String = 'instruccion';// Esta variable me dice en que estado 
 
   puntuacion:number=0;
 
   activo:boolean=false;
 
   pruebas:number=0;
-  
+     
+  time:boolean = false
+
   interval:any;
 
   constructor() { }
@@ -34,11 +36,7 @@ export class CancelacionComponent implements OnInit {
       clearInterval(this.interval);
       this.interval = setInterval(() => {
         if(this.cronometro!==0) this.cronometro--;
-        else{
-          this.cronometro=45;
-          if(this.pruebas===2)this.estado='resultados'
-          else this.estado='test'
-        }
+        else this.time=true
       },time)
     }
 
@@ -47,6 +45,7 @@ export class CancelacionComponent implements OnInit {
     this.cronometro=45;
     this.estado='resul';
     this.activo=false;
+    this.time=false;
   }
 
   finTest(){
