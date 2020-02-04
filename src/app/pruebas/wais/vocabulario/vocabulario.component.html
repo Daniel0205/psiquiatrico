@@ -2,8 +2,19 @@
 
   <div *ngIf="estado==='instrucciones'">
     <br/>
-    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
-    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+    <h1>Vocabulario</h1>
+    <b>Intrucciones generales:</b>
+    <p>Para los items del uno al tres la tarea del paciente consiste en nombrar una serie de imagenes presentadas</p>
+    <p>Para el resto de los items la tarea del paciente consiste en definir oralmente una serie de palabras que el examinador lee en voz alta</p>
+    <p>Los items se presentan de forma verbal</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar el botón que corresponda con la calificacion que desea dar al item </p>
+    <p>Recuerde, debe escribir de manera literal la respuesta dada por el paciente en el espacio disponible</p>
+    <li>0 : Una respuesta verbal que no muestra un conocimiento real de la palabra</li>
+    <li>1 : En general se trata de respuestas correctas pero con contenido escaso o pobre</li>
+    <li>2 : La respuesta refleja una buena comprensión de la palabra</li>
+    <br/>
     
     <app-card-button
             type='button'
@@ -13,13 +24,17 @@
   </div>
 
   <div *ngIf="estado==='seleccion'">
-    <p>En que estimulo desea iniciar la prueba? </p>
+    <br/>
+    <h1>Vocabulario</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
     <app-card-button
             type='button'
             message="Estimulo 1"
             (messageEvent)="imagenInit(1)"
             style="margin: 5px;"
     ></app-card-button>
+    <p>Pacientes de edad 16-89:</p>
     <app-card-button
             type='button'
             message="Estimulo 5"
@@ -58,22 +73,10 @@
     ></app-card-button>
   </div>
 
-  <div *ngIf="estado==='terminado'">
-      <h2>Terminaste la subprueba de vocabulario</h2>
-      <h4>Tu resultado es: {{getResultado()}}</h4>
-      <app-card-button
-                type='button'
-                message="Revisión de resultados"
-                (messageEvent)="aRevisar()"
-                style="margin: 5px;"
-    ></app-card-button>
-        <app-card-button
-                type='button'
-                message="Aceptar"
-                (messageEvent)="aceptar()" 
-                style="margin: 5px;"
-        ></app-card-button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Vocabulario"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'">
     <h3>El puntaje por cada Item fue: </h3>

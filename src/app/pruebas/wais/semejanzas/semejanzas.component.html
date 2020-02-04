@@ -1,9 +1,20 @@
 <div id="semejanzas-container">
 
   <div *ngIf="estado==='instrucciones'">
-    <br/>
-    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
-    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
+        <br/>
+        <h1>Semejanzas</h1>
+        <b>Intrucciones generales:</b>
+        <p>Se presentarán dos palabras que representan objetos o conceptos comunes</p>
+        <p>La tarea del paciente es determinar en que se parecen esos objetos o conceptos</p>
+        <p>Los items se presentan de forma verbal</p>
+        <br/>
+        <b>Intrucciones de calificación:</b>
+        <p>Para calificar se debe presionar el botón que corresponda con la calificacion que desea dar al item </p>
+        <p>Recuerde, debe escribir de manera literal la respuesta dada por el paciente en el espacio disponible</p>
+        <li>0 : Cualquier clasificación general que es poco pertinente y que define con poca precisión ambos elementos</li>
+        <li>1 : Cualquier propiedad común que supone una semejanza secundaria o menos pertinente</li>
+        <li>2 : Cualquier clasificación general pertinente y que define con precisión ambos elementos</li>
+        <br/>
     
     <app-card-button
             type='button'
@@ -13,19 +24,23 @@
   </div>
 
   <div *ngIf="estado==='seleccion'">
-    <p>En que estimulo desea iniciar la prueba? </p>
-    <app-card-button
-            type='button'
-            message="Item 1"
-            (messageEvent)="selectInit(1)"
-            style="margin: 5px;"
-    ></app-card-button>
-    <app-card-button
-            type='button'
-            message="Item 4"
-            (messageEvent)="selectInit(4)"
-            style="margin: 5px;"
-    ></app-card-button>
+        <br/>
+        <h1>Semejanzas</h1>
+        <p>¿En que estimulo desea iniciar la prueba? </p>
+        <p>Pacientes con sospechas de discapacidad intelectual:</p>
+        <app-card-button
+                type='button'
+                message="Item 1"
+                (messageEvent)="selectInit(1)"
+                style="margin: 5px;"
+        ></app-card-button>
+        <p>Pacientes de edad 16-89:</p>
+        <app-card-button
+                type='button'
+                message="Item 4"
+                (messageEvent)="selectInit(4)"
+                style="margin: 5px;"
+        ></app-card-button>
     
   </div>
 
@@ -63,22 +78,10 @@
     ></app-card-button>
   </div>
 
-  <div *ngIf="estado==='terminado'" style="text-align:center">
-      <h2>Terminaste la subprueba de semejanzas</h2>
-      <h4>Tu resultado es: {{getResultado()}}</h4>
-        <app-card-button
-                type='button'
-                message="Revisión de resultados"
-                (messageEvent)="aRevisar()"
-                style="margin: 5px;"
-    ></app-card-button>
-        <app-card-button
-                type='button'
-                message="Aceptar"
-                (messageEvent)="aceptar()" 
-                style="margin: 5px;"
-        ></app-card-button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Semejanzas"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>El puntaje por cada Item fue: </h3>

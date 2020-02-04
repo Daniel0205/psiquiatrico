@@ -38,6 +38,8 @@ export class BloquesComponent implements OnInit {
 
   estado:String = 'instrucciones';// Esta variable me dice en que estado 
 
+  alert:Boolean = false;
+
   estimulos:String[] = ["01.png","02.png","03.png","04.png","05.png","06.png","07.png","08.png",
                         "09.png","10.png","11.png","12.png","13.png","14.png","15.png",];
   resultados:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -57,7 +59,7 @@ export class BloquesComponent implements OnInit {
   interval:any;
 
   constructor(private cdr: ChangeDetectorRef,private router: Router) { }
-
+ 
   ngOnInit() {
   }
 
@@ -110,6 +112,7 @@ export class BloquesComponent implements OnInit {
         }
       }
 
+      this.alert = false;
       this.startTimer(this.times[this.indexActual]);
 
     }else{
@@ -159,7 +162,7 @@ export class BloquesComponent implements OnInit {
   //Timer: En caso de que la imagen pase por que se acabo el tiempo se dará una calificación de 0 al item
   startTimer(time:number) {
     this.interval = setInterval(() => {
-      this.cambiarPuntuacion(0);
+      this.alert = true;
     },time)
   }
 

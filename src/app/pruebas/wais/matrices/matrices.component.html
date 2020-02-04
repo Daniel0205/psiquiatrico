@@ -2,9 +2,16 @@
 
   <div *ngIf="estado==='instrucciones'">
     <br/>
-    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
-    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
-    
+    <h1>Matrices</h1>
+    <b>Intrucciones generales:</b>
+    <p>Se presentarán una matriz o una serie incompleta al paciente</p>
+    <p>La tarea es escoger, entre cinco opciones, la que mejor complete la matriz o la serie</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar en el teclado el número correspondiente a la respuesta dada por el paciente </p>
+    <p>Nuestro sistema se encargará de asignar la puntuación correspondiente</p>
+    <br/>
+
     <app-card-button
             type='button'
             message="Iniciar Subprueba"
@@ -13,13 +20,17 @@
   </div>
   
   <div *ngIf="estado==='seleccion'">
-    <p>En que estimulo desea iniciar la prueba? </p>
+    <br/>
+    <h1>Matrices</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
     <app-card-button
             type='button'
             message="Estimulo 1"
             (messageEvent)="imagenInit(2)"
             style="margin: 5px;"
     ></app-card-button>
+    <p>Pacientes de edad 16-89:</p>
     <app-card-button
             type='button'
             message="Estimulo 4"
@@ -32,22 +43,10 @@
     <img [src]="estimuloActual" />
   </div>
 
-  <div *ngIf="estado==='terminado'" style="text-align:center">
-      <h2>Terminaste la subprueba de matrices</h2>
-      <h4>Tu resultado es: {{getResultado()}}</h4>
-      <app-card-button
-            type='button'
-            message="Revisión de resultados"
-            (messageEvent)="aRevisar()"
-            style="margin: 5px;"
-    ></app-card-button>
-      <app-card-button
-            type='button'
-            message="Aceptar"
-            (messageEvent)="aceptar()"
-            style="margin: 5px;"
-      ></app-card-button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Matrices"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>El puntaje por cada Item fue: </h3>

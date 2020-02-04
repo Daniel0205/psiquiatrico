@@ -1,10 +1,18 @@
 <div id="digitos-container">
 
   <div *ngIf="estado==='instrucciones'">
-    <br/>
-    <p>Aqui deben aparecer las instrucciones que debe seguir para calificar la prueba de cubos</p>
-    <p>Recuerde que se inicia en el estimulo 1 en caso de sospechar una discapacidad intelectual</p> <br/>
-    
+        <br/>
+        <h1>Dígitos</h1>
+        <b>Intrucciones generales:</b>
+        <p>Se realizarán tres puebas que consisten en las que el profesional dictara una lista de números </p>
+        <p>y la tarea del paciente es repetir, repetir en orden inverso y repetir organizando los numeros</p>
+        <p>Los items se presentan de forma verbal</p>
+        <br/>
+        <b>Intrucciones de calificacion:</b>
+        <p>Para calificar debe escribir los números que de el paciente en el espacio asignado y luego oprimir el botón "Siguiente"</p>
+        <p>Nuestro sistema se encargará de asignar la puntuación correspondiente</p>
+        <br/>
+
     <app-card-button
             type='button'
             message="Iniciar Subprueba"
@@ -13,14 +21,13 @@
   </div>
 
   <div *ngIf="estado==='selectDirecto' || estado==='selectInverso' || estado==='selectCreciente'">
-    <br/>
-    <br/>
-    <app-card-button
-            type='button'
-            message="Iniciar Digitos en Orden "
-            (messageEvent)="iniciar()"
-            style="margin: 5px;"
-    ></app-card-button>
+        <br/>
+        <app-card-button
+                type='button'
+                message="Iniciar Digitos en Orden "
+                (messageEvent)="iniciar()"
+                style="margin: 5px;"
+        ></app-card-button>
   </div>
 
   <div *ngIf="estado==='directo'" style="text-align:center; padding-top:5%">
@@ -56,22 +63,10 @@
     ></app-card-button>
   </div>
 
-  <div *ngIf="estado==='terminado'" style="text-align:center">
-      <h2>Terminaste la subprueba de dígitos</h2>
-      <h4>Tu resultado es: {{getResultado()}}</h4>
-      <app-card-button
-            type='button'
-            message="Revisión de resultados"
-            (messageEvent)="aRevisar()"
-            style="margin: 5px;"
-    ></app-card-button>
-        <app-card-button
-            type='button'
-            message="Aceptar"
-            (messageEvent)="aceptar()"
-            style="margin: 5px;"
-      ></app-card-button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+        nameTest="Digitos"
+        [result]="getResultado()"
+        (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">
     <h3>Revision pendiente </h3>
