@@ -79,8 +79,8 @@ export class AritmeticaComponent implements OnInit {
   verificarSiguienteEstimulo(){
     if(this.terminacion < 3 && this.indexActual < 22){ // Verifica que no se haya cumplido la condicion de termino
 
-      console.log("Estado: ", this.estado);
-      console.log("index Act: ", this.indexActual);
+      //console.log("Estado: ", this.estado);
+      //console.log("index Act: ", this.indexActual);
 
       if(this.indexActual>0 && this.indexActual<6){ //Cambia el estado actual para no mostrar o mostrar la img cuando sea necesario
         this.estado = 'aplicacionImg';
