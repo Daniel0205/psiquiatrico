@@ -62,11 +62,11 @@ export class AritmeticaComponent implements OnInit {
   imagenInit(num:number){
     this.indexInicial = num
 
-    if(this.indexInicial < 5){
+    /*if(this.indexInicial < 5){
       this.estimuloInicial = this.estimulos[this.indexInicial];
     }else{
       this.estimuloInicial = this.estimulos[0];
-    }
+    }*/
 
     this.indexActual = 0;
     this.estimuloActual = "assets/estimulos/aritmetica/" + this.estimulos[this.indexActual];
@@ -79,7 +79,10 @@ export class AritmeticaComponent implements OnInit {
   verificarSiguienteEstimulo(){
     if(this.terminacion < 3 && this.indexActual < 22){ // Verifica que no se haya cumplido la condicion de termino
 
-      if(this.indexActual>0 && this.indexActual<5){ //Cambia el estado actual para no mostrar o mostrar la img cuando sea necesario
+      //console.log("Estado: ", this.estado);
+      //console.log("index Act: ", this.indexActual);
+
+      if(this.indexActual>0 && this.indexActual<6){ //Cambia el estado actual para no mostrar o mostrar la img cuando sea necesario
         this.estado = 'aplicacionImg';
       }else if(this.indexActual>=5){
         this.estado = 'aplicacion';
@@ -96,7 +99,7 @@ export class AritmeticaComponent implements OnInit {
         this.consignaActual = this.consigna[this.indexActual];
       
       }else if(this.indexInicial===1){ // Si el indice inicial es 1 no se compara para verificar el retorno
-        if(this.indexActual<5){
+        if(this.indexActual<6){
           this.estimuloActual = "assets/estimulos/aritmetica/" + this.estimulos[this.indexActual];
         }
         this.indexActual++;
@@ -120,14 +123,20 @@ export class AritmeticaComponent implements OnInit {
             this.retorno = false;
             this.indexActual = this.flagRe + 1;
             if(this.indexActual<6){
+              this.estado = 'aplicacionImg';
               this.estimuloActual = "assets/estimulos/aritmetica/" + this.estimulos[this.indexActual];
+            }else{
+              this.estado = 'aplicacion';
             }
             this.consignaActual = this.consigna[this.indexActual];
             
           }else{
             this.indexActual--;
             if(this.indexActual<6){
-              this.estimuloActual = "assets/estimulos/aritmetica/" + this.estimulos[this.indexActual];
+              this.estado = 'aplicacionImg';
+              this.estimuloActual = "assets/estimulos/aritmetica/" + this.estimulos[this.indexActual-1];
+            }else{
+              this.estado = 'aplicacion';
             }
             this.consignaActual = this.consigna[this.indexActual];
           }
