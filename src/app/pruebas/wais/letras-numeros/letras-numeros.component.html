@@ -1,0 +1,70 @@
+<div id='letrasNumeros'>
+
+
+  <div id='inicio' *ngIf="estado==='inicio'">
+    <h1>Letras y Numeros</h1>
+    <b>Intrucciones generales:</b>
+    <p>A continuacion se enseñaran una serie de numeros y letras</p>
+    <p>el doctor debera decirle al paciente cada serie</p>
+    <p>despues de esto el paciente debera repetir en orden la serie</p>
+    <p>en el orden no importa si son primero las letras o los numeros</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar las teclas 1 o 2 deacuerdo a la respuesta del paciente </p>
+    <li>0 : En caso de que no responda o de una respuesta incorrecta</li>
+    <li>0 : En caso de que responda depues del tiempo (30 segundos)</li>
+    <li>1 : En caso de que la respuesta sea completamente correcta</li>
+    <p>Las respuestas correctas se mostraran debajo de la serie de numeros</p>
+    <br/>
+    <app-card-button  type='button' message="Empezar subprueba" 
+    (messageEvent)="startTest()"></app-card-button> 
+  </div>
+  
+  <div id='inicio' *ngIf="estado==='test'">
+      <h1>Item #{{itemNumber+1}}</h1>
+      <br/>
+      <h2>Intento:</h2>
+      <h3> <li>{{items[itemNumber][intento].join('-')}}</li></h3>
+      <br/>
+
+      <h2>Respuestas Correcta</h2>
+      <h3><li> {{respuesta[itemNumber][intento].sort().join('-') }}</li></h3>
+
+      <h3><li *ngIf="itemNumber!==0 && itemNumber!==1"> {{respuestas[itemNumber][intento].join('-') }}</li></h3>
+
+      <div *ngIf="time">
+        <br/><br/>
+        <h2><u><I>¡TIEMPO TERMINADO!</I></u></h2>
+      </div>
+  </div>
+
+  <app-results  *ngIf="estado==='resultados'"
+  nameTest="Balanzas"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
+
+  
+
+  <div *ngIf="estado==='revision'" style="text-align:center">
+    <h3>El puntaje por cada Item fue: </h3>
+    <form id="myForm">
+      <div *ngFor="let resultado of resultados; let i=index" >
+        <div>
+          <h2 *ngIf="i%3===0">Item {{(i/3)+1}}</h2>
+          <label for="i">Intento {{i%3+1}}:</label>
+          <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
+        </div>
+      </div>
+
+      <div id='buttons'>
+      <app-card-button   type='button' message="Regresar"
+      (messageEvent)="regresarAct()"></app-card-button> 
+
+      <app-card-button type='button' message="Actualizar Datos"
+      (messageEvent)="actualizarResultados()"></app-card-button>  
+      </div>
+    </form>
+  </div>
+
+  
+</div>

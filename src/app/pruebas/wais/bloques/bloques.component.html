@@ -1,0 +1,85 @@
+<div id="cubos-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <h1>Cubos</h1>
+    <b>Intrucciones generales:</b>
+    <p>A continuacion se enseñaran una serie de imagenes las cuales deberán ser reproducidas por el paciente</p> 
+    <p>disponiendo de un tiempo limite para hacerlo</p>
+    <br/>
+    <b>Intrucciones de calificación:</b>
+    <p>Para calificar se debe presionar las teclas numericas deacuerdo a la respuesta del paciente de la siguiente manera </p>
+    <p>Del item 1 al 4</p>
+    <li>0 : En caso de que no realize la construcción correcta o si excede el limite de tiempo</li>
+    <li>1 : En caso de que realize la construcción correcta en el segundo intento</li>
+    <li>2 : En caso de que realize la construcción correcta en el primer intento dentro del tiempo establecido</li>
+    <p>Del item 5 al 8</p>
+    <li>0 : En caso de que no realize la construcción correcta o si excede el limite de tiempo</li>
+    <li>4 : En caso de que realize la construcción correcta dentro del tiempo establecido</li>
+    <p>Del item 9 al 14</p>
+    <li>0 : En caso de que no realize la construcción correcta o si excede el limite de tiempo</li>
+    <li>4 : En caso de que realize la construcción correcta con poco tiempo de sobra dentro del tiempo establecido</li>
+    <li>5 : En caso de que realize la construcción correcta con algun tiempo de sobra dentro del tiempo establecido</li>
+    <li>6 : En caso de que realize la construcción correcta con algun tiempo de sobra dentro del tiempo establecido</li>
+    <li>7 : En caso de que realize la construcción correcta con mucho tiempo de sobra del tiempo establecido</li>
+    
+    <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
+
+  <div *ngIf="estado==='seleccion'">
+    <br/>
+    <h1>Cubos</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 1"
+            (messageEvent)="imagenInit(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 16-89:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 4"
+            (messageEvent)="imagenInit(5)"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
+
+    <img [src]="estimuloActual" />
+    <div *ngIf="alert">
+      <br/><br/>
+      <h2><u><I>¡TIEMPO TERMINADO!</I></u></h2>
+    </div>
+
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Cubos"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
+
+  <div *ngIf="estado==='revision'" style="text-align:center">
+    <h3>El puntaje por cada Item fue: </h3>
+    <form id="myForm">
+      <div *ngFor="let resultado of resultados; let i=index" >
+        <div *ngIf="i!==0">
+          <label for="i">Item {{i}}:</label>
+          <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
+        </div>
+      </div>
+      <button  class="botongenerico" mat-raised-button (click)="regresarAct()" >Regresar</button>
+      <button  class="botongenerico" mat-raised-button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+      <button  class="botongenerico" mat-raised-button (click)="aceptar()" >Aceptar</button>
+    </form>
+  </div>
+</div>

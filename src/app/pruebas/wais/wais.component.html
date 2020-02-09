@@ -1,0 +1,27 @@
+<div id="wais-content">
+
+  <app-start-test name='WAIS IV' 
+  *ngIf="estado==='confirmacion'"
+  (messageEvent)="change()"
+  ></app-start-test>
+
+  <div id='iniciowais' *ngIf="estado==='aplicacion'">
+    <h1>WAIS</h1> <br/>
+    <p>Estas son las subpruebas disponibles para aplicar al paciente, cliquea sobre una para empezar</p>
+    <p>Recuerda que debes aplicar al menos 10 subpruebas</p>
+    <br/>
+
+    <div class="subprueba-container">
+      <div *ngFor="let text of texts; let i = index">
+      <app-card-button type='button' message={{text}} 
+      (messageEvent)="cancel(link[i])"></app-card-button>     
+      </div>
+    </div>
+    <br/>
+    <br/>
+
+    <app-card-button *ngIf="estado==='confirmacion'" type='button' message="Empezar" (messageEvent)="cancel('/')"></app-card-button> 
+
+  </div>
+  
+</div>

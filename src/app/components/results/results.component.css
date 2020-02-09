@@ -1,0 +1,12 @@
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
+}
+
+#container{
+    text-align:center;
+}

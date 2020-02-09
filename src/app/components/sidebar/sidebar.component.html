@@ -1,0 +1,32 @@
+<app-header (myEvent)="snav.toggle()" ></app-header >
+    
+
+    <mat-sidenav-container class="example-sidenav-container" >
+    
+        <mat-sidenav class="sidebar" #snav mode="over" fixedTopGap="56">
+            <mat-nav-list>
+                <a class="sidebarElement" mat-list-item routerLink="." style="color:white;">
+                    <mat-icon class="iconos">supervisor_account</mat-icon>
+                    Paciente
+                </a>
+                <a class="sidebarElement" mat-list-item routerLink=".">   
+                    <mat-icon class="iconos">description</mat-icon> 
+                    Informes
+                </a>
+                <a class="sidebarElement" mat-list-item routerLink=".">
+                    <mat-icon class="iconos">gesture</mat-icon>
+                    Pruebas
+                </a>
+                <a class="sidebarElement" mat-list-item routerLink=".">
+                    <mat-icon class="iconos">person_outline</mat-icon>
+                    Mi Perfil
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+    
+        <mat-sidenav-content>
+            <app-body *ngIf="router.url === '/'; else elseBlock" ></app-body>
+            <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+            
+        </mat-sidenav-content>
+      </mat-sidenav-container>

@@ -1,0 +1,24 @@
+#category-card{
+    background-color: #017F8D;
+    border-radius: 3%;
+    text-align: center;   
+}
+
+
+
+.subprueba-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-left: 10%;
+    padding-right: 10%;
+    grid-row-gap: 10%;
+    grid-column-gap: 5%
+}
+
+app-card-button{
+    width: 100%;
+}
+
+#iniciowais{
+    text-align: center;
+}

@@ -1,0 +1,81 @@
+<div id="test" >
+   
+  <div id= "inicio" *ngIf="estado==='instruccion'">
+    <h1>Aritmetica</h1>
+    <b>Intrucciones generales:</b>
+    <p>A continuacion se enseñaran unas balanzas con dos platillos</p>
+    <p>el sujeto debe seleccionar entre cinco opciones</p>
+    <p>el objeto con el cual equilibrar la balanza</p>
+    <br/>
+    <b>Intrucciones para registrar la respuesta de paciente:</b>
+    <br/>
+    <br/>
+    <li>0 : En caso de que no responda </li>
+    <li>1-2-3-4: para indicar la respuesta del paciente</li>
+    <p>El sistema calificara automaticamente la respuesta</p>
+    <br/>
+    <app-card-button type='button' message="Iniciar subprueba"
+      (messageEvent)="estado='seleccion'"></app-card-button>  
+
+  </div>
+
+
+  <div *ngIf="estado==='seleccion'">
+    <h1>Aritmetica</h1>
+    <p>En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Estimulo 1" 
+    (messageEvent)="imagenInit(1)"></app-card-button> 
+    <br/><br/>
+    <p>Pacientes de edad 16-89:</p>
+    <app-card-button type='button' message="Estimulo 6" 
+    (messageEvent)="imagenInit(6)"></app-card-button> 
+  </div>
+
+  <div *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">
+    <h1>{{consignaActual}}</h1>
+  </div>
+
+  <div *ngIf="estado==='aplicacionImg'">
+    <img [src]="estimuloActual" />
+  </div>
+
+  <div id="panel" *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">
+    <input type="text" required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+    <app-card-button type='button' message="Siguiente" 
+    (messageEvent)="verificarResultado()"></app-card-button> 
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="aritmetica"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
+  
+  <h2 *ngIf="estado==='revision'">El puntaje por cada Item fue: </h2>
+
+  <div  *ngIf="estado==='revision'" >
+      
+      <div id="resultados" >
+        <label for="item">Item No.</label>
+        <label for="puntuacion">Puntuación</label>
+        <label for="respuestaDada">Respuesta dada:</label>
+        <label for="respuesta">Respuesta correcta:</label>
+      </div>
+      
+      <div id="resultados"  *ngFor="let resultado of resultados  | slice:1; let i=index" >
+            <label for="i">{{i}}:</label>
+            <input type="text" id="{{i}}" value={{resultado}}/>
+            <input readonly type="text" value={{respuestasDadas[i]}}/>
+            <input readonly type="text" value={{respuestas[i]}}/>
+      </div>
+   
+  </div>
+
+  <div id='buttons' *ngIf="estado==='revision'">
+      <app-card-button type='button' message="Regresar" 
+      (messageEvent)="regresarAct()"></app-card-button> 
+      <app-card-button type='button' message="Actualizar Datos" 
+      (messageEvent)="actualizarResultados()"></app-card-button> 
+    </div>
+    
+</div>

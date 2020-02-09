@@ -1,0 +1,24 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+
+  <button mat-icon-button (click)="openSide()"><mat-icon>menu</mat-icon></button>
+
+    <img
+      width="40"
+      alt="Angular Logo"
+      src="./assets/Logo/logo72x83.png"/>
+    <h2>Psique</h2>
+
+    <div class="spacer"></div>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" class="headerIcono">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  
+  </div>

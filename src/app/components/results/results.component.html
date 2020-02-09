@@ -1,0 +1,18 @@
+<div id = "container" >
+    <h1>Terminaste la subprueba de {{nameTest}}</h1>
+    <h2>Tu resultado es: {{result}}</h2>
+    
+    <div id='buttons' *ngIf="nameTest!=='Cancelacion'">
+      <app-card-button
+      type='button' message="Revisión de resultados"
+      (messageEvent)="reviewFun()"></app-card-button> 
+      <app-card-button type='button' message="Terminar y guardar"
+      (messageEvent)="finishFun()"></app-card-button>   
+    </div>
+
+    
+    <app-card-button *ngIf="nameTest==='Cancelacion'"
+     type='button' message="Terminar y guardar"
+      (messageEvent)="finishFun()"></app-card-button>  
+
+</div>

@@ -1,0 +1,27 @@
+<div id="bodypage" >
+    <div id="search">
+        <mat-icon  *ngIf="state!=='category'" 
+        (click)="changeState('category')" >keyboard_backspace</mat-icon>
+
+        <form class="search-form">
+            <mat-form-field>
+                <mat-icon matPrefix>search</mat-icon>
+                <input type="search" matInput placeholder="Buscar Prueba">
+            </mat-form-field>
+        </form>
+    </div>
+    
+    <div *ngIf="state==='category'" >
+        <app-category 
+        [names]="names" [sources]="sources"
+        (messageEvent)="changeState($event)"
+        ></app-category>
+    </div>
+
+    <div  *ngIf="state!=='category'" >
+        <app-category [sources]="[]"
+        [names]="names" 
+        ></app-category>
+    </div>
+
+</div> 
