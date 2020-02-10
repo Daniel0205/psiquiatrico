@@ -1,17 +1,33 @@
 <div style="text-align:center;">
 
   <div *ngIf="estado==='aplicacion'">
+    <h1>Clave de números</h1>
+    <b>Intrucciones:</b>
+    <p>Registre la calificacion obtenida por el paciente en la prueba</p>    
     <br>
-    <div>
-      <label>Puntuación del paciente: </label>
-      <input type="number" required id="resultado"  [(ngModel)]="resultado" name="resultado">
+    <div class="form-group">
+      <mat-label>Puntuación del paciente: </mat-label> 
+      <mat-form-field>
+        <input matInput type="number" required id="resultado"  [(ngModel)]="resultado" name="resultado">
+      </mat-form-field>
     </div>
-    <br>
-    <button (click)="MostrarResumen()" ><span class="glyphicon glyphicon-arrow-right"></span></button>
+    <br> 
+    <app-card-button
+      type='button'
+      message="Terminar"
+      (messageEvent)="MostrarResumen()"
+      style="margin: 5px;"
+    ></app-card-button>
   </div>
 
-  <div *ngIf="estado==='terminado'">
+  <!--<div *ngIf="estado==='terminado'">
     <h2>Terminaste la subprueba de Clave de números</h2>
     <h4>Tu resultado es: {{resultado}}</h4>
-  </div>  
+  </div>-->
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Clave de numeros"
+  [result]="getResultado()"
+  ></app-results>
+
 </div>

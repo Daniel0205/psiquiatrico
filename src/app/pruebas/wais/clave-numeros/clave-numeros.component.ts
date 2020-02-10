@@ -16,9 +16,16 @@ export class ClaveNumerosComponent implements OnInit {
   ngOnInit() {
   }
 
-  MostrarResumen(){
-    this.estado = "terminado"
+  validarRespuestas(){
+    if(this.resultado==null){ this.resultado=0}
   }
 
+  MostrarResumen(){
+    this.validarRespuestas()
+    this.estado = "terminado";
+  }
 
+  getResultado():number {
+    return this.resultado;
+  }
 }
