@@ -20,7 +20,7 @@ export class SemejanzasComponent implements OnInit {
                       ["Piano","Tambor"],["Barco","Automóvil"],["Calcetines","Zapatos"],
                       ["Alegria","Miedo"],["Huevo","Semilla"],["Comida","Gasolina"],
                       ["Vapor","Niebla"],["Poema","Estatua"],["Ancla","Valla"],
-                      ["Cudo","Cilindro"],["Música","Marea"],["Sedentario","Nómada"],
+                      ["Cubo","Cilindro"],["Música","Marea"],["Sedentario","Nómada"],
                       ["Amigo","Enemigo"],["Siempre","Nunca"],["Permitir","Prohibir"]];
 
   respuestas:String[] = ["","","","","","","","","","","","","","","","","",""];
@@ -40,6 +40,12 @@ export class SemejanzasComponent implements OnInit {
 
   selectInit(num:number){
     this.indexInicial = num-1;
+
+    if(num===4){
+      this.resultados[0]=2
+      this.resultados[1]=2
+      this.resultados[2]=2
+    }
 
     this.estado = 'ejemplos';
   }

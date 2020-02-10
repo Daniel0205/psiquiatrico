@@ -62,6 +62,12 @@ export class MatricesComponent implements OnInit {
     this.indexActual = 0;
     this.estimuloActual = "assets/estimulos/matrices/" + this.estimulos[this.indexActual];
 
+    if(num===5){
+      this.resultados[2]=1
+      this.resultados[3]=1
+      this.resultados[4]=1
+    }
+
     this.estado = 'aplicacion';
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./digitos.component.scss']
 })
 export class DigitosComponent implements OnInit {
+
+  @HostListener('window:keyup', ['$event'])
 
   estado:String = "instrucciones";
 
@@ -231,4 +233,8 @@ export class DigitosComponent implements OnInit {
   ngOnInit() {
   }
 
+}
+
+export enum KEY_CODE {
+  ENTER_KEY = 13,
 }

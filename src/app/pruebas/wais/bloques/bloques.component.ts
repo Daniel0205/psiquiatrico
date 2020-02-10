@@ -70,6 +70,14 @@ export class BloquesComponent implements OnInit {
     this.indexActual = 0;
     this.estimuloActual = "assets/estimulos/cubos/" + this.estimulos[this.indexActual];
 
+    if(num===5){
+      this.resultados[0]=2
+      this.resultados[1]=2
+      this.resultados[2]=2
+      this.resultados[3]=2
+      this.resultados[4]=2
+    }
+
     this.estado = 'aplicacion';
   }
 

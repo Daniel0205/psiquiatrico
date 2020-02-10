@@ -42,6 +42,13 @@ export class VocabularioComponent implements OnInit {
     this.indexInicial = num-1
     this.estimuloInicial = this.estimulos[this.indexInicial];
 
+    if(num===5){
+      this.resultados[0]=2
+      this.resultados[1]=2
+      this.resultados[2]=2
+      this.resultados[3]=2
+    }
+
     if(this.indexInicial === 0){
 
       this.indexActual = this.indexInicial;
