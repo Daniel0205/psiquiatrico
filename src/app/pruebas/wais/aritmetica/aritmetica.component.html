@@ -3,15 +3,14 @@
   <div id= "inicio" *ngIf="estado==='instruccion'">
     <h1>Aritmetica</h1>
     <b>Intrucciones generales:</b>
-    <p>A continuacion se enseñaran unas balanzas con dos platillos</p>
-    <p>el sujeto debe seleccionar entre cinco opciones</p>
-    <p>el objeto con el cual equilibrar la balanza</p>
+    <p>A continuación se mostrará una serie de imágenes (estimulo 1/retorno) o preguntas (estimulo 6)</p>
+    <p>según sea el caso, las cuales, en el caso de las imágenes deben ser mostradas al paciente para que</p>
+    <p>las visualice, y en el caso de las preguntas deben ser mencionadas al paciente</p>
     <br/>
     <b>Intrucciones para registrar la respuesta de paciente:</b>
     <br/>
     <br/>
-    <li>0 : En caso de que no responda </li>
-    <li>1-2-3-4: para indicar la respuesta del paciente</li>
+    <li>La respuesta dada por el paciente debe ser registrada en la casilla de respuesta</li>
     <p>El sistema calificara automaticamente la respuesta</p>
     <br/>
     <app-card-button type='button' message="Iniciar subprueba"
@@ -38,6 +37,9 @@
 
   <div *ngIf="estado==='aplicacionImg'">
     <img [src]="estimuloActual" />
+    <br>
+    <br>
+    <br>
   </div>
 
   <div id="panel" *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">

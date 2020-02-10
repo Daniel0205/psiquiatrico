@@ -104,6 +104,7 @@ export class AritmeticaComponent implements OnInit {
         }
         this.indexActual++;
         this.consignaActual = this.consigna[this.indexActual];
+        if(this.indexActual>=6){ this.estado = 'aplicacion'; }
   
       }else if(this.indexInicial===6){ // Si el indice inicial es 6 se compara para verificar el retorno
   
@@ -214,6 +215,10 @@ export class AritmeticaComponent implements OnInit {
       this.resultados[j] = +x;
     }
     
+    this.estado = 'terminado';
+  }
+
+  regresarAct(){
     this.estado = 'terminado';
   }
 
