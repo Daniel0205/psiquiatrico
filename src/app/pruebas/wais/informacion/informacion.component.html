@@ -1,64 +1,97 @@
-<div style="text-align:center;">
+<div style="text-align:center;" id="test">
+  <div id= "inicio" *ngIf="estado==='instruccion'">
+    <h1>Información</h1>
+    <b>Intrucciones generales:</b>
+    <p>A continuación se mostrará el enunciado por cada uno de los puntos, ademas</p>
+    <p>Se dispone de cajas de texto que sirven como guia para evaluar la respuesta dada por el paciente.</p>
+    <p>Debajo de las cajas de texto puede haber información en caso de que el paciente de ciertas respuestas</p>
+    <br/>
+    <b>Intrucciones para registrar la respuesta de paciente:</b>
+    <br/>
+    <br/>
+    <li>La respuesta dada por el paciente debe ser registrada en la casilla de respuesta</li>
+    <li>Se debe escoger, teniendo en cuneta la guía, entre 1 y 0 para la puntuación de la respuesta</li>
+    <br/>
+    <app-card-button type='button' message="Iniciar subprueba"
+      (messageEvent)="estado='seleccion'"></app-card-button>    
+  </div>
+
   <div *ngIf="estado==='seleccion'">
+    <h1>Información</h1>
     <p>En que estimulo desea iniciar la prueba? </p>
-    <button (click)="testInit(0)" >Item 1</button>
-    <button (click)="testInit(2)" >Item 3</button>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Item 1"
+    (messageEvent)="testInit(0)"></app-card-button> 
+    <br/><br/>
+    <p>Pacientes de edad 16-89:</p>
+    <app-card-button type='button' message="Item 3" 
+    (messageEvent)="testInit(2)"></app-card-button> 
   </div>
 
-  <div *ngIf="estado==='aplicacion'">
+  <div *ngIf="estado==='aplicacion'"> 
     <h4>{{consignaActual}}</h4>
-  </div>
-
-  <div *ngIf="estado==='aplicacion'">
-    <div class="row">
-      <div class="col-sm-6"><label for="punto1">1 Punto</label></div>
-      <div class="col-sm-6"><label for="punto0">0 Puntos</label></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6"><textarea  readonly cols='85' rows='8'>{{respuestaCorrectaAct}}</textarea></div>
-      <div class="col-sm-6"><textarea readonly cols='85' rows='8'>{{respuestaErroneaAct}}</textarea></div>
-    </div>
     
-      <label for="comentarioA">{{comentarioAct}}</label>
+    <div class="form-group">
+      <div>
+        <mat-label for="punto1">1 Punto</mat-label>
+        <br>
+        <mat-form-field>
+          <textarea matInput cols="500" rows="6" readonly>{{respuestaCorrectaAct}}</textarea> 
+        </mat-form-field>
+      </div>
+      
+      <div>
+        <mat-label for="punto1">0 Punto</mat-label>
+        <br>
+        <mat-form-field>
+          <textarea matInput cols="500" rows="6" readonly>{{respuestaErroneaAct}}</textarea>
+        </mat-form-field> 
+      </div>
+    </div>    
     
+    <div class="form-group">
+      <mat-label for="comentarioA">{{comentarioAct}}</mat-label>
+    </div>
   </div>
 
   <div *ngIf="estado==='aplicacion'">
     <br>
-    <label>Respuesta dada:  </label>
-    <input type="text" required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
-    <div>
-      <div class="row"><label>Puntuación: </label></div>
-      <div>
-        <div>
-          <input type="radio" id="radioPunto0" name="radioPunto0" [(ngModel)]="radioPunto" [value]="defRadioPunto0">
-          <label for="defaultInline1">0</label>
-        </div>      
-        
-        <div>
-          <input type="radio" id="radioPunto1" name="radioPunto1" [(ngModel)]="radioPunto" [value]="defRadioPunto1">
-          <label for="defaultInline2">1</label>
-        </div>
-      </div>
+    <mat-label>Respuesta dada:  </mat-label>
+    <mat-form-field>
+      <input matInput required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+    </mat-form-field>
+    <div class="form-group">
+      <mat-label>Puntuación: </mat-label>
+      <mat-radio-group aria-label="Puntuacion" [(ngModel)]="radioPunto">
+        <mat-radio-button id="radioPunto0" name="radioPunto0" [value]="defRadioPunto0">0 Puntos</mat-radio-button>
+        <mat-radio-button id="radioPunto1" name="radioPunto1" [value]="defRadioPunto1">1 Puntos</mat-radio-button>
+      </mat-radio-group>
     </div>
     <button (click)="verificarResultado()" ><span class="glyphicon glyphicon-arrow-right"></span></button>
   </div>
 
-  <div *ngIf="estado==='terminado'">
-      <h2>Terminaste la subprueba de información</h2>
-      <h4>Tu resultado es: {{getResultado()}}</h4>
-      <button (click)="aRevisar()" >Revisión de resultados</button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+    nameTest="informacion"
+    [result]="getResultado()"
+    (review)="aRevisar()">
+  </app-results>
 
   <div *ngIf="estado==='revision'">
     <h3>El puntaje por cada Item fue: </h3>
     <form id="myForm">
       <div *ngFor="let resultado of resultados; let i=index" >        
-        <label for="i">Item: {{i+1}}:</label>
-        <input type="text" id="{{i}}" value={{resultado}}/>
+        <mat-label for="i">Item: {{i+1}}:</mat-label>
+        <mat-form-field>
+          <input matInput type="number" id="{{i}}" value={{resultado}}/>
+        </mat-form-field>
       </div>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
     </form>
+  </div>
+
+  <div id='buttons' *ngIf="estado==='revision'">
+    <app-card-button type='button' message="Regresar" 
+    (messageEvent)="regresarAct()"></app-card-button> 
+    <app-card-button type='button' message="Actualizar Datos" 
+    (messageEvent)="actualizarResultados()"></app-card-button> 
   </div>
 </div>

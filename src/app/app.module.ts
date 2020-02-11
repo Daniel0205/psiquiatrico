@@ -13,6 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -91,6 +92,7 @@ import { ResultsComponent } from './components/results/results.component';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatRadioModule,
 
   ],
   providers: [],

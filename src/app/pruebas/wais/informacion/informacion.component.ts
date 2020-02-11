@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionComponent implements OnInit {
 
-  estado:String = 'seleccion';// Esta variable me dice en que estado
+  estado:String = 'instruccion';// Esta variable me dice en que estado
   respuestaDada:String; // Variable del input de respuesta
   
   resultados:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -281,6 +281,10 @@ export class InformacionComponent implements OnInit {
 
   aRevisar(){
     this.estado = 'revision';
+  }
+  
+  regresarAct(){
+    this.estado = 'terminado';
   }
 
   actualizarResultados(){
