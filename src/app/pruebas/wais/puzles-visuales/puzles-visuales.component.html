@@ -1,32 +1,76 @@
 <div style="text-align:center;">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <h1>Pluzles Visuales</h1>
+    <b>Intrucciones generales:</b>
+    <p>Se presentará una imagen principal en la parte superior y seis imágenes más debajo de esta.</p>
+    <p>La tarea es escoger, entre las seis opciones, las tres figuras que combinadas forman la figura principal </p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar '1' para indicar una respuesta correcta por el paciente o '0' en caso de que sea incorrecta  </p>
+    <br/>
+
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
   <div *ngIf="estado==='seleccion'">
-    <p>En que estimulo desea iniciar la prueba? </p>
-    <button (click)="imagenInit(2)" >Estimulo 1</button>
-    <button (click)="imagenInit(6)" >Estimulo 5</button>
+    <br/>
+    <h1>Pluzles Visuales</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 1"
+            (messageEvent)="imagenInit(2)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 16-89:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 5"
+            (messageEvent)="imagenInit(6)"
+            style="margin: 5px;"
+    ></app-card-button>
   </div>
 
   <div *ngIf="estado==='aplicacion'">
     <img [src]="estimuloActual"/>    
   </div>
 
-  <div *ngIf="estado==='terminado'">
-    <h2>Terminaste la subprueba de Puzles Visuales</h2>
-    <h4>Tu resultado es: {{getResultado()}}</h4>
-    <button (click)="aRevisar()" >Revisión de resultados</button>
-  </div>
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Pluzles Visuales"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'">
     <h3>El puntaje por cada Item fue: </h3>
     <form id="myForm">
       <div *ngFor="let resultado of resultados; let i=index" >
         <div *ngIf="i>1">
-          <label for="i">Item: {{i-1}}:</label>
-          <input type="text" id="{{i-1}}" value={{resultado}}/>
+          <mat-label for="i">Item: {{i-1}}:</mat-label>
+          <mat-form-field>
+            <input matInput type="text" id="{{i-1}}" value={{resultado}}/>
+          </mat-form-field> 
         </div>
       </div>
       <br>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
+      <app-card-button
+        type='button'
+        message="Regresar"
+        (messageEvent)="regresarAct()"
+        style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+        type='button'
+        message="Actualizar Datos"
+        (messageEvent)="actualizarResultados()"
+        style="margin: 5px;"
+      ></app-card-button>
     </form>
   </div>
 </div>
