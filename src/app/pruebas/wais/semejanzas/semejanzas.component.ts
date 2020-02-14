@@ -32,6 +32,63 @@ export class SemejanzasComponent implements OnInit {
 
   resultados:number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+  respuestas2:String[] = ["Cubiertos/Cubertería\nInstrumentos(utensilios) que sirven para comer\nCosas con las que comes",
+                          "Hortalizas/Verduras/Vegetales",
+                          "Animales/Mamiferos/Cuadrúpedos\nMiembros del reino animal",
+                          "Instrumentos\nInstrumentos musicales (de percusión)\nPara hacer música/Para crear musica",
+                          "Vehículos/Medios de tranporte/Transportes\nAmbos sirven para transportar gente\nMedios para viajar(Ir de un sitio a otro)",
+                          "Referencia a los pies\nPara (cubren/se ponen en) los pies",
+                          "Sentimientos del ser humano\nEmociones/Estados de ánimo\nReacciones psicológicas",
+                          "Referencia al origen de la vida o de nuevos seres\nLos dos son del origen de un ser vivo/Principio de un nuevo ser/Generan formas de vida\nEmbriones\n",
+                          "Energía\nSon fuentes(tipos/forma) de energía\nDan (producen) energía",
+                          "Ideas de estado e idea de agua\nEvaporacion del agua\nFormas de agua/Diferentes estados del agua\nAgua condensada\nHumedad en forma gaseosa/Formas de humedad",
+                          "Obras (formas) de arte\nCreaciones (exoresiones) artísticas",
+                          "Mantienen (Retienen) cosas en su lugar\nPor seguridad/Elementos de seguridad\nLimitan (dekimitan/restringen) el movimiento de las cosas",
+                          "Noción de volumen\nVolúmenes/Formas volumétricas\nFormas (figuras) geométricas en 3 dimensiones (en el espacio)\nSe miden en metros cúbicos",
+                          "Rítmicas/Tienen ritmo\nTienen (son) movimientos\nComportamiento ondulatorio/Tienen ondas/Transmiten ondan sinusoidales\nTienen compás",
+                          "Dos ideas de las tres siguientes: Habitat/Modo de viva/Desplazamiento",
+                          "Personas que influyen en tu vida\nPersonas hacia las que tienes fuertes sentimientos",
+                          "Extremos de tiempo (frecuencia)\nMedidas absolutas\nCosas definitivas",
+                          "Formas (maneras) de ejercer la autoridad\nManeras (formas) de controlar la conducta\nMedio (métodos) de control del comportamiento"]
+
+  respuestas1:String[] = ["Para comer\nLos llevas a la boca/Para la boca\nTienen mango\nLos pones sobre la mesa",
+                          "Alimentos/Comestibles\nSe cocinan\nCrecen en el campo\nSon saludables(Nutritivas)/Tienen Vitaminas\nContienen fibra",
+                          "Tienen cuatro patas/Tienen cola(Cualquier característica física)\nSeres vivos\nSon rápidos(fuertes)",
+                          "Reproducen obras de arte\nCosas ruidosas\nAmbos se tocan con las manos",
+                          "Para desplazarnos/Para moverse/Para viajar/Para ir de un lado a otro\nLlevan gente o cosas\nLos dos se mueven\nHan de ser conducidos",
+                          "Idea de ropa (complementos) sin referencia a los pies\nPrenda de vestir/Ropa/Complementos\nCalzado",
+                          "Sensaciones\nFormas de sentir\nEstados",
+                          "Referencia vaga a la vida/Son origen de algo\nPrincipio de algo/Nace algo\nLos dos producen algo/Para crear\nLas dos dan frutos",
+                          "Combustibles\nQue permiten funcionar\nComida/Alimento\nNecesidades/necesarios",
+                          "Idea de agua sin la idea de estado o visceversa\nHumedad/Son húmedos/Formas gaseosas/Gaseoso\nSon del agua\nCondensación\nResultado de las condiciones ambientales",
+                          "Arte\nFormas de expresión\nCreaciones propias del hombre\nObras que sirven para enriquecernos",
+                          "Paran cosas/Evitan que algo se vaya/No dejan ir más allá\nContienen algo/Sujetan algo/Impiden algo\nProtegen cosas/Para protección/Elementos de protección",
+                          "Noción de geometría\nFormas geométricas\nGeometría",
+                          "Son relajantes (Calmantes/tranquilizantes)\nOndas sonoras\nFluyen\nAltos y bajos",
+                          "Una idea de las tres siguientes: Habitat/Modo de viva/Desplazamiento",
+                          "Apreciaciones (percepciones) sobre los demás\nSentimientos que tienes por alguien\nTienes relación con ambos/Relaciones entre personas",
+                          "Son dos formas de tiempo/expresiones de tiempo\nCosas externas\nRelacionado con el tiempo\nTiempo/Medidas/Dimensiones",
+                          "Algo que tiene que ver con la autoridad/Formas de autoridad\nMétodos de guiar el comportamiento\nReglas que orientan el comportamiento\nLimites/Limitaciones/Exclusiones\nNiveles de acceso"]
+
+  respuestas0:String[] = ["Los dos son largos\nLos dos se cogen con la mano\nEstan hechos de metal(plastico)",
+                          "Legumbres\nTienen hojas\nSon del mismo color",
+                          "Los puedes ver en el zoo\nPertenecen a la misma especie(P)\nLos tigres se comen a los caballos\nSon salvajes/Viven en la naturaleza/Viven en libertad",
+                          "Tienen ritmo\nPuedes golpearlos/tocarlos\nMi hermano tiene un tambor y toca el piano",
+                          "Barco para navegar y coche para viajar\nTienen motor(ruedas/asientos)\nNecesitan gasolina",
+                          "Van juntos/Uno complementa al otro\nLos dos son marrones",
+                          "Lo que sientes cuando estás feliz\nSon opuesto/Lo contrario",
+                          "Los dos están en la naturaleza\nUno se come y el otro se planta\nSe comen",
+                          "Son caros/Cuestan dinero\nSe compran/Se encuentra en las tiendas\nPara viajes\nPara existir (vivir/sobrevivir)",
+                          "Falta de visibilidad/No dejan ver bien\nHumo/Se parece al humo\nSon densos/Son blancos",
+                          "Romántico\nDe una estatua puedes escribir un poema\nPoema para leer,estatua para observar",
+                          "Sujetar/Sujeción\nHecho de metal (madera)\nBarreras\nEntan fijados en la tierra",
+                          "Formas/Figuras\nRecipientes/Continentes\nMatemáticas\nRedondos",
+                          "Hacen ruido/Producen sonido\nArte/Artístico\nMúsica de las ondas/Las olas suenan como la música\nMarea es un grupo de música",
+                          "Estilo de vida\nAntepasados\nCaracterísticas de la vida del ser humano\nUno no se mueve y el otro si",
+                          "Personas/Individuos/Humanos\nPersonas que conocer/Personas que conoces bien\nTodos tenemos de los dos",
+                          "Cuando ocurren las cosas\nDecisiones y acciones que toma la gente\nCantidad de algo\nFinito",
+                          "Reglas/Leyes/Normas\nFormas de disciplina\nOrdenes/Muestra de poder\nAlgo que los padres hacen/Cosas que haces a los niños"]
+
 
   constructor(private router: Router) { }
 
