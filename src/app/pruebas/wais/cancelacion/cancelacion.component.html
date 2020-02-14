@@ -26,32 +26,57 @@
   </div>
 
   <div *ngIf="estado==='test'">
+    <div class="form-group">
       <h1> Item #{{pruebas+1}}</h1>
-    <div id='crono'>
+      <mat-label>Página 1 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag1C"  [(ngModel)]="test1[0]" name="pag1C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag1I"  [(ngModel)]="test1[1]" name="pag1I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 2 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag2C"  [(ngModel)]="test2[0]" name="pag2C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag2I"  [(ngModel)]="test2[0]" name="pag2I">
+      </mat-form-field>
+    </div>
+    <br>
+    <app-card-button
+      type='button'
+      message="Calificar"
+      (messageEvent)="calcularResultado()"
+      style="margin: 5px;"
+    ></app-card-button>
+
+    <div id='crono' *ngIf="estado==='test'">
       <h2 *ngIf="time"><u><I>¡TIEMPO TERMINADO!</I></u></h2>
       <br/>
-      <br/>
-      <h1>00:{{cronometro}}</h1>  
+      <p>00:{{cronometro}}</p>  
     </div>
-    <app-card-button *ngIf="!activo" 
+    
+    <app-card-button *ngIf="activo==='iniciar'" 
     type='button' message="Iniciar"
     (messageEvent)="iniCron()"></app-card-button> 
 
-    <app-card-button  *ngIf="activo" 
-    type='button' message="Item finalizado"
-    (messageEvent)="finPrueba()"></app-card-button> 
+    <app-card-button  *ngIf="activo==='detener'" 
+    type='button' message="Detener"
+    (messageEvent)="stopCron()"></app-card-button> 
+
+    <app-card-button  *ngIf="activo==='reiniciar'" 
+    type='button' message="reiniciar"
+    (messageEvent)="restart()"></app-card-button> 
   </div>
 
-  <div id="respuestas" *ngIf="estado==='resul'">
-    <h1> Item #{{pruebas+1}}</h1>
-    <h2>Numero de respuestas correctas</h2>
-    <input type="number" id="correcto" defaultValue=0 value={{resultado}} style="margin: 5px" min="0"/>
-    <h2>Numero de respuestas incorrectas</h2>
-    <input type="number" id="error" defaultValue=0 value={{resultado}} style="margin: 5px" min="0"/>
-    <app-card-button type='button' message="Siguiente"
-    (messageEvent)="finTest()"></app-card-button> 
 
-  </div>
 
 
   <app-results  *ngIf="estado==='resultados'"
