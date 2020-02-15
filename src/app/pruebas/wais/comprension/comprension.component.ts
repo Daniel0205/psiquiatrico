@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ComprensionComponent implements OnInit {
 
 
-  estado:string = 'inicio';
+  estado:string = 'instruccion';
   
   itemNumber:number = 0;
 

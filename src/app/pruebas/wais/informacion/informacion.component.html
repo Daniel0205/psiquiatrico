@@ -29,19 +29,20 @@
   </div>
 
   <div *ngIf="estado==='aplicacion'"> 
+    <h1>Item #{{itemNumber+1}}</h1>
     <h4>{{consignaActual}}</h4>
     
-    <div class="form-group">
-      <div>
-        <mat-label for="punto1">1 Punto</mat-label>
+    <div id="puntos" class="form-group">
+      <div id="field">
+        <mat-label for="punto1"><b>1 Punto</b></mat-label>
         <br>
         <mat-form-field>
           <textarea matInput cols="500" rows="6" readonly>{{respuestaCorrectaAct}}</textarea> 
         </mat-form-field>
       </div>
       
-      <div>
-        <mat-label for="punto1">0 Punto</mat-label>
+      <div id="field">
+        <mat-label for="punto1"><b>0 Punto</b></mat-label>
         <br>
         <mat-form-field>
           <textarea matInput cols="500" rows="6" readonly>{{respuestaErroneaAct}}</textarea>
