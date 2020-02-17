@@ -29,8 +29,8 @@
   </div>
 
   <div *ngIf="estado==='aplicacion'"> 
-    <h1>Item #{{itemNumber+1}}</h1>
-    <h4>{{consignaActual}}</h4>
+    <h1>Item #{{indexActual+1}}</h1>
+    <h2>{{consignaActual}}</h2>
     
     <div id="puntos" class="form-group">
       <div id="field">
@@ -68,7 +68,8 @@
         <mat-radio-button id="radioPunto1" name="radioPunto1" [value]="defRadioPunto1">1 Puntos</mat-radio-button>
       </mat-radio-group>
     </div>
-    <button (click)="verificarResultado()" ><span class="glyphicon glyphicon-arrow-right"></span></button>
+     <app-card-button type='button' message="Calificar" 
+    (messageEvent)="verificarResultado()"></app-card-button> 
   </div>
 
   <app-results  *ngIf="estado==='terminado'"

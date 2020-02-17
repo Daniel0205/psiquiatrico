@@ -1,4 +1,4 @@
-<div>
+<div id="inicio">
 
   <div id= "inicio" *ngIf="estado==='instruccion'">
       <h1>Comprension</h1>
@@ -17,7 +17,7 @@
     </div>
 
   <div *ngIf="estado==='seleccion'">
-    <h1>Información</h1>
+    <h1>Comprension</h1>
     <p>En que estimulo desea iniciar la prueba? </p>
     <p>Pacientes con sospechas de discapacidad intelectual:</p>
     <app-card-button type='button' message="Estimulo 1" 
@@ -31,22 +31,39 @@
 
   <div *ngIf="estado==='test'"> 
       <h1>Item #{{itemNumber+1}}</h1>
-      <h4>{{consignaActual}}</h4>
+      <h2>{{consigna[itemNumber]}}</h2>
+
+      <div id="concept" *ngIf="itemNumber===4 || itemNumber===9 || itemNumber===10 || itemNumber===11 || itemNumber===12 || itemNumber===16 ">
+        <mat-label for="punto1"><b>Conceptos generales</b></mat-label>
+        <br>
+        <mat-form-field>
+          <textarea matInput cols="500" rows="6" readonly>{{concepts[itemNumber]}}</textarea> 
+        </mat-form-field>
+      </div>
+      
       
       <div id="puntos" class="form-group">
         <div id="field">
-          <mat-label for="punto1"><b>1 Punto</b></mat-label>
+          <mat-label for="punto1"><b>2 Punto</b></mat-label>
           <br>
           <mat-form-field>
-            <textarea matInput cols="500" rows="6" readonly>{{respuestaCorrectaAct}}</textarea> 
+            <textarea matInput cols="500" rows="6" readonly>{{rightAnswer[itemNumber]}}</textarea> 
           </mat-form-field>
         </div>
         
         <div id="field">
+          <mat-label for="punto1"><b>1 Punto</b></mat-label>
+          <br>
+          <mat-form-field>
+            <textarea matInput cols="500" rows="6" readonly>{{mediumAnswer[itemNumber]}}</textarea>
+          </mat-form-field> 
+        </div>
+
+        <div id="field">
           <mat-label for="punto1"><b>0 Punto</b></mat-label>
           <br>
           <mat-form-field>
-            <textarea matInput cols="500" rows="6" readonly>{{respuestaErroneaAct}}</textarea>
+            <textarea matInput cols="500" rows="6" readonly>{{badAnswer[itemNumber]}}</textarea>
           </mat-form-field> 
         </div>
       </div>    
@@ -54,95 +71,57 @@
       <div class="form-group">
         <mat-label for="comentarioA">{{comentarioAct}}</mat-label>
       </div>
-    </div>
-  
-    <div *ngIf="estado==='test'">
       <br>
       <mat-label>Respuesta dada:  </mat-label>
       <mat-form-field>
-        <input matInput required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+        <input matInput id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
       </mat-form-field>
-      <div class="form-group">
-        <mat-label>Puntuación: </mat-label>
-        <mat-radio-group aria-label="Puntuacion" [(ngModel)]="radioPunto">
-          <mat-radio-button id="radioPunto0" name="radioPunto0" [value]="defRadioPunto0">0 Puntos</mat-radio-button>
-          <mat-radio-button id="radioPunto1" name="radioPunto1" [value]="defRadioPunto1">1 Puntos</mat-radio-button>
-        </mat-radio-group>
+      <br>
+      <br>
+      <div id="bot">
+        <app-card-button type='button' message="0 Puntos" 
+        (messageEvent)="cambiarPrueba(0)"></app-card-button> 
+        <app-card-button type='button' message="1 Punto" 
+        (messageEvent)="cambiarPrueba(1)" ></app-card-button> 
+        <app-card-button type='button' message="2 Puntos" 
+        (messageEvent)="cambiarPrueba(2)" ></app-card-button> 
       </div>
-      <button (click)="verificarResultado()" ><span class="glyphicon glyphicon-arrow-right"></span></button>
     </div>
- 
   
-  
-  <div *ngIf="estado==='test'">
-      <h1>Pregunta #{{itemNumber+1}}</h1>
+  <app-results  *ngIf="estado==='resultados'"
+    nameTest="Comprension"
+    [result]="getResultado()"
+    (review)="aRevisar()">
+  </app-results>
 
-      <h2 *ngIf="itemNumber===0">Porque la gente lleva reloj?</h2>
+  <h2 *ngIf="estado==='revision'">El puntaje por cada Item fue: </h2>
 
-      <h2 *ngIf="itemNumber===1">Porque lavamos la ropa?</h2>
-
-      <h2 *ngIf="itemNumber===2">Que deberia hacer usted  si se encuentra en la calle un sobre cerrado con la direccion escrita y el sello sin usar?</h2>
-
-      <h2 *ngIf="itemNumber===3">Porque nos interesamos, cada vez mas en las energias renovables?</h2>
-
-      <h2 *ngIf="itemNumber===4">Digame algunas razones por las que es importante que un pais tenga buenas relaciones con otro pais.</h2>
-
-      <h2 *ngIf="itemNumber===5">Que interes puede tener un inventor en patnetar una idea?</h2>
-
-      <h2 *ngIf="itemNumber===6">Porque hay museos?</h2>
-
-      <h2 *ngIf="itemNumber===7">Porque se necesita receta para comprar ciertos medicamentos?</h2>
-
-      <h2 *ngIf="itemNumber===8">Porque fue importante, para algunas civilizaciones,la creacion  de la escritura?</h2>
-
-      <h2 *ngIf="itemNumber===9">Porque es importante para la mayoria de la gente, tener amigos?</h2>
-
-      <h2 *ngIf="itemNumber===10">Digame algunas razones por las que algunas personas piensan que deberiamos explorar el espacio.</h2>
-
-      <h2 *ngIf="itemNumber===11">Porque es importante el estudio de la historia?</h2>
-
-      <h2 *ngIf="itemNumber===12">Porque exije el estado que algunos profesionales obtengan el titulo antes de ofrecer sus servicios al publico?</h2>
-  
-      <h2 *ngIf="itemNumber===13">Que quiere decir el proverbio "si caes siete veces, levantate ocho"?</h2>
+  <div  *ngIf="estado==='revision'" >
       
-      <h2 *ngIf="itemNumber===14">Porque algunas personas piensan que es importante proteger a los animales en peligro de extincion?</h2>
-
-      <h2 *ngIf="itemNumber===15">Porque cuesta mas un terreno en la ciudad que en el campo?</h2>
-
-      <h2 *ngIf="itemNumber===16">Digame algunas razones por las que conviene  que haya un regimen de libertad condicional.</h2>
-
-      <h2 *ngIf="itemNumber===17">Que quiere decir el refran "una golondrina no hace verano"</h2>
-
-      <input type="text" required id="res"   [(ngModel)]="respuestaDada" name="respuestaDada"> <br/>
-
-      <button (click)="cambiarPrueba(0)" >0</button>
-      <button (click)="cambiarPrueba(1)" >1</button>
-      <button (click)="cambiarPrueba(2)" >2</button>
-  </div>
-
-  <div *ngIf="estado==='resultados'">
-    <h1>resultados</h1>
-
-    <h1>Puntuacion:{{getResultado()}}</h1>
-    <button (click)="aRevisar()" >Revisión de resultados</button>
-  </div>
-
-  <div *ngIf="estado==='revision'" style="text-align:center">
-    <h3>El puntaje por cada Item fue: </h3>
-    <form id="myForm">
-      <div *ngFor="let resultado of resultados; let i=index" >
-        <div>
-          <label for="i">Item {{i+1}}:</label>
-          <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
-        </div>
-        <div>
-          <label for="i">Respuesta {{i+1}}:</label>
-          <input type="text" id="{{i}}" value={{respuestas[i]}} style="margin: 5px"/>
-        </div>
+      <div id="resultados" >
+        <label for="item">Item No.</label>
+        <label for="puntuacion">Puntuación</label>
+        <label for="respuestaDada">Respuesta dada:</label>
       </div>
-      <button (click)="regresarAct()" >Regresar</button>
-      <button type="submit" (click)="actualizarResultados()" >Actualizar Datos</button>
-    </form>
+      
+      <div id="resultados"  *ngFor="let resultado of resultados; let i=index" >
+            <label for="i">{{i+1}}:</label>
+            <mat-form-field>
+              <input matInput type="number" id="{{i}}" value={{resultado}}/>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="text" value={{respuestas[i]}}/>
+            </mat-form-field>
+      </div>
+   
+  </div>
+
+
+  <div id='buttons' *ngIf="estado==='revision'">
+      <app-card-button type='button' message="Regresar" 
+      (messageEvent)="regresarAct()"></app-card-button> 
+      <app-card-button type='button' message="Actualizar Datos" 
+      (messageEvent)="actualizarResultados()"></app-card-button> 
   </div>
   
 </div>
