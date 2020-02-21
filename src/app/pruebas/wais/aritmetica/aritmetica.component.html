@@ -43,7 +43,12 @@
   </div>
 
   <div id="panel" *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">
-    <input type="text" required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+    <mat-label>Respuesta dada:  </mat-label>
+    <mat-form-field>
+      <input matInput type="number" id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+    </mat-form-field>
+    <br/>
+    <br/>
     <app-card-button type='button' message="Siguiente" 
     (messageEvent)="verificarResultado()"></app-card-button> 
   </div>
@@ -66,9 +71,15 @@
       
       <div id="resultados"  *ngFor="let resultado of resultados  | slice:1; let i=index" >
             <label for="i">{{i}}:</label>
-            <input type="text" id="{{i}}" value={{resultado}}/>
-            <input readonly type="text" value={{respuestasDadas[i]}}/>
-            <input readonly type="text" value={{respuestas[i]}}/>
+            <mat-form-field>
+              <input matInput type="number" id="{{i}}" value={{resultado}}/>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="number" value={{respuestasDadas[i]}}/>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput readonly type="number" value={{respuestas[i]}}/>
+            </mat-form-field>
       </div>
    
   </div>

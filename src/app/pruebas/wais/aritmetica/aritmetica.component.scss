@@ -3,14 +3,6 @@
     padding-top: 5%
 }
 
-#panel{
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 5%;
-    padding-right: 40%;
-    padding-left: 40%;
-}
-
 #resultados{
     display: grid;
     grid-template-columns: repeat(4, 1fr);

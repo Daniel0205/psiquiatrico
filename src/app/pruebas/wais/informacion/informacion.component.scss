@@ -1,1 +1,13 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+#puntos{
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-column-gap: 5%;
+}
+
+#field{
+    text-align: center
+}
+
+#field mat-form-field{
+    width: 80%;
+}

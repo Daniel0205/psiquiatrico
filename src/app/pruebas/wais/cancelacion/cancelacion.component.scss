@@ -3,12 +3,22 @@
     padding-top: 3%;
 }
 
-#crono{
-    font-size: 40px;
-    padding-bottom: 5%;
-    padding-top: 5%;
+
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
 }
 
-#respuestas{
-    display: inline-grid;
+
+#form-test{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#timer p{
+    font-size: xx-large;
 }
