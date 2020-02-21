@@ -71,6 +71,16 @@
             (messageEvent)="cambiarPuntuacion(2)"
             style="margin: 5px;"
     ></app-card-button>
+
+    <div>
+      <p>2 puntos</p>    
+      <p>{{respuestas2[indexActual]}}</p>
+      <p>1 punto</p>
+      <p>{{respuestas1[indexActual]}}</p>
+      <p>0 puntos</p>
+      <p>{{respuestas0[indexActual]}}</p>
+    </div>
+
   </div>
 
   <app-results  *ngIf="estado==='terminado'"
