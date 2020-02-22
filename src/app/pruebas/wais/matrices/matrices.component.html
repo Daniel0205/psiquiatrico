@@ -46,6 +46,7 @@
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Matrices"
   [result]="getResultado()"
+  route='/wais'
   (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">

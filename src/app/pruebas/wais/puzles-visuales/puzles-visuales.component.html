@@ -45,6 +45,7 @@
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Pluzles Visuales"
   [result]="getResultado()"
+  route='/wais'
   (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'">

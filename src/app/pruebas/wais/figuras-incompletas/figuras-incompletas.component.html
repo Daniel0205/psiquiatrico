@@ -50,6 +50,7 @@
   <app-results  *ngIf="estado==='resultados'"
   nameTest="Figuras incompletas"
   [result]="getResultado()"
+  route='/wais'
   (review)="next()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">

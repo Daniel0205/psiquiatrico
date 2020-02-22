@@ -86,6 +86,7 @@
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Vocabulario"
   [result]="getResultado()"
+  route='/wais'
   (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'">

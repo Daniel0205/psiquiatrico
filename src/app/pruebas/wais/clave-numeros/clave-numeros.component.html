@@ -20,14 +20,10 @@
     ></app-card-button>
   </div>
 
-  <!--<div *ngIf="estado==='terminado'">
-    <h2>Terminaste la subprueba de Clave de números</h2>
-    <h4>Tu resultado es: {{resultado}}</h4>
-  </div>-->
-
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Clave de numeros"
   [result]="getResultado()"
+  route='/wais'
   ></app-results>
 
 </div>

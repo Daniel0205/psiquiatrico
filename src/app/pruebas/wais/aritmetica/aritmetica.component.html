@@ -56,6 +56,7 @@
   <app-results  *ngIf="estado==='terminado'"
   nameTest="aritmetica"
   [result]="getResultado()"
+  route='/wais'
   (review)="aRevisar()"></app-results>
   
   <h2 *ngIf="estado==='revision'">El puntaje por cada Item fue: </h2>

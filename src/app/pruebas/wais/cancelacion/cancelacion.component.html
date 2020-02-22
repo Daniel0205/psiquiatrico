@@ -84,6 +84,7 @@
   <app-results  *ngIf="estado==='resultados'"
   nameTest="Cancelacion"
   [result]="puntuacion"
+  route='/wais'
   (review)="estado='review'"></app-results>
 
   <div *ngIf="estado==='review'">

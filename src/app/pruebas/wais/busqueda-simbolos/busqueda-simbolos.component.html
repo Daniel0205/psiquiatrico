@@ -91,14 +91,10 @@
     ></app-card-button>
   </div>
 
-  <!--<div *ngIf="estado==='terminado'">
-    <h2>Terminaste la subprueba de Busqueda de Simbolos</h2>
-    <h4>Tu resultado es: {{resultado}}</h4>
-  </div>--> 
-
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Busqueda-simbolos"
   [result]="getResultado()"
+  route='/wais'
   (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'">
