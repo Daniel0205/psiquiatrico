@@ -10,7 +10,9 @@ export class ResultsComponent implements OnInit {
 
   @Input() nameTest:string;
 
-  @Input() result:string
+  @Input() result:string;
+
+  @Input() route:string;
 
   @Output() review = new EventEmitter<string>()
 
@@ -24,7 +26,7 @@ export class ResultsComponent implements OnInit {
   }
 
   finishFun(){
-    this.router.navigateByUrl('/wais');
+    this.router.navigateByUrl(this.route);
   }
 
   

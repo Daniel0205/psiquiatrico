@@ -46,6 +46,7 @@ import { CardButtonComponent } from './components/card-button/card-button.compon
 import { CategoryComponent } from './components/category/category.component';
 import { StartTestComponent } from './components/start-test/start-test.component';
 import { ResultsComponent } from './components/results/results.component';
+import { CuboswiscComponent } from './pruebas/wisc/cuboswisc/cuboswisc.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { ResultsComponent } from './components/results/results.component';
     CategoryComponent,
     CardButtonComponent,
     StartTestComponent,
-    ResultsComponent
+    ResultsComponent,
+    CuboswiscComponent
   ],
   imports: [
     BrowserModule,

@@ -9,11 +9,11 @@
     <br/>
     <b>Intrucciones de calificación:</b>
     <p>Para calificar se debe presionar las teclas numericas deacuerdo a la respuesta del paciente de la siguiente manera </p>
-    <p>Del item 1 al 4</p>
+    <p>Del item 1 al 3</p>
     <li>0 : En caso de que no realize la construcción correcta o si excede el limite de tiempo</li>
     <li>1 : En caso de que realize la construcción correcta en el segundo intento</li>
     <li>2 : En caso de que realize la construcción correcta en el primer intento dentro del tiempo establecido</li>
-    <p>Del item 5 al 8</p>
+    <p>Del item 4 al 8</p>
     <li>0 : En caso de que no realize la construcción correcta o si excede el limite de tiempo</li>
     <li>4 : En caso de que realize la construcción correcta dentro del tiempo establecido</li>
     <p>Del item 9 al 14</p>
@@ -37,18 +37,18 @@
     <br/>
     <h1>Cubos</h1>
     <p>¿En que estimulo desea iniciar la prueba? </p>
-    <p>Pacientes con sospechas de discapacidad intelectual:</p>
+    <p>Pacientes con sospechas de discapacidad intelectual o entre 6 y 7 años:</p>
     <app-card-button
             type='button'
             message="Estimulo 1"
             (messageEvent)="imagenInit(1)"
             style="margin: 5px;"
     ></app-card-button>
-    <p>Pacientes de edad 16-89:</p>
+    <p>Pacientes de edad 8-16:</p>
     <app-card-button
             type='button'
-            message="Estimulo 4"
-            (messageEvent)="imagenInit(5)"
+            message="Estimulo 3"
+            (messageEvent)="imagenInit(3)"
             style="margin: 5px;"
     ></app-card-button>
   </div>
@@ -66,7 +66,7 @@
   <app-results  *ngIf="estado==='terminado'"
   nameTest="Cubos"
   [result]="getResultado()"
-  route='/wais'
+  route="/wisc"
   (review)="aRevisar()"></app-results>
 
   <div *ngIf="estado==='revision'" style="text-align:center">

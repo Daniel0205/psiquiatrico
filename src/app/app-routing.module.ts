@@ -20,6 +20,7 @@ import { BalanzasComponent } from './pruebas/wais/balanzas/balanzas.component';
 import { ComprensionComponent } from './pruebas/wais/comprension/comprension.component';
 import { CancelacionComponent } from './pruebas/wais/cancelacion/cancelacion.component';
 import { FigurasIncompletasComponent } from './pruebas/wais/figuras-incompletas/figuras-incompletas.component';
+import {CuboswiscComponent} from './pruebas/wisc/cuboswisc/cuboswisc.component';
 
 
 
@@ -43,7 +44,9 @@ const routes: Routes = [
   {path: 'balanzas', component: BalanzasComponent},
   {path: 'comprension', component: ComprensionComponent},
   {path: 'cancelacion', component: CancelacionComponent},
-  {path: 'figurasIncompletas', component: FigurasIncompletasComponent}
+  {path: 'figurasIncompletas', component: FigurasIncompletasComponent},
+
+  { path: 'cuboswisc', component: CuboswiscComponent },
 ];
 
 @NgModule({

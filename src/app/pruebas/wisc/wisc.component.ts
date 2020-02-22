@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-wisc',
@@ -12,7 +13,14 @@ export class WiscComponent implements OnInit {
 
   estado:String = "confirmacion"
 
-  texts:string[] = ["Diseno con Cubos","Semejanzas"," Retencion de digitos",
+  link:string[] = ["/cuboswisc","/semejanzas","/digitos","/matrices",
+                   "/vocabulario","/aritmetica","/busquedaSimbolos",
+                   "/puzlesVisuales","/informacion","/claveNumeros",
+                   "/letrasNumeros","/balanzas","/comprension",
+                   "/cancelacion","/figurasIncompletas"]
+
+
+  texts:string[] = ["Cubos","Semejanzas","Dígitos",
   "Conceptos con dibujos","Claves","Vocabulario","Sucesion de numeros y letras",
   "Matrices","Comprension","Busqueda de simbolos","Figuras incompletas",
   "Registros","Informacion", "Aritmetica","Pistas"]
@@ -29,9 +37,30 @@ export class WiscComponent implements OnInit {
     this.estado = "subpruebas";
   }
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef,private router: Router) { }
 
   ngOnInit() {
+  }
+
+  change(){
+    
+    switch(this.estado){
+      case 'confirmacion':
+        this.estado='aplicacion'
+        break;
+      case 'aplicacion':
+        this.estado='colors'
+        break;
+      case 'resultados':
+        this.router.navigateByUrl('/');
+        break;
+    }
+
+    this.cdr.detectChanges()   
+  }
+
+  cancel(route){
+    this.router.navigateByUrl(route);
   }
 
 }
