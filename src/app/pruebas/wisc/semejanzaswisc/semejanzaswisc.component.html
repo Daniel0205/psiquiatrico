@@ -1,0 +1,133 @@
+<div id="semejanzas-container">
+
+  <div *ngIf="estado==='instrucciones'">
+        <br/>
+        <h1>Semejanzas</h1>
+        <b>Intrucciones generales:</b>
+        <p>Se presentarán dos palabras que representan objetos o conceptos comunes</p>
+        <p>La tarea del paciente es determinar en que se parecen esos objetos o conceptos</p>
+        <p>Los items se presentan de forma verbal</p>
+        <br/>
+        <b>Intrucciones de calificación:</b>
+        <p>Para calificar se debe presionar el botón que corresponda con la calificacion que desea dar al item </p>
+        <p>Recuerde, debe escribir de manera literal la respuesta dada por el paciente en el espacio disponible</p>
+        <li>0 : Cualquier clasificación general que es poco pertinente y que define con poca precisión ambos elementos</li>
+        <li>1 : Cualquier propiedad común que supone una semejanza secundaria o menos pertinente</li>
+        <li>2 : Cualquier clasificación general pertinente y que define con precisión ambos elementos</li>
+        <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='seleccion'">
+        <br/>
+        <h1>Semejanzas</h1>
+        <p>¿En que estimulo desea iniciar la prueba? </p>
+        <p>Pacientes con sospechas de discapacidad intelectual o de edad 6-8:</p>
+        <app-card-button
+                type='button'
+                message="Item 1"
+                (messageEvent)="selectInit(1)"
+                style="margin: 5px;"
+        ></app-card-button>
+        <p>Pacientes de edad 9-11:</p>
+        <app-card-button
+                type='button'
+                message="Item 3 "
+                (messageEvent)="selectInit(3)"
+                style="margin: 5px;"
+        ></app-card-button>
+        <p>Pacientes de edad 12-16:</p>
+        <app-card-button
+                type='button'
+                message="Item 5"
+                (messageEvent)="selectInit(5)"
+                style="margin: 5px;"
+        ></app-card-button>
+    
+  </div>
+
+  <div *ngIf="estado==='ejemplos'" style="text-align:center; padding-top:5%">
+    <h3>¿En que se parecen {{ejemplo[0]}} y {{ejemplo[1]}}? </h3>
+    <textarea></textarea> <br/> <br/>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="aplicar()"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
+    <h3>En que se parecen {{itemActual[0]}} y {{itemActual[1]}} </h3>
+    <textarea id="res"></textarea> <br/> <br/>
+    <app-card-button
+            type='button'
+            message="0"
+            (messageEvent)="cambiarPuntuacion(0)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="1"
+            (messageEvent)="cambiarPuntuacion(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="2"
+            (messageEvent)="cambiarPuntuacion(2)"
+            style="margin: 5px;"
+    ></app-card-button>
+
+    <div>
+        <p>2 puntos</p>    
+        <p>{{respuestas2[indexActual]}}</p>
+        <p>1 punto</p>
+        <p>{{respuestas1[indexActual]}}</p>
+        <p>0 puntos</p>
+        <p>{{respuestas0[indexActual]}}</p>
+
+    </div>
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Semejanzas"
+  [result]="getResultado()"
+  route='/wais'
+  (review)="aRevisar()"></app-results>
+
+  <div *ngIf="estado==='revision'" style="text-align:center">
+    <h3>El puntaje por cada Item fue: </h3>
+    <form id="myForm">
+      <div *ngFor="let resultado of resultados; let i=index" >
+        <label for="i">Item {{i+1}}:</label>
+        <label for="i"> {{respuestas[i]}} </label>
+        <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
+      </div>
+      <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
+    
+    </form>
+  </div>
+</div>

@@ -47,6 +47,10 @@ import { CategoryComponent } from './components/category/category.component';
 import { StartTestComponent } from './components/start-test/start-test.component';
 import { ResultsComponent } from './components/results/results.component';
 import { CuboswiscComponent } from './pruebas/wisc/cuboswisc/cuboswisc.component';
+import { SemejanzaswiscComponent } from './pruebas/wisc/semejanzaswisc/semejanzaswisc.component';
+import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
+import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
+import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
 
 
 @NgModule({
@@ -79,7 +83,11 @@ import { CuboswiscComponent } from './pruebas/wisc/cuboswisc/cuboswisc.component
     CardButtonComponent,
     StartTestComponent,
     ResultsComponent,
-    CuboswiscComponent
+    CuboswiscComponent,
+    SemejanzaswiscComponent,
+    VocabulariowiscComponent,
+    DigitoswiscComponent,
+    MatriceswiscComponent
   ],
   imports: [
     BrowserModule,

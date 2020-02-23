@@ -13,9 +13,9 @@ export class WiscComponent implements OnInit {
 
   estado:String = "confirmacion"
 
-  link:string[] = ["/cuboswisc","/semejanzas","/digitos","/matrices",
-                   "/vocabulario","/aritmetica","/busquedaSimbolos",
-                   "/puzlesVisuales","/informacion","/claveNumeros",
+  link:string[] = ["/cuboswisc","/semejanzaswisc","/digitoswisc","/matrices",
+                   "/aritmetica","/vocabulariowisc","/busquedaSimbolos",
+                   "/matriceswisc","/informacion","/claveNumeros",
                    "/letrasNumeros","/balanzas","/comprension",
                    "/cancelacion","/figurasIncompletas"]
 

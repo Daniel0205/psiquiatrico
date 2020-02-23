@@ -21,6 +21,10 @@ import { ComprensionComponent } from './pruebas/wais/comprension/comprension.com
 import { CancelacionComponent } from './pruebas/wais/cancelacion/cancelacion.component';
 import { FigurasIncompletasComponent } from './pruebas/wais/figuras-incompletas/figuras-incompletas.component';
 import {CuboswiscComponent} from './pruebas/wisc/cuboswisc/cuboswisc.component';
+import {SemejanzaswiscComponent} from './pruebas/wisc/semejanzaswisc/semejanzaswisc.component';
+import {VocabulariowiscComponent} from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
+import {DigitoswiscComponent} from './pruebas/wisc/digitoswisc/digitoswisc.component';
+import {MatriceswiscComponent} from './pruebas/wisc/matriceswisc/matriceswisc.component';
 
 
 
@@ -47,6 +51,10 @@ const routes: Routes = [
   {path: 'figurasIncompletas', component: FigurasIncompletasComponent},
 
   { path: 'cuboswisc', component: CuboswiscComponent },
+  { path: 'semejanzaswisc', component: SemejanzaswiscComponent },
+  { path: 'vocabulariowisc', component: VocabulariowiscComponent },
+  { path: 'digitoswisc', component: DigitoswiscComponent },
+  { path: 'matriceswisc', component: MatriceswiscComponent },
 ];
 
 @NgModule({
