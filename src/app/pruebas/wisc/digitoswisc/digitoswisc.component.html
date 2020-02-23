@@ -1,3 +1,85 @@
-<p>
-  digitoswisc works!
-</p>
+<div id="digitos-container">
+
+  <div *ngIf="estado==='instrucciones'">
+        <br/>
+        <h1>Dígitos</h1>
+        <b>Intrucciones generales:</b>
+        <p>Se realizarán dos puebas que consisten en las que el profesional dictara una lista de números </p>
+        <p>y la tarea del paciente es repetir y repetir en orden inverso</p>
+        <p>Los items se presentan de forma verbal</p>
+        <br/>
+        <b>Intrucciones de calificacion:</b>
+        <p>Para calificar debe escribir los números que de el paciente en el espacio asignado y luego oprimir el botón "Siguiente"</p>
+        <p>Nuestro sistema se encargará de asignar la puntuación correspondiente</p>
+        <br/>
+
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='selectDirecto' || estado==='selectInverso' ">
+        <br/>
+        <h1>Dígitos</h1>
+        <app-card-button
+                type='button'
+                message="Iniciar Digitos en Orden "
+                (messageEvent)="iniciar()"
+                style="margin: 5px;"
+        ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='directo'" style="text-align:center; padding-top:5%">
+    <h3> Dígitos a evaluar: {{itemActual}} </h3>
+    <p>Escribe los numeros dichos por el paciente separados por por comas  (,)</p>
+    <textarea id="res" (keydown.enter)="cambiarpuntuacion();false" autofocus></textarea> <br/> <br/>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="cambiarpuntuacion()"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='inverso'" style="text-align:center; padding-top:5%">
+    <h3>Dígitos a evaluar: {{itemActual}} </h3>
+    <p>Escribe los numeros dichos por el paciente separados por comas (,)</p>
+    <textarea id="res" (keydown.enter)="cambiarpuntuacion();false"></textarea> <br/> <br/>
+    <app-card-button
+            type='button'
+            message="Siguiente"
+            (messageEvent)="cambiarpuntuacion()"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+        nameTest="Digitos"
+        [result]="getResultado()"
+        route='/wais'
+        (review)="aRevisar()"></app-results>
+
+  <div *ngIf="estado==='revision'" style="text-align:center">
+    <h3>Revision pendiente </h3>
+    <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
+  </div>
+</div>
