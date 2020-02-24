@@ -1,3 +1,136 @@
-<p>
-  vocabulariowisc works!
-</p>
+<div id="vocabulario-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <h1>Vocabulario</h1>
+    <b>Intrucciones generales:</b>
+    <p>Para los items del uno al tres la tarea del paciente consiste en nombrar una serie de imagenes presentadas</p>
+    <p>Para el resto de los items la tarea del paciente consiste en definir oralmente una serie de palabras que el examinador lee en voz alta</p>
+    <p>Los items se presentan de forma verbal</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar el botón que corresponda con la calificacion que desea dar al item </p>
+    <p>Recuerde, debe escribir de manera literal la respuesta dada por el paciente en el espacio disponible</p>
+    <li>0 : Una respuesta verbal que no muestra un conocimiento real de la palabra</li>
+    <li>1 : En general se trata de respuestas correctas pero con contenido escaso o pobre</li>
+    <li>2 : La respuesta refleja una buena comprensión de la palabra</li>
+    <br/>
+    
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='seleccion'">
+    <br/>
+    <h1>Vocabulario</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual o de edad 6-8:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 5"
+            (messageEvent)="imagenInit(5)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 9-11:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 7"
+            (messageEvent)="imagenInit(7)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 12-16:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 9"
+            (messageEvent)="imagenInit(9)"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">
+    <h1>{{consignaActual}}</h1> <br/>
+  </div>
+
+  <div *ngIf="estado==='aplicacionImg'">
+    <img [src]="estimuloActual" />
+  </div>
+
+  <div *ngIf="estado==='ejemplo' || estado==='aplicacionImg' || estado==='aplicacion'">
+    <input type="text" required id="res"  [(ngModel)]="respuestaDada" name="respuestaDada"> <br/>
+    <app-card-button
+            type='button'
+            message="0"
+            (messageEvent)="cambiarPuntuacion(0)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="1"
+            (messageEvent)="cambiarPuntuacion(1)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <app-card-button
+            type='button'
+            message="2"
+            (messageEvent)="cambiarPuntuacion(2)"
+            style="margin: 5px;"
+    ></app-card-button>
+
+    <div>
+      <p>2 puntos</p>    
+      <p>{{respuestas2[indexActual]}}</p>
+      <p>1 punto</p>
+      <p>{{respuestas1[indexActual]}}</p>
+      <p>0 puntos</p>
+      <p>{{respuestas0[indexActual]}}</p>
+    </div>
+
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Vocabulario"
+  [result]="getResultado()"
+  route='/wisc'
+  (review)="aRevisar()"></app-results>
+
+  <div *ngIf="estado==='revision'">
+    <h3>El puntaje por cada Item fue: </h3>
+    <form id="myForm">
+      <div class="row">
+        <div class="col-sm-3"><label for="item">Item No.</label></div>
+        <div class="col-sm-3"><label for="puntuacion">Puntuación</label></div>
+        <div class="col-sm-3"><label for="respuestaDada">Respuesta dada:</label></div>
+      </div>
+      <div *ngFor="let resultado of resultados; let i=index" >
+        
+          <div class="row">
+            <div class="col-sm-3"><label for="i">{{i}}:</label></div>
+            <div class="col-sm-3"><input type="text" id="{{i}}" value={{resultado}}/></div>
+            <div class="col-sm-3"><input readonly type="text" value={{respuestasDadas[i]}}/></div>
+          </div>          
+        
+      </div>
+      <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
+    </form>
+  </div>
+</div>
