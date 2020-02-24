@@ -20,11 +20,13 @@ import { BalanzasComponent } from './pruebas/wais/balanzas/balanzas.component';
 import { ComprensionComponent } from './pruebas/wais/comprension/comprension.component';
 import { CancelacionComponent } from './pruebas/wais/cancelacion/cancelacion.component';
 import { FigurasIncompletasComponent } from './pruebas/wais/figuras-incompletas/figuras-incompletas.component';
+
 import {CuboswiscComponent} from './pruebas/wisc/cuboswisc/cuboswisc.component';
 import {SemejanzaswiscComponent} from './pruebas/wisc/semejanzaswisc/semejanzaswisc.component';
 import {VocabulariowiscComponent} from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
 import {DigitoswiscComponent} from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import {MatriceswiscComponent} from './pruebas/wisc/matriceswisc/matriceswisc.component';
+import {FigurasIncompletasWiscComponent} from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
 
 
 
@@ -55,6 +57,7 @@ const routes: Routes = [
   { path: 'vocabulariowisc', component: VocabulariowiscComponent },
   { path: 'digitoswisc', component: DigitoswiscComponent },
   { path: 'matriceswisc', component: MatriceswiscComponent },
+  {path: 'figurasIncompletaswisc', component: FigurasIncompletasWiscComponent},
 ];
 
 @NgModule({

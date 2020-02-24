@@ -51,6 +51,7 @@ import { SemejanzaswiscComponent } from './pruebas/wisc/semejanzaswisc/semejanza
 import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
 import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
+import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.
     SemejanzaswiscComponent,
     VocabulariowiscComponent,
     DigitoswiscComponent,
-    MatriceswiscComponent
+    MatriceswiscComponent,
+    FigurasIncompletasWiscComponent
   ],
   imports: [
     BrowserModule,
