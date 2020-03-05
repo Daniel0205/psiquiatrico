@@ -51,6 +51,9 @@ import { SemejanzaswiscComponent } from './pruebas/wisc/semejanzaswisc/semejanza
 import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
 import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
+import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
+import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
+import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
 
 
 @NgModule({
@@ -87,7 +90,11 @@ import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.
     SemejanzaswiscComponent,
     VocabulariowiscComponent,
     DigitoswiscComponent,
-    MatriceswiscComponent
+    MatriceswiscComponent,
+    AritmeticawiscComponent,
+    BusquedaSimboloswiscComponent,
+    InformacionwiscComponent,
+    
   ],
   imports: [
     BrowserModule,

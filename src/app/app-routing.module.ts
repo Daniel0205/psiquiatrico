@@ -25,6 +25,9 @@ import {SemejanzaswiscComponent} from './pruebas/wisc/semejanzaswisc/semejanzasw
 import {VocabulariowiscComponent} from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
 import {DigitoswiscComponent} from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import {MatriceswiscComponent} from './pruebas/wisc/matriceswisc/matriceswisc.component';
+import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
+import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
+import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
 
 
 
@@ -55,6 +58,9 @@ const routes: Routes = [
   { path: 'vocabulariowisc', component: VocabulariowiscComponent },
   { path: 'digitoswisc', component: DigitoswiscComponent },
   { path: 'matriceswisc', component: MatriceswiscComponent },
+  { path: 'aritmeticawisc', component: AritmeticawiscComponent },
+  { path: 'busqueda-simbolowisc', component: BusquedaSimboloswiscComponent },
+  { path: 'informacionwisc', component: InformacionwiscComponent },
 ];
 
 @NgModule({

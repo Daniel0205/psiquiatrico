@@ -15,9 +15,9 @@ export class WiscComponent implements OnInit {
 
   link:string[] = ["/cuboswisc","/semejanzaswisc","/digitoswisc","/matrices",
                    "/aritmetica","/vocabulariowisc","/busquedaSimbolos",
-                   "/matriceswisc","/informacion","/claveNumeros",
-                   "/letrasNumeros","/balanzas","/comprension",
-                   "/cancelacion","/figurasIncompletas"]
+                   "/matriceswisc","/informacion","/busqueda-simboloswisc",
+                   "/letrasNumeros","/balanzas","/informacionwisc",
+                   "/aritmeticawisc","/figurasIncompletas"]
 
 
   texts:string[] = ["Cubos","Semejanzas","Dígitos",

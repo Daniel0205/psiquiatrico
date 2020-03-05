@@ -1,0 +1,13 @@
+#puntos{
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    grid-column-gap: 5%;
+}
+
+#field{
+    text-align: center
+}
+
+#field mat-form-field{
+    width: 80%;
+}
