@@ -19,13 +19,17 @@
   <div *ngIf="estado==='seleccion'">
     <h1>Información</h1>
     <p>En que estimulo desea iniciar la prueba? </p>
-    <p>Pacientes con sospechas de discapacidad intelectual:</p>
-    <app-card-button type='button' message="Item 1"
-    (messageEvent)="testInit(0)"></app-card-button> 
+    <p>Pacientes de edad 6-8 años o con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Item 5"
+    (messageEvent)="testInit(4)"></app-card-button> 
     <br/><br/>
-    <p>Pacientes de edad 16-89:</p>
-    <app-card-button type='button' message="Item 3" 
-    (messageEvent)="testInit(2)"></app-card-button> 
+    <p>Pacientes de edad 9-11:</p>
+    <app-card-button type='button' message="Item 10" 
+    (messageEvent)="testInit(9)"></app-card-button> 
+    <br/><br/>
+    <p>Pacientes de edad 12-16:</p>
+    <app-card-button type='button' message="Item 12" 
+    (messageEvent)="testInit(11)"></app-card-button> 
   </div>
 
   <div *ngIf="estado==='aplicacion'"> 
