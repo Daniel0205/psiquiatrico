@@ -28,6 +28,7 @@ import {MatriceswiscComponent} from './pruebas/wisc/matriceswisc/matriceswisc.co
 import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
 import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
 import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
+import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/letras-numeros-wisc.component';
 
 
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'aritmeticawisc', component: AritmeticawiscComponent },
   { path: 'busqueda-simbolowisc', component: BusquedaSimboloswiscComponent },
   { path: 'informacionwisc', component: InformacionwiscComponent },
+  { path: 'letrasNumeroswisc', component: LetrasNumerosWiscComponent},
 ];
 
 @NgModule({

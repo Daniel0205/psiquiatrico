@@ -54,6 +54,7 @@ import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.
 import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
 import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
 import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
+import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/letras-numeros-wisc.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informaci
     AritmeticawiscComponent,
     BusquedaSimboloswiscComponent,
     InformacionwiscComponent,
+    LetrasNumerosWiscComponent,
     
   ],
   imports: [

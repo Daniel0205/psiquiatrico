@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, ChangeDetectorRef  } from '@angular/core';
-import {Router} from '@angular/router'
+
 
 @Component({
   selector: 'app-letras-numeros',
@@ -41,7 +41,7 @@ export class LetrasNumerosComponent implements OnInit {
 
   resultados:number[] = new Array(30).fill(0);
   
-  constructor(private cdRef:ChangeDetectorRef,private router: Router) {
+  constructor(private cdRef:ChangeDetectorRef) {
     
     this.items.push([['2','B'],['D','1'],['4','C']])
 
