@@ -95,7 +95,7 @@ export class FigurasIncompletasWiscComponent implements OnInit {
   imagenInit(item){
     if(item!==0){
       for (let i = 0; i < item; i++) {
-        this.resultados[0]=1 
+        this.resultados[i]=1 
       }
     }
     else{

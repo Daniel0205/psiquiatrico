@@ -1,0 +1,26 @@
+#test{
+    text-align: center;
+    padding-top: 5%
+}
+
+#resultados{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap:  5%;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
+    padding-top: 3%
+}

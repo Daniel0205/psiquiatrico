@@ -19,7 +19,6 @@ export class ConceptoDibujosWiscComponent implements OnInit {
     
   }
 
-  time:boolean = false
 
   estado:String = 'instruccion';// Esta variable me dice en que estado 
 
@@ -36,8 +35,6 @@ export class ConceptoDibujosWiscComponent implements OnInit {
   countRe:number = 0; //Esta variable me dice cuando se puede salir de la condición de retorno
   flagRe:number = null;//Esta variable me ayuda a decir en que posicion quedo el paciente antes de entrar al retorno 
 
-  interval:any;
-
   constructor() { }
 
   ngOnInit() {
@@ -45,7 +42,7 @@ export class ConceptoDibujosWiscComponent implements OnInit {
 
 
   cambiarPrueba(key){
-    this.time = false
+    console.log(this.resultados)
     if(this.estado==='test'){
       
       if(this.retorno){
@@ -54,7 +51,7 @@ export class ConceptoDibujosWiscComponent implements OnInit {
           if(this.countRe===2){
             this.retorno=false;
             this.retornoHecho=false;
-            this.numberItem=this.flagRe
+            this.numberItem=this.flagRe            
           }
         }
         else {
@@ -77,7 +74,7 @@ export class ConceptoDibujosWiscComponent implements OnInit {
           }
           else this.terminacion++;
 
-          if(this.terminacion===6)this.estado='resultados';
+          if(this.terminacion===5)this.estado='resultados';
         }
         
       }
@@ -88,13 +85,13 @@ export class ConceptoDibujosWiscComponent implements OnInit {
       if(this.numberItem===29 || this.numberItem===0)this.estado='resultados'
 
 
-    }
+    } 
   }
 
   imagenInit(item){
     if(item!==0){
       for (let i = 0; i < item; i++) {
-        this.resultados[0]=1 
+        this.resultados[i]=1 
       }
     }
     else{
@@ -103,7 +100,9 @@ export class ConceptoDibujosWiscComponent implements OnInit {
 
     this.firstItem=item
     this.numberItem=item
-    this.estado='ejemplo'
+    this.estado='ejemplo A'
+    console.log(this.estado)
+    console.log(this.estado==='ejemplo A')
   }
 
 

@@ -1,3 +1,88 @@
-<p>
-  matriceswisc works!
-</p>
+<div id="matrices-container">
+
+  <div *ngIf="estado==='instrucciones'">
+    <br/>
+    <h1>Matrices</h1>
+    <b>Intrucciones generales:</b>
+    <p>Se presentarán una matriz o una serie incompleta al paciente</p>
+    <p>La tarea es escoger, entre cinco opciones, la que mejor complete la matriz o la serie</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Para calificar se debe presionar en el teclado el número correspondiente a la respuesta dada por el paciente </p>
+    <p>Nuestro sistema se encargará de asignar la puntuación correspondiente</p>
+    <br/>
+
+    <app-card-button
+            type='button'
+            message="Iniciar Subprueba"
+            (messageEvent)="changeState()"
+    ></app-card-button>
+  </div>
+  
+  <div *ngIf="estado==='seleccion'">
+    <br/>
+    <h1>Matrices</h1>
+    <p>¿En que estimulo desea iniciar la prueba? </p>
+    <p>Pacientes con sospechas de discapacidad intelectual o de edad 6-8:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 4"
+            (messageEvent)="imagenInit(6)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 9-11:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 7"
+            (messageEvent)="imagenInit(10)"
+            style="margin: 5px;"
+    ></app-card-button>
+    <p>Pacientes de edad 12-16:</p>
+    <app-card-button
+            type='button'
+            message="Estimulo 11"
+            (messageEvent)="imagenInit(13)"
+            style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='aplicacion'" style="text-align:center; padding-top:5%">
+    <img [src]="estimuloActual" />
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+  nameTest="Matrices"
+  [result]="getResultado()"
+  route='/wisc'
+  (review)="aRevisar()"></app-results>
+
+  <div *ngIf="estado==='revision'" style="text-align:center">
+    <h3>El puntaje por cada Item fue: </h3>
+    <form id="myForm">
+      <div *ngFor="let resultado of resultados; let i=index" >
+        <div *ngIf="i!==0 && i!==1 && i!==2">
+          <label for="i">Item {{i+1}}:</label>
+          <input type="number" id="{{i}}" value={{resultado}} style="margin: 5px"/>
+        </div>
+      </div>
+      <app-card-button
+            type='button'
+            message="Regresar"
+            (messageEvent)="regresarAct()"
+            style="margin: 5px;"
+    ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Actualizar Datos"
+              (messageEvent)="actualizarResultados()"
+              style="margin: 5px;"
+      ></app-card-button>
+      <app-card-button
+              type='button'
+              message="Aceptar"
+              (messageEvent)="aceptar()"
+              style="margin: 5px;"
+      ></app-card-button>
+    </form>
+  </div>
+</div>
