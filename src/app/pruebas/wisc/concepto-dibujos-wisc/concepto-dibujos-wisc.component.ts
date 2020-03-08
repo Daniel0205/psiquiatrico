@@ -1,12 +1,11 @@
 import { Component, OnInit,HostListener } from '@angular/core';
 
 @Component({
-  selector: 'app-figuras-incompletas-wisc',
-  templateUrl: './figuras-incompletas-wisc.component.html',
-  styleUrls: ['./figuras-incompletas-wisc.component.css']
+  selector: 'app-concepto-dibujos-wisc',
+  templateUrl: './concepto-dibujos-wisc.component.html',
+  styleUrls: ['./concepto-dibujos-wisc.component.css']
 })
-export class FigurasIncompletasWiscComponent implements OnInit {
-
+export class ConceptoDibujosWiscComponent implements OnInit {
 
   @HostListener('window:keyup', ['$event'])
 
@@ -30,7 +29,7 @@ export class FigurasIncompletasWiscComponent implements OnInit {
 
   firstItem:number
 
-  resultados:number[] = new Array(38).fill(0);
+  resultados:number[] = new Array(28).fill(0);
 
   retornoHecho:boolean = true; // Esta variable me ayuda a controlar el uso de la regla del retorno
   retorno:boolean = false; // Esta variable me ayuda a controlar el uso de la regla del retorno
@@ -86,7 +85,7 @@ export class FigurasIncompletasWiscComponent implements OnInit {
       if(this.retorno)this.numberItem--;
       else this.numberItem++;
       
-      if(this.numberItem===39 || this.numberItem===0)this.estado='resultados'
+      if(this.numberItem===29 || this.numberItem===0)this.estado='resultados'
 
 
     }
@@ -110,7 +109,11 @@ export class FigurasIncompletasWiscComponent implements OnInit {
 
   next(){
     switch (this.estado) {
-      case 'ejemplo':
+      case 'ejemplo A':
+        this.estado='ejemplo B'
+        
+        break;
+      case 'ejemplo B':
         this.estado='test'
         
         break;

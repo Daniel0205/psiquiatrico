@@ -1,10 +1,10 @@
 <div id='test'>
 
   <div id= "inicio" *ngIf="estado==='instruccion'">
-      <h1>Figuras incompletas</h1>
+      <h1>Conceptos con dibujos</h1>
       <b>Intrucciones generales:</b>
-      <p>A continuacion se enseñaran unas imagenes las cuales les hace falta algo</p>
-      <p>el sujeto debe senalar o decir la parte faltante de la imagen</p>
+      <p>A continuacion se presentaran dos o tres filas de dibujos</p>
+      <p>el paciente debe senalar o decir las imagenes que tenga una caracteristica en comun</p>
 
       <br/>
       <b>Intrucciones para registrar la respuesta de paciente:</b>
@@ -21,7 +21,7 @@
 
   
   <div *ngIf="estado==='seleccion'">
-    <h1>Figuras incompletas</h1>
+    <h1>Conceptos con dibujos</h1>
     <p>En que estimulo desea iniciar la prueba? </p>
     <p>Pacientes de edad 6-8 o con sospechas de discapacidad intelectual:</p>
     <app-card-button type='button' message="Estimulo 1"
@@ -30,26 +30,25 @@
     <app-card-button type='button' message="Estimulo 5"
     (messageEvent)="imagenInit(5)"></app-card-button> 
     <p>Pacientes de edad 12-16</p>
-    <app-card-button type='button' message="Estimulo 10"
-    (messageEvent)="imagenInit(10)"></app-card-button> 
+    <app-card-button type='button' message="Estimulo 7"
+    (messageEvent)="imagenInit(7)"></app-card-button> 
   </div>
 
   
-  <div *ngIf="estado==='ejemplo' " style="text-align:center; padding-top:5%">
+  <div *ngIf="estado==='ejemplo A' || estado==='ejemplo B' " style="text-align:center; padding-top:5%">
       <h1> Estimulo {{estado}}</h1>
-      <img   [src]="'assets/estimulos/figurasIncompletas-wisc/'+estado+'.jpg'" />
+      <img   [src]="'assets/estimulos/conceptosDibujos-wisc/'+estado+'.jpg'" />
       <app-card-button type='button' message="Iniciar"
       (messageEvent)="next()"></app-card-button> 
   </div>
 
   <div id="container" *ngIf="estado==='test'">
-      <h1> Estimulo {{numberItem}}</h1>
-          
-      <img   [src]="'assets/estimulos/figurasIncompletas-wisc/'+numberItem+'.jpg'" />
+      <h1> Estimulo {{numberItem}}</h1>'ejemplo B'
+      <img   [src]="'assets/estimulos/conceptosDibujos-wisc/'+numberItem+'.jpg'" />
   </div>
 
   <app-results  *ngIf="estado==='resultados'"
-  nameTest="Figuras incompletas"
+  nameTest="Conceptos con dibujos"
   [result]="getResultado()"
   route='/wisc'
   (review)="next()"></app-results>

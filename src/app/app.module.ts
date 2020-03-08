@@ -52,6 +52,7 @@ import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabul
 import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
 import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
+import { ConceptoDibujosWiscComponent } from './pruebas/wisc/concepto-dibujos-wisc/concepto-dibujos-wisc.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incomple
     VocabulariowiscComponent,
     DigitoswiscComponent,
     MatriceswiscComponent,
-    FigurasIncompletasWiscComponent
+    FigurasIncompletasWiscComponent,
+    ConceptoDibujosWiscComponent
   ],
   imports: [
     BrowserModule,
