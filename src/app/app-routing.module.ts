@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'digitoswisc', component: DigitoswiscComponent },
   { path: 'matriceswisc', component: MatriceswiscComponent },
   { path: 'aritmeticawisc', component: AritmeticawiscComponent },
-  { path: 'busqueda-simbolowisc', component: BusquedaSimboloswiscComponent },
+  { path: 'busqueda-simboloswisc', component: BusquedaSimboloswiscComponent },
   { path: 'informacionwisc', component: InformacionwiscComponent },
   { path: 'letrasNumeroswisc', component: LetrasNumerosWiscComponent},
   { path: 'figurasIncompletaswisc', component: FigurasIncompletasWiscComponent},

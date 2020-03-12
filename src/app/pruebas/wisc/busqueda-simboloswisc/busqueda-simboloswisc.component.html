@@ -1,42 +1,54 @@
 <div style="text-align:center;">
+  <div id= "inicio" *ngIf="estado==='instruccion'">
+    <h1>Busqueda de simbolos</h1>
+    <b>Intrucciones generales:</b>
+    <p>Seleccione la opción según sea el caso</p>
+    <br/>
+    <app-card-button type='button' message="Aplicación de subprueba"
+      (messageEvent)="estado='aplicacion'"></app-card-button>
+    <app-card-button type='button' message="Registro de resultados"
+      (messageEvent)="estado='seleccion'"></app-card-button>    
+  </div>
+
   <div *ngIf="estado==='aplicacion'">
+    <h1>Busqueda de simbolos guia de aplicación</h1>
+    <p>Según la edad o condición del paciente se le entrega la hoja de aplicación indicada a continuación </p>
+    <p> </p>
+    <p>Pacientes de edad 6-7 años o con sospechas de discapacidad intelectual:</p>
+    <p>Busqueda de simbolos A</p>
+    <br/>
+    <p>Pacientes de edad 8-16:</p>
+    <p>Busqueda de simbolos B</p>
+
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+
+    <app-card-button
+      type='button'
+      message="Regresar a Wisc"
+      (messageEvent)="retorno()"
+      style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='seleccion'">
+    <h1>Información</h1>
+    <p>Seleccione el reactivo que se le aplicó al paciente </p>
+    <p>Pacientes de edad 6-7 años o con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Busqueda de simbolos A"
+    (messageEvent)="testInit('A')"></app-card-button> 
+    <br/>
+    <p>Pacientes de edad 8-16:</p>
+    <app-card-button type='button' message="Busqueda de simbolos B"
+    (messageEvent)="testInit('B')"></app-card-button> 
+  </div>
+
+  <div *ngIf="estado==='registro1'">
     <h1>Busqueda de Simbolos</h1>
     <b>Intrucciones:</b>
-    <p>Registre las calificaciones obtenidas por el paciente en la prueba</p>    
+    <p>Registre las calificaciones obtenidas por el paciente en la subprueba</p>    
     <br>
-    <div class="form-group">
-      <mat-label>Página 1 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag1C"  [(ngModel)]="pag1C" name="pag1C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag1I"  [(ngModel)]="pag1I" name="pag1I">
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-label>Página 2 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag2C"  [(ngModel)]="pag2C" name="pag2C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag2I"  [(ngModel)]="pag2I" name="pag2I">
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-label>Página 3 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag3C"  [(ngModel)]="pag3C" name="pag3C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag3I"  [(ngModel)]="pag3I" name="pag3I">
-      </mat-form-field>
-    </div>
     <div class="form-group">
       <mat-label>Página 4 - </mat-label>
       <mat-label>Correctas: </mat-label>
@@ -70,17 +82,6 @@
         <input matInput type="number" required id="pag6I"  [(ngModel)]="pag6I" name="pag6I">
       </mat-form-field>
     </div>
-    <div class="form-group">
-      <mat-label>Página 7 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag7C"  [(ngModel)]="pag7C" name="pag7C">  
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" required id="pag7I"  [(ngModel)]="pag7I" name="pag7I">
-      </mat-form-field>
-    </div>
 
     <br>
     <app-card-button
@@ -91,51 +92,8 @@
     ></app-card-button>
   </div>
 
-  <!--<div *ngIf="estado==='terminado'">
-    <h2>Terminaste la subprueba de Busqueda de Simbolos</h2>
-    <h4>Tu resultado es: {{resultado}}</h4>
-  </div>--> 
-
-  <app-results  *ngIf="estado==='terminado'"
-  nameTest="Busqueda-simbolos"
-  [result]="getResultado()"
-  (review)="aRevisar()"></app-results>
-
-  <div *ngIf="estado==='revision'">
-    <br>
-    <div class="form-group">
-      <mat-label>Página 1 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag1C"  [(ngModel)]="pag1C" name="pag1C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag1I"  [(ngModel)]="pag1I" name="pag1I">
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-label>Página 2 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag2C"  [(ngModel)]="pag2C" name="pag2C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag2I"  [(ngModel)]="pag2I" name="pag2I">
-      </mat-form-field>
-    </div>
-    <div class="form-group">
-      <mat-label>Página 3 - </mat-label>
-      <mat-label>Correctas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag3C"  [(ngModel)]="pag3C" name="pag3C">
-      </mat-form-field>
-      <mat-label>Incorrectas: </mat-label>
-      <mat-form-field>
-        <input matInput type="number" readonly id="pag3I"  [(ngModel)]="pag3I" name="pag3I">
-      </mat-form-field>
-    </div>
+  <div *ngIf="estado==='revision1'">
+    <br>    
     <div class="form-group">
       <mat-label>Página 4 - </mat-label>
       <mat-label>Correctas: </mat-label>
@@ -169,16 +127,120 @@
         <input matInput type="number" readonly id="pag6I"  [(ngModel)]="pag6I" name="pag6I">
       </mat-form-field>
     </div>
+
+    <br>
+    <app-card-button
+      type='button'
+      message="Regresar"
+      (messageEvent)="regresarAct()"
+      style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='registro2'">
+    <h1>Busqueda de Simbolos</h1>
+    <b>Intrucciones:</b>
+    <p>Registre las calificaciones obtenidas por el paciente en la subprueba</p>    
+    <br>
     <div class="form-group">
-      <mat-label>Página 7 - </mat-label>
+      <mat-label>Página 8 - </mat-label>
       <mat-label>Correctas: </mat-label>
       <mat-form-field>
-        <input matInput type="number" readonly id="pag7C"  [(ngModel)]="pag7C" name="pag7C">
+        <input matInput type="number" required id="pag8C"  [(ngModel)]="pag8C" name="pag8C">
       </mat-form-field>
       <mat-label>Incorrectas: </mat-label>
       <mat-form-field>
-        <input matInput type="number" readonly id="pag7I"  [(ngModel)]="pag7I" name="pag7I">
-      </mat-form-field> 
+        <input matInput type="number" required id="pag8I"  [(ngModel)]="pag8I" name="pag8I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 9 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag9C"  [(ngModel)]="pag9C" name="pag9C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag9I"  [(ngModel)]="pag9I" name="pag9I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 10 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag10C"  [(ngModel)]="pag10C" name="pag10C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag10I"  [(ngModel)]="pag10I" name="pag10I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 11 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag11C"  [(ngModel)]="pag11C" name="pag11C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" required id="pag11I"  [(ngModel)]="pag11I" name="pag11I">
+      </mat-form-field>
+    </div>
+
+    <br>
+    <app-card-button
+      type='button'
+      message="Calificar"
+      (messageEvent)="calcularResultado()"
+      style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='revision2'">
+    <br>    
+    <div class="form-group">
+      <mat-label>Página 8 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag8C"  [(ngModel)]="pag8C" name="pag8C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag8I"  [(ngModel)]="pag8I" name="pag8I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 9 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag9C"  [(ngModel)]="pag9C" name="pag9C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag9I"  [(ngModel)]="pag9I" name="pag9I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 10 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag10C"  [(ngModel)]="pag10C" name="pag10C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag10I"  [(ngModel)]="pag10I" name="pag10I">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-label>Página 11 - </mat-label>
+      <mat-label>Correctas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag11C"  [(ngModel)]="pag11C" name="pag11C">
+      </mat-form-field>
+      <mat-label>Incorrectas: </mat-label>
+      <mat-form-field>
+        <input matInput type="number" readonly id="pag11I"  [(ngModel)]="pag11I" name="pag11I">
+      </mat-form-field>
     </div>
 
     <br>
@@ -189,5 +251,10 @@
       style="margin: 5px;"
     ></app-card-button>
   </div>
+
+  <app-results *ngIf="estado==='terminado'"
+  nameTest="Busqueda-simbolos"
+  [result]="getResultado()"
+  (review)="aRevisar()"></app-results>
   
 </div>
