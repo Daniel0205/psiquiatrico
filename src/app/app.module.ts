@@ -46,14 +46,18 @@ import { CardButtonComponent } from './components/card-button/card-button.compon
 import { CategoryComponent } from './components/category/category.component';
 import { StartTestComponent } from './components/start-test/start-test.component';
 import { ResultsComponent } from './components/results/results.component';
+
 import { CuboswiscComponent } from './pruebas/wisc/cuboswisc/cuboswisc.component';
 import { SemejanzaswiscComponent } from './pruebas/wisc/semejanzaswisc/semejanzaswisc.component';
 import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabulariowisc.component';
 import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
+import { ConceptoDibujosWiscComponent } from './pruebas/wisc/concepto-dibujos-wisc/concepto-dibujos-wisc.component';
 import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
 import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
 import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
+import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/letras-numeros-wisc.component';
+import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
 
 
 @NgModule({
@@ -91,9 +95,13 @@ import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informaci
     VocabulariowiscComponent,
     DigitoswiscComponent,
     MatriceswiscComponent,
+    ConceptoDibujosWiscComponent,
+    MatriceswiscComponent,
     AritmeticawiscComponent,
     BusquedaSimboloswiscComponent,
     InformacionwiscComponent,
+    LetrasNumerosWiscComponent,
+    FigurasIncompletasWiscComponent,
     
   ],
   imports: [

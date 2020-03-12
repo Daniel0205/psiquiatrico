@@ -1,0 +1,20 @@
+#inicio{
+    text-align: center;
+    padding-top: 3%
+}
+
+#letrasnumeros{
+    padding-top: 5%
+}
+
+h3{
+    font-size: 20px;
+}
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
+}
