@@ -1,0 +1,101 @@
+<div style="text-align:center;">
+  <div id= "inicio" *ngIf="estado==='instruccion'">
+    <h1>Clave de números</h1>
+    <b>Intrucciones generales:</b>
+    <p>Seleccione la opción según sea el caso</p>
+    <br/>
+    <app-card-button type='button' message="Aplicación de subprueba"
+      (messageEvent)="estado='aplicacion'"></app-card-button>
+    <app-card-button type='button' message="Registro de resultados"
+      (messageEvent)="estado='seleccion'"></app-card-button>    
+  </div>
+
+  <div *ngIf="estado==='aplicacion'">
+    <h1>Clave de números: Guia de aplicación</h1>
+    <p>Según la edad o condición del paciente se le entrega la hoja de aplicación indicada a continuación </p>
+    <p> </p>
+    <p>Pacientes de edad 6-7 años o con sospechas de discapacidad intelectual:</p>
+    <p>Claves A</p>
+    <br/>
+    <p>Pacientes de edad 8-16:</p>
+    <p>Claves B</p>
+
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+    <!-- AQUI VA EL COMPONENTE PARA EL CORNÓMETRO-->
+
+    <app-card-button
+      type='button'
+      message="Regresar a Wisc"
+      (messageEvent)="retorno()"
+      style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <div *ngIf="estado==='seleccion'">
+    <h1>Clave de números</h1>
+    <p>Seleccione el reactivo que se le aplicó al paciente </p>
+    <p>Pacientes de edad 6-7 años o con sospechas de discapacidad intelectual:</p>
+    <app-card-button type='button' message="Busqueda de simbolos A"
+    (messageEvent)="testInit('A')"></app-card-button> 
+    <br/>
+    <p>Pacientes de edad 8-16:</p>
+    <app-card-button type='button' message="Busqueda de simbolos B"
+    (messageEvent)="testInit('B')"></app-card-button> 
+  </div>
+
+  <div *ngIf="estado==='registro'">
+    <h1>Clave de números</h1>
+  </div>
+
+  <div *ngIf="estado==='registro' && clavesA">
+    <table mat-table [dataSource]="clavesATableItems" class="mat-elevation-z8">
+      <!-- Time Range -->
+      <ng-container matColumnDef="timeRange">
+        <th mat-header-cell *matHeaderCellDef> Rango de tiempo de terminación (seg)</th>
+        <td mat-cell *matCellDef="let element"> {{element.timeRange}} </td>
+      </ng-container>
+
+       <!-- Bonus Points -->
+       <ng-container matColumnDef="bonusP">
+        <th mat-header-cell *matHeaderCellDef> Puntos de bonificación</th>
+        <td mat-cell *matCellDef="let element"> {{element.bonusP}} </td>
+      </ng-container>
+
+       <!-- Total natural score -->
+       <ng-container matColumnDef="totalNS">
+        <th mat-header-cell *matHeaderCellDef> Puntuación natural total</th>
+        <td mat-cell *matCellDef="let element"> {{element.totalNS}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <div *ngIf="estado==='registro'">
+    <br>
+    <b>Intrucciones:</b>
+    <p>Registre la calificacion obtenida por el paciente en la prueba</p>    
+    <br>
+    <div class="form-group">
+      <mat-label>Puntuación del paciente: </mat-label> 
+      <mat-form-field>
+        <input matInput type="number" required id="resultado"  [(ngModel)]="resultado" name="resultado">
+      </mat-form-field>
+    </div>
+    <br> 
+    <app-card-button
+      type='button'
+      message="Terminar"
+      (messageEvent)="MostrarResumen()"
+      style="margin: 5px;"
+    ></app-card-button>
+  </div>
+
+  <app-results  *ngIf="estado==='terminado'"
+    nameTest="Clave de numeros"
+    [result]="getResultado()"
+  ></app-results>
+
+</div>

@@ -53,11 +53,12 @@ import { VocabulariowiscComponent } from './pruebas/wisc/vocabulariowisc/vocabul
 import { DigitoswiscComponent } from './pruebas/wisc/digitoswisc/digitoswisc.component';
 import { MatriceswiscComponent } from './pruebas/wisc/matriceswisc/matriceswisc.component';
 import { ConceptoDibujosWiscComponent } from './pruebas/wisc/concepto-dibujos-wisc/concepto-dibujos-wisc.component';
-import {AritmeticawiscComponent} from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
-import {BusquedaSimboloswiscComponent} from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
-import {InformacionwiscComponent} from './pruebas/wisc/informacionwisc/informacionwisc.component';
+import { AritmeticawiscComponent } from './pruebas/wisc/aritmeticawisc/aritmeticawisc.component';
+import { BusquedaSimboloswiscComponent } from './pruebas/wisc/busqueda-simboloswisc/busqueda-simboloswisc.component';
+import { InformacionwiscComponent } from './pruebas/wisc/informacionwisc/informacionwisc.component';
 import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/letras-numeros-wisc.component';
 import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
+import { ClaveNumeroswiscComponent } from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incomple
     InformacionwiscComponent,
     LetrasNumerosWiscComponent,
     FigurasIncompletasWiscComponent,
+    ClaveNumeroswiscComponent,
     
   ],
   imports: [
