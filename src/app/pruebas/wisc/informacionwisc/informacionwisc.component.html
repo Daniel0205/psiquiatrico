@@ -10,7 +10,7 @@
     <br/>
     <br/>
     <li>La respuesta dada por el paciente debe ser registrada en la casilla de respuesta</li>
-    <li>Se debe escoger, teniendo en cuneta la guía, entre 1 y 0 para la puntuación de la respuesta</li>
+    <li>Se debe escoger, teniendo en cuenta la guía, entre 1 y 0 para la puntuación de la respuesta</li>
     <br/>
     <app-card-button type='button' message="Iniciar subprueba"
       (messageEvent)="estado='seleccion'"></app-card-button>    
@@ -72,6 +72,7 @@
         <mat-radio-button id="radioPunto1" name="radioPunto1" [value]="defRadioPunto1">1 Puntos</mat-radio-button>
       </mat-radio-group>
     </div>
+    <br>
      <app-card-button type='button' message="Calificar" 
     (messageEvent)="verificarResultado()"></app-card-button> 
   </div>

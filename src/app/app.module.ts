@@ -59,6 +59,7 @@ import { InformacionwiscComponent } from './pruebas/wisc/informacionwisc/informa
 import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/letras-numeros-wisc.component';
 import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
 import { ClaveNumeroswiscComponent } from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
+import { ComprensionwiscComponent } from './pruebas/wisc/comprensionwisc/comprensionwisc.component';
 
 
 @NgModule({
@@ -104,6 +105,7 @@ import { ClaveNumeroswiscComponent } from './pruebas/wisc/clave-numeroswisc/clav
     LetrasNumerosWiscComponent,
     FigurasIncompletasWiscComponent,
     ClaveNumeroswiscComponent,
+    ComprensionwiscComponent,
     
   ],
   imports: [
