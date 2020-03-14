@@ -145,7 +145,9 @@ export class ComprensionwiscComponent implements OnInit {
                          "(I) ¿Qué quieres decir? o dime más acerca de ello\n*Si la respuesta del niño refleja sólo una idea general, se le pide una segunda respuesta planteando: Dime algunos otros problemas relacionados con los cambios rápidos en ciencia y tecnología"];
 
   consignaActual:String = null;
+  generalActual:String = null;
   respuestaCorrectaAct:String = null;
+  respuestaIntermediaAct:String = null;
   respuestaErroneaAct:String = null;
   comentarioAct:String = null;
   
@@ -165,68 +167,61 @@ export class ComprensionwiscComponent implements OnInit {
 
   testInit(num:number){
     this.indexInicial = num
-    this.indexActual = 0;
+    this.indexActual = num;
 
     this.consignaActual = this.consigna[this.indexActual];
+    this.generalActual = this.general[this.indexActual];
     this.respuestaCorrectaAct = this.respuestaCorrecta[this.indexActual];
+    this.respuestaIntermediaAct = this.respuestaIntermedia[this.indexActual];
     this.respuestaErroneaAct = this.respuestaErronea[this.indexActual];
-    //this.respuestaErroneaAct = this.respuestaErroneaAct.replace(/\n/g, "<br />");
-    var newline = String.fromCharCode(13, 10);
-    //this.respuestaErroneaAct = this.respuestaErroneaAct.replace(/\\n/g, String.fromCharCode(13, 10) )
     this.comentarioAct = this.comentario[this.indexActual];
 
     this.estado = 'aplicacion';
   }
 
   verificarSiguienteEstimulo(){
-    if(this.terminacion < 5 && this.indexActual < 32){ // Verifica que no se haya cumplido la condicion de termino      
+    if(this.terminacion < 3 && this.indexActual < 21){ // Verifica que no se haya cumplido la condicion de termino      
       
       //Este verificacion me dice si se cumple la condición para retornar y asi devolverse en caso de ser necesario
-      if((
-          ((this.indexActual === 4 || this.indexActual === 5) && this.indexInicial === 2) ||
-          ((this.indexActual === 9 || this.indexActual === 10) && this.indexInicial === 8) ||
-          ((this.indexActual === 11 || this.indexActual === 12) && this.indexInicial === 11)
+      if((        
+          ((this.indexActual === 2 || this.indexActual === 3) && this.indexInicial === 2) ||
+          ((this.indexActual === 4 || this.indexActual === 5) && this.indexInicial === 4)
          )
           && this.resultados[this.indexActual]===0){
         this.retorno = true;
         this.flagRe = this.indexActual;
-        this.indexActual = 2;
+        this.indexActual = this.indexInicial-1;
       }
 
       if(!this.retorno){ //En caso de no haber fallado los dos primeros reactivos por cada caso
         this.indexActual++;
         this.consignaActual = this.consigna[this.indexActual];
+        this.generalActual = this.general[this.indexActual];
         this.respuestaCorrectaAct = this.respuestaCorrecta[this.indexActual];
+        this.respuestaIntermediaAct = this.respuestaIntermedia[this.indexActual];
         this.respuestaErroneaAct = this.respuestaErronea[this.indexActual];
         this.comentarioAct = this.comentario[this.indexActual];
 
-        //this.radioPunto = true;
-        //this.radioPunto = false;
-
-      }else{ //En caso de que halla fallado los dos primeros reactivos por cada caso
-        
+      }else{ //En caso de que halla fallado los dos primeros reactivos por cada caso        
         if(this.countRe===2){
           this.retorno = false;
           this.indexActual = this.flagRe + 1;
           this.consignaActual = this.consigna[this.indexActual];
+          this.generalActual = this.general[this.indexActual];
           this.respuestaCorrectaAct = this.respuestaCorrecta[this.indexActual];
+          this.respuestaIntermediaAct = this.respuestaIntermedia[this.indexActual];
           this.respuestaErroneaAct = this.respuestaErronea[this.indexActual];
           this.comentarioAct = this.comentario[this.indexActual];
-
-          //this.radioPunto = true;
-          //this.radioPunto1 = false;
           
         }else{
           this.indexActual--;
           this.consignaActual = this.consigna[this.indexActual];
+          this.generalActual = this.general[this.indexActual];
           this.respuestaCorrectaAct = this.respuestaCorrecta[this.indexActual];
+          this.respuestaIntermediaAct = this.respuestaIntermedia[this.indexActual];
           this.respuestaErroneaAct = this.respuestaErronea[this.indexActual];
           this.comentarioAct = this.comentario[this.indexActual];
-
-          //this.radioPunto = true;
-          //this.radioPunto = false;
-        }
-        
+        }        
       }
 
     }else{
@@ -234,19 +229,10 @@ export class ComprensionwiscComponent implements OnInit {
     }
   }
 
-  verificarResultado(){
+  cambiarPuntuacion(punt:number){
     this.respuestasDadas[this.indexActual] = this.respuestaDada;
     this.respuestaDada = null;
-    //console.log("Respuesta: ", this.respuestasDadas[this.indexActual], " Punt", this.radioPunto);
 
-    /*if(this.radioPunto){
-      this.cambiarPuntuacion(1);
-    }else{
-      this.cambiarPuntuacion(0);
-    }*/
-  }
-
-  cambiarPuntuacion(punt:number){
     if(punt === 0){
         this.resultados[this.indexActual] = punt;
         this.terminacion++;
@@ -295,7 +281,6 @@ export class ComprensionwiscComponent implements OnInit {
   }
 
   actualizarResultados(){
-    
     for(let j = 0;j<this.resultados.length;j++){
       var x = (<HTMLInputElement>document.getElementById(""+j)).value;
       this.resultados[j] = +x;

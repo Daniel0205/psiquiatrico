@@ -1,7 +1,7 @@
 <div id="inicio">
 
   <div id= "inicio" *ngIf="estado==='instruccion'">
-      <h1>Comprension</h1>
+      <h1>Comprensión</h1>
       <b>Intrucciones generales:</b>
       <p>A continuación se le realizara una serie de preguntas al paciente</p>
       <p>el cual debera responder deacuerdo a la pregunta que se le haga.</p>
@@ -21,103 +21,97 @@
     <p>En que estimulo desea iniciar la prueba? </p>
     <p>Pacientes de edad 6-8 años o con sospechas de discapacidad intelectual:</p>
     <app-card-button type='button' message="Estimulo 1" 
-    (messageEvent)="imagenInit(0)"></app-card-button> 
+    (messageEvent)="testInit(0)"></app-card-button> 
     <p>Pacientes de edad 9-11:</p>
     <app-card-button type='button' message="Estimulo 3" 
-    (messageEvent)="imagenInit(2)"></app-card-button> 
+    (messageEvent)="testInit(2)"></app-card-button> 
     <p>Pacientes de edad 12-16:</p>
     <app-card-button type='button' message="Estimulo 5" 
-    (messageEvent)="imagenInit(4)"></app-card-button>
+    (messageEvent)="testInit(4)"></app-card-button>
   </div>
 
-  <div *ngIf="estado==='test'"> 
-      <h1>Item #{{itemNumber+1}}</h1>
-      <h2>{{consigna[itemNumber]}}</h2>
+  <div *ngIf="estado==='aplicacion'"> 
+    <h2>{{consignaActual}}</h2>
 
-      <div id="concept" *ngIf="itemNumber===4 || itemNumber===9 || itemNumber===10 || itemNumber===11 || itemNumber===12 || itemNumber===16 ">
-        <mat-label for="punto1"><b>Conceptos generales</b></mat-label>
+    <div id="generalC">
+      <mat-label for="general"><b>Conceptos generales</b></mat-label>
+      <br>
+      <mat-form-field>
+        <textarea matInput cols="1500" rows="8" readonly>{{generalActual}}</textarea> 
+      </mat-form-field>
+    </div>
+    <br>
+      
+    <div id="puntos" class="form-group">
+      <div id="field">
+        <mat-label for="punto1"><b>2 Puntos</b></mat-label>
         <br>
         <mat-form-field>
-          <textarea matInput cols="500" rows="6" readonly>{{concepts[itemNumber]}}</textarea> 
+          <textarea matInput cols="500" rows="6" readonly>{{respuestaCorrectaAct}}</textarea> 
         </mat-form-field>
       </div>
       
-      
-      <div id="puntos" class="form-group">
-        <div id="field">
-          <mat-label for="punto1"><b>2 Punto</b></mat-label>
-          <br>
-          <mat-form-field>
-            <textarea matInput cols="500" rows="6" readonly>{{rightAnswer[itemNumber]}}</textarea> 
-          </mat-form-field>
-        </div>
-        
-        <div id="field">
-          <mat-label for="punto1"><b>1 Punto</b></mat-label>
-          <br>
-          <mat-form-field>
-            <textarea matInput cols="500" rows="6" readonly>{{mediumAnswer[itemNumber]}}</textarea>
-          </mat-form-field> 
-        </div>
-
-        <div id="field">
-          <mat-label for="punto1"><b>0 Punto</b></mat-label>
-          <br>
-          <mat-form-field>
-            <textarea matInput cols="500" rows="6" readonly>{{badAnswer[itemNumber]}}</textarea>
-          </mat-form-field> 
-        </div>
-      </div>    
-      
-      <div class="form-group">
-        <mat-label for="comentarioA">{{comentarioAct}}</mat-label>
+      <div id="field">
+        <mat-label for="punto1"><b>1 Punto</b></mat-label>
+        <br>
+        <mat-form-field>
+          <textarea matInput cols="500" rows="6" readonly>{{respuestaIntermediaAct}}</textarea>
+        </mat-form-field> 
       </div>
-      <br>
-      <mat-label>Respuesta dada:  </mat-label>
-      <mat-form-field>
-        <input matInput id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
-      </mat-form-field>
-      <br>
-      <br>
-      <div id="bot">
-        <app-card-button type='button' message="0 Puntos" 
-        (messageEvent)="cambiarPrueba(0)"></app-card-button> 
-        <app-card-button type='button' message="1 Punto" 
-        (messageEvent)="cambiarPrueba(1)" ></app-card-button> 
-        <app-card-button type='button' message="2 Puntos" 
-        (messageEvent)="cambiarPrueba(2)" ></app-card-button> 
+
+      <div id="field">
+        <mat-label for="punto1"><b>0 Puntos</b></mat-label>
+        <br>
+        <mat-form-field>
+          <textarea matInput cols="500" rows="6" readonly>{{respuestaErroneaAct}}</textarea>
+        </mat-form-field> 
       </div>
     </div>
-  
+      
+    <div class="form-group">
+      <mat-label for="comentarioA">{{comentarioAct}}</mat-label>
+    </div>
 
+    <br>
+    <mat-label>Respuesta dada:  </mat-label>
+    <mat-form-field>
+      <input matInput required id="respuestaDada"  [(ngModel)]="respuestaDada" name="respuestaDada">
+    </mat-form-field>
+    <br><br>
+    <div id="bot">
+      <app-card-button type='button' message="0 Puntos"
+      (messageEvent)="cambiarPuntuacion(0)"></app-card-button>
+      <app-card-button type='button' message="1 Punto"
+      (messageEvent)="cambiarPuntuacion(1)" ></app-card-button>
+      <app-card-button type='button' message="2 Puntos"
+      (messageEvent)="cambiarPuntuacion(2)" ></app-card-button>
+    </div>
+  </div>
 
-    
   <app-results  *ngIf="estado==='resultados'"
     nameTest="Comprension"
     [result]="getResultado()"
     route='/wais'
     (review)="aRevisar()">
   </app-results>
-
-  <h2 *ngIf="estado==='revision'">El puntaje por cada Item fue: </h2>
-
-  <div  *ngIf="estado==='revision'" >
+  
+  <div *ngIf="estado==='revision'" >
+    <h2>El puntaje por cada Item fue: </h2>
+    <div id="resultados" >
+      <label for="item">Item No.</label>
+      <label for="puntuacion">Puntuación</label>
+      <label for="respuestaDada">Respuesta dada:</label>
+    </div>
       
-      <div id="resultados" >
-        <label for="item">Item No.</label>
-        <label for="puntuacion">Puntuación</label>
-        <label for="respuestaDada">Respuesta dada:</label>
-      </div>
-      
-      <div id="resultados"  *ngFor="let resultado of resultados; let i=index" >
-            <label for="i">{{i+1}}:</label>
-            <mat-form-field>
-              <input matInput type="number" id="{{i}}" value={{resultado}}/>
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput type="text" value={{respuestas[i]}}/>
-            </mat-form-field>
-      </div>
+    <div id="resultados"  *ngFor="let resultado of resultados; let i=index" >
+      <label for="i">{{i+1}}:</label>
+      <mat-form-field>
+        <input matInput type="number" id="{{i}}" value={{resultado}}/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" value={{respuestas[i]}}/>
+      </mat-form-field>
+    </div>
   </div>
 
 

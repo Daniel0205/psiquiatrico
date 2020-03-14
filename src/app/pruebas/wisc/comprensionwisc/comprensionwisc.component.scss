@@ -1,13 +1,48 @@
+#inicio{
+    text-align: center;
+    padding-top: 3%;
+}
+
+
 #puntos{
     display: grid;
-    grid-template-columns: 3fr 3fr;
+    grid-template-columns: 3fr 3fr 3fr;
     grid-column-gap: 5%;
 }
 
-#field{
-    text-align: center
+
+#bot{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 5%;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
+}
+
+#resultados{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap:  5%;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%
 }
 
 #field mat-form-field{
     width: 80%;
+}
+
+#generalC mat-form-field{
+    width: 80%;
+    min-width: 80%;
 }

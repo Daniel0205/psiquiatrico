@@ -70,7 +70,7 @@ const routes: Routes = [
   { path: 'figurasIncompletaswisc', component: FigurasIncompletasWiscComponent},
   { path: 'ConceptoDibujosWisc', component: ConceptoDibujosWiscComponent},
   { path: 'ClaveNumeroswisc', component: ClaveNumeroswiscComponent },
-  { path: 'Comprensionswisc', component: ComprensionwiscComponent },
+  { path: 'Comprensionwisc', component: ComprensionwiscComponent },
 ];
 
 @NgModule({
