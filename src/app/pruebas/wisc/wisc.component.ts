@@ -13,11 +13,11 @@ export class WiscComponent implements OnInit {
 
   estado:String = "confirmacion"
 
-  link:string[] = ["/cuboswisc","/semejanzaswisc","/digitoswisc","ConceptoDibujosWisc",
-                   "/ClaveNumeroswisc","/vocabulariowisc","/letrasNumeroswisc",
-                   "/matriceswisc","/Comprensionwisc","/busqueda-simboloswisc",
+  link:string[] = ["/cuboswisc","/semejanzaswisc","/digitoswisc","conceptoDibujosWisc",
+                   "/claveNumeroswisc","/vocabulariowisc","/letrasNumeroswisc",
+                   "/matriceswisc","/comprensionwisc","/busqueda-simboloswisc",
                    "/figurasIncompletaswisc","","/informacionwisc",
-                   "/aritmeticawisc",""]
+                   "/aritmeticawisc","pistaswisc"]
 
 
   texts:string[] = ["Cubos","Semejanzas","Dígitos",

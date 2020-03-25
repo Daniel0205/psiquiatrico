@@ -60,6 +60,7 @@ import { LetrasNumerosWiscComponent } from './pruebas/wisc/letras-numeros-wisc/l
 import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incompletas-wisc/figuras-incompletas-wisc.component';
 import { ClaveNumeroswiscComponent } from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
 import { ComprensionwiscComponent } from './pruebas/wisc/comprensionwisc/comprensionwisc.component';
+import { PistasWiscComponent } from './pruebas/wisc/pistas-wisc/pistas-wisc.component';
 
 
 @NgModule({
@@ -106,6 +107,7 @@ import { ComprensionwiscComponent } from './pruebas/wisc/comprensionwisc/compren
     FigurasIncompletasWiscComponent,
     ClaveNumeroswiscComponent,
     ComprensionwiscComponent,
+    PistasWiscComponent
     
   ],
   imports: [

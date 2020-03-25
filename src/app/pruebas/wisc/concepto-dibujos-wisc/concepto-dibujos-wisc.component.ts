@@ -70,10 +70,13 @@ export class ConceptoDibujosWiscComponent implements OnInit {
           if((this.numberItem===this.firstItem || this.numberItem===this.firstItem+1) && this.retornoHecho){
             this.retorno=true;
             this.flagRe=this.numberItem;
+            this.resultados[this.numberItem-1]=0
             this.numberItem=this.firstItem;
           }
-          else this.terminacion++;
-
+          else {
+            this.terminacion++;
+            this.resultados[this.numberItem-1]=0
+          }
           if(this.terminacion===5)this.estado='resultados';
         }
         
@@ -94,9 +97,7 @@ export class ConceptoDibujosWiscComponent implements OnInit {
         this.resultados[i]=1 
       }
     }
-    else{
-      this.retornoHecho=false
-    }
+   
 
     this.firstItem=item
     this.numberItem=item

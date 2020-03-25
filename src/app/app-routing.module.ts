@@ -34,6 +34,7 @@ import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incomple
 import { ConceptoDibujosWiscComponent } from './pruebas/wisc/concepto-dibujos-wisc/concepto-dibujos-wisc.component';
 import {ClaveNumeroswiscComponent} from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
 import {ComprensionwiscComponent} from './pruebas/wisc/comprensionwisc/comprensionwisc.component';
+import { PistasWiscComponent } from './pruebas/wisc/pistas-wisc/pistas-wisc.component';
 
 
 const routes: Routes = [
@@ -68,9 +69,10 @@ const routes: Routes = [
   { path: 'informacionwisc', component: InformacionwiscComponent },
   { path: 'letrasNumeroswisc', component: LetrasNumerosWiscComponent},
   { path: 'figurasIncompletaswisc', component: FigurasIncompletasWiscComponent},
-  { path: 'ConceptoDibujosWisc', component: ConceptoDibujosWiscComponent},
-  { path: 'ClaveNumeroswisc', component: ClaveNumeroswiscComponent },
-  { path: 'Comprensionwisc', component: ComprensionwiscComponent },
+  { path: 'conceptoDibujosWisc', component: ConceptoDibujosWiscComponent},
+  { path: 'claveNumeroswisc', component: ClaveNumeroswiscComponent },
+  { path: 'comprensionwisc', component: ComprensionwiscComponent },
+  { path: 'pistaswisc', component: PistasWiscComponent },
 ];
 
 @NgModule({
