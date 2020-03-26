@@ -1,0 +1,24 @@
+#inicio{
+    text-align: center;
+    padding-top: 3%;
+}
+
+
+
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5%;
+    padding-right: 40%;
+    padding-left: 40%;
+}
+
+
+#form-test{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#timer p{
+    font-size: xx-large;
+}

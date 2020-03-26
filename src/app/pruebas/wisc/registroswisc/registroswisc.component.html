@@ -1,0 +1,147 @@
+<div  id= "inicio">
+  
+  <div *ngIf="estado==='instruccion'">
+    <h1>Registros</h1>
+    <b>Intrucciones generales:</b>
+    <p>El paciente recibira una hoja con diferentes objetos y animales</p>
+    <p>en ella debera tachar con un lapiz todos lo animales qe alcance en el tiempo</p>
+    <br/>
+    <b>Intrucciones de calificacion:</b>
+    <p>Al final de cada item se registraran las repuestas correctas e incorrectas</p>
+    <p>El sistema calificara automaticamente la respuesta</p>
+    <br/>
+    <app-card-button type='button' message="Iniciar subprueba"
+      (messageEvent)="estado='seleccion'"></app-card-button>  
+
+  </div>
+  
+  <div   *ngIf="estado==='seleccion'">
+    <h1>Registros</h1>
+    <p>Pacientes de edad 6-16:</p>
+    <app-card-button type='button' message="Iniciar subprueba"
+    (messageEvent)="estado='test'"></app-card-button>  
+    <br/>
+    
+  </div>
+
+  <div  id="form-test" >
+    <div *ngIf="estado==='test'">
+      <div class="form-group">
+        <h1>Registros</h1>
+        <mat-label>Página 1 - </mat-label>
+        <mat-label>Correctas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0 required id="pag1C"  [(ngModel)]="test1[0]" name="pag1C">
+        </mat-form-field>
+        <mat-label>Incorrectas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0  required id="pag1I"  [(ngModel)]="test1[1]" name="pag1I">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-label>Página 2 - </mat-label>
+        <mat-label>Correctas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0  required id="pag2C"  [(ngModel)]="test2[0]" name="pag2C">
+        </mat-form-field>
+        <mat-label>Incorrectas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0  required id="pag2I"  [(ngModel)]="test2[1]" name="pag2I">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-label>Tiempo registrado: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0  required id="pag2C"  [(ngModel)]="tiempo" name="pag2C"> 
+        </mat-form-field>
+        <mat-label>Segundos </mat-label>
+
+      </div>
+      <br>
+      <app-card-button *ngIf="estado==='test'"
+        type='button'
+        message="Calificar"
+        (messageEvent)="calcularResultado()"
+      ></app-card-button>
+
+    </div>
+    
+    <div id='timer' *ngIf="estado==='test'">
+        <h1>Temporizador</h1>
+        
+        <br/>
+        <p>00:{{cronometro}}</p>  
+
+        <app-card-button *ngIf="activo==='iniciar'" 
+        type='button' message="Iniciar"
+        (messageEvent)="iniCron()"></app-card-button> 
+    
+        <app-card-button  *ngIf="activo==='detener'" 
+        type='button' message="Detener"
+        (messageEvent)="stopCron()"></app-card-button> 
+    
+        <app-card-button  *ngIf="activo==='reiniciar'" 
+        type='button' message="Reiniciar"
+        (messageEvent)="restart()"></app-card-button> 
+    </div>
+    
+  </div>
+  <h1 *ngIf="time"><u><I>¡TIEMPO TERMINADO!</I></u></h1>
+
+  <app-results  *ngIf="estado==='resultados'"
+  nameTest="Registros"
+  [result]="puntuacion"
+  route='/wisc'
+  (review)="estado='review'"></app-results>
+
+  <div *ngIf="estado==='review'">
+      <div class="form-group">
+        <h1> Item #{{pruebas+1}}</h1>
+        <mat-label>Página 1 - </mat-label>
+        <mat-label>Correctas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" required id="pag1C"  [(ngModel)]="test1[0]" name="pag1C">
+        </mat-form-field>
+        <mat-label>Incorrectas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" required id="pag1I"  [(ngModel)]="test1[1]" name="pag1I">
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-label>Página 2 - </mat-label>
+        <mat-label>Correctas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" required id="pag2C"  [(ngModel)]="test2[0]" name="pag2C">
+        </mat-form-field>
+        <mat-label>Incorrectas: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" required id="pag2I"  [(ngModel)]="test2[1]" name="pag2I">
+        </mat-form-field>
+      </div>
+      <mat-label>Bonus por tiempo:{{getBonus()}} </mat-label>
+      <br>
+      <div class="form-group">
+        <mat-label>Tiempo registrado: </mat-label>
+        <mat-form-field>
+          <input matInput type="number" min=0  required id="pag2C"  [(ngModel)]="tiempo" name="pag2C"> Segundos
+        </mat-form-field>
+        <mat-label>Segundos </mat-label>
+
+      </div>
+
+
+
+      <div id='buttons'>
+
+        <app-card-button *ngIf="estado==='review'" 
+        type='button' message="Regresar"
+        (messageEvent)="estado='resultados'"></app-card-button> 
+
+        <app-card-button  *ngIf="estado==='review'" 
+        type='button' message="Actualizar datos"
+        (messageEvent)="calcularResultado()"></app-card-button>
+      </div>
+    </div>
+
+
+</div>

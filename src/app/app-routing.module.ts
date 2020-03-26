@@ -35,6 +35,7 @@ import { ConceptoDibujosWiscComponent } from './pruebas/wisc/concepto-dibujos-wi
 import {ClaveNumeroswiscComponent} from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
 import {ComprensionwiscComponent} from './pruebas/wisc/comprensionwisc/comprensionwisc.component';
 import { PistasWiscComponent } from './pruebas/wisc/pistas-wisc/pistas-wisc.component';
+import { RegistroswiscComponent } from './pruebas/wisc/registroswisc/registroswisc.component';
 
 
 const routes: Routes = [
@@ -73,6 +74,7 @@ const routes: Routes = [
   { path: 'claveNumeroswisc', component: ClaveNumeroswiscComponent },
   { path: 'comprensionwisc', component: ComprensionwiscComponent },
   { path: 'pistaswisc', component: PistasWiscComponent },
+  { path: 'registroswisc', component: RegistroswiscComponent },
 ];
 
 @NgModule({

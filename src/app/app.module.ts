@@ -61,6 +61,7 @@ import { FigurasIncompletasWiscComponent } from './pruebas/wisc/figuras-incomple
 import { ClaveNumeroswiscComponent } from './pruebas/wisc/clave-numeroswisc/clave-numeroswisc.component';
 import { ComprensionwiscComponent } from './pruebas/wisc/comprensionwisc/comprensionwisc.component';
 import { PistasWiscComponent } from './pruebas/wisc/pistas-wisc/pistas-wisc.component';
+import { RegistroswiscComponent } from './pruebas/wisc/registroswisc/registroswisc.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { PistasWiscComponent } from './pruebas/wisc/pistas-wisc/pistas-wisc.comp
     FigurasIncompletasWiscComponent,
     ClaveNumeroswiscComponent,
     ComprensionwiscComponent,
-    PistasWiscComponent
+    PistasWiscComponent,
+    RegistroswiscComponent
     
   ],
   imports: [
